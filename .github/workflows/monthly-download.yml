@@ -22,7 +22,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          playwright install --with-deps chromium
+          playwright install chromium
 
       - name: Test website connection
         run: |
@@ -32,10 +32,13 @@ jobs:
         run: |
           python download_images.py
 
-      - name: Upload downloaded images
+      - name: Upload downloaded images and debug files
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: interest-rate-images
-          path: interest_rate_images/
+          path: |
+            interest_rate_images/
+            *.html
+            *.png
           if-no-files-found: warn
