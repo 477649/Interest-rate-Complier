@@ -31,20 +31,11 @@ def safe_name(text):
 def clean_bank_name(title):
     title = safe_name(title)
 
-    remove_words = [
-        "Interest Rate",
-        "Interest Rates",
-        "Announcement",
-        "Published",
-        "Published Date",
-        "View Detail",
-        "View Details",
-    ]
+    match = re.search(r"(.+?)\s+has published", title, re.IGNORECASE)
+    if match:
+        return safe_name(match.group(1))
 
-    for word in remove_words:
-        title = title.replace(word, "")
-
-    return " ".join(title.split()).strip(" -_") or "Unknown Bank"
+    return title or "Unknown Bank"
 
 
 def image_extension(image_url):
@@ -55,38 +46,11 @@ def image_extension(image_url):
 def parse_published_date(text):
     text = " ".join(text.split())
 
-    date_patterns = [
-        r"\d{4}-\d{1,2}-\d{1,2}",
-        r"\d{4}/\d{1,2}/\d{1,2}",
-        r"\d{1,2}-\d{1,2}-\d{4}",
-        r"\d{1,2}/\d{1,2}/\d{4}",
-        r"[A-Za-z]{3,9}\s+\d{1,2},\s+\d{4}",
-        r"\d{1,2}\s+[A-Za-z]{3,9}\s+\d{4}",
-    ]
-
-    date_formats = [
-        "%Y-%m-%d",
-        "%Y/%m/%d",
-        "%d-%m-%Y",
-        "%d/%m/%Y",
-        "%b %d, %Y",
-        "%B %d, %Y",
-        "%d %b %Y",
-        "%d %B %Y",
-    ]
-
-    for pattern in date_patterns:
-        match = re.search(pattern, text)
-        if not match:
-            continue
-
-        raw_date = match.group(0)
-
-        for fmt in date_formats:
-            try:
-                return datetime.strptime(raw_date, fmt).date()
-            except ValueError:
-                pass
+    for fmt in ["%b %d, %Y", "%B %d, %Y", "%Y-%m-%d", "%Y/%m/%d"]:
+        try:
+            return datetime.strptime(text, fmt).date()
+        except ValueError:
+            pass
 
     return None
 
@@ -98,12 +62,9 @@ with sync_playwright() as p:
     page.set_default_navigation_timeout(60000)
 
     session = requests.Session()
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0"
-    })
+    session.headers.update({"User-Agent": "Mozilla/5.0"})
 
-    print("Downloading Interest Rate files from:")
-    print("Month start:", MONTH_START)
+    print("Current month from:", MONTH_START)
     print("Today:", TODAY)
 
     for sector in SECTORS:
@@ -115,26 +76,43 @@ with sync_playwright() as p:
         page.locator("select").nth(2).select_option(label="Interest Rate")
 
         page.locator("#ctl00_ContentPlaceHolder1_lbtnSearch").click()
-        page.wait_for_timeout(2000)
+        page.wait_for_timeout(3000)
 
-        rows = page.locator("tr").evaluate_all("""
-            rows => rows.map(row => {
-                const link = row.querySelector("a[href*='AnnouncementDetail']");
+        announcements = page.locator("a[href*='AnnouncementDetail']").evaluate_all("""
+            links => links.map(link => {
+                let block = link;
+
+                for (let i = 0; i < 6 && block; i++) {
+                    const dateEl = block.querySelector && block.querySelector("small.text-muted, small");
+
+                    if (dateEl && dateEl.innerText.trim()) {
+                        return {
+                            title: (link.innerText || link.textContent || "").trim(),
+                            href: link.href,
+                            published_date: dateEl.innerText.trim()
+                        };
+                    }
+
+                    block = block.parentElement;
+                }
+
                 return {
-                    text: row.innerText || "",
-                    title: link ? (link.innerText || link.textContent || "").trim() : "",
-                    href: link ? link.href : ""
+                    title: (link.innerText || link.textContent || "").trim(),
+                    href: link.href,
+                    published_date: ""
                 };
-            }).filter(item => item.href);
+            });
         """)
+
+        print("Announcements found:", len(announcements))
 
         seen_banks = set()
 
-        for item in rows:
-            published_date = parse_published_date(item["text"])
+        for item in announcements:
+            published_date = parse_published_date(item["published_date"])
 
             if not published_date:
-                print("Skipped: published date not found")
+                print("Skipped, date not found:", item["title"])
                 continue
 
             if published_date > TODAY:
@@ -142,13 +120,12 @@ with sync_playwright() as p:
                 continue
 
             if published_date < MONTH_START:
-                print("Stopped. Older than current month:", published_date)
+                print("Stopped, older than current month:", published_date)
                 break
 
             bank_name = clean_bank_name(item["title"])
             bank_key = bank_name.lower()
 
-            # Keeps only latest file per bank for this month
             if bank_key in seen_banks:
                 continue
 
