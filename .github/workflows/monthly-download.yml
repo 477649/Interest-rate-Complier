@@ -1,4 +1,4 @@
-name: Download Interest Rate Images
+name: Download Latest Month Interest Rate Images
 
 on:
   workflow_dispatch:
@@ -30,5 +30,5 @@ jobs:
       - name: Upload downloaded images
         uses: actions/upload-artifact@v4
         with:
-          name: interest-rate-images
-          path: interest_rate_images_latest/
+          name: interest-rate-images-latest-month
+          path: interest_rate_images_latest_month/
