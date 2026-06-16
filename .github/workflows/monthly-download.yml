@@ -25,7 +25,7 @@ jobs:
 
       - name: Run scraper
         run: |
-          python your_script_name.py
+          python download_interest_rates.py
 
       - name: Upload downloaded images
         uses: actions/upload-artifact@v4
