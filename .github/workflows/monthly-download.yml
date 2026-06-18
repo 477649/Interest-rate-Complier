@@ -1,34 +1,60 @@
-name: Download Latest Month Interest Rate Images
+name: Bank Interest Rate Report
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 2 1 * *"
+    # Runs every day at 02:15 Nepal time approximately.
+    # GitHub cron is UTC. 20:30 UTC = 02:15 NPT next day.
+    - cron: "30 20 * * *"
+
+permissions:
+  contents: write
 
 jobs:
-  download:
+  build-report:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install Python packages
+      - name: Install system OCR dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-nep
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          python -m playwright install --with-deps chromium
+          python -m playwright install chromium --with-deps
 
-      - name: Run scraper
+      - name: Run bank interest-rate report
+        env:
+          OCR_LANG: eng+nep
+          OUTPUT_DIR: output
         run: |
-          python download_interest_rates.py
+          python scripts/bank_interest_report.py
 
-      - name: Upload downloaded images
+      - name: Upload Excel report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interest-rate-images-latest-month
-          path: interest_rate_images_latest_month/
+          name: bank-interest-rate-report
+          path: |
+            output/interest_rate_report.xlsx
+            output/latest_bank_files/**
+            output/selected_announcements.json
+            output/run.log
+
+      - name: Commit generated report to repository
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/interest_rate_report.xlsx output/latest_bank_files output/selected_announcements.json output/run.log
+          git diff --cached --quiet || git commit -m "Update bank interest rate report"
+          git push
