@@ -1,3 +1,4 @@
+```python
 #!/usr/bin/env python3
 """
 Nepal bank deposit interest-rate announcement extractor.
@@ -27,9 +28,7 @@ import logging
 import mimetypes
 import os
 import re
-import shutil
 import sys
-import time
 from dataclasses import asdict, dataclass, field
 from datetime import date, datetime
 from pathlib import Path
@@ -179,6 +178,7 @@ def setup_logging() -> None:
 def create_session() -> requests.Session:
     session = requests.Session()
     session.headers.update(HEADERS)
+
     retries = Retry(
         total=4,
         connect=4,
@@ -187,9 +187,11 @@ def create_session() -> requests.Session:
         status_forcelist=[429, 500, 502, 503, 504],
         allowed_methods=["GET", "HEAD"],
     )
+
     adapter = HTTPAdapter(max_retries=retries)
     session.mount("https://", adapter)
     session.mount("http://", adapter)
+
     return session
 
 
@@ -200,10 +202,12 @@ def create_session() -> requests.Session:
 def current_month_bounds() -> tuple[date, date]:
     today = datetime.now(TZ).date()
     start = today.replace(day=1)
+
     if start.month == 12:
         end = date(start.year + 1, 1, 1)
     else:
         end = date(start.year, start.month + 1, 1)
+
     return start, end
 
 
@@ -223,7 +227,17 @@ def normalize_url(raw_url: str, base_url: str) -> str:
 
     path = quote(unquote(parsed.path), safe="/:%")
     query = quote(unquote(parsed.query), safe="=&?/%:+,.-_")
-    return urlunparse((parsed.scheme, parsed.netloc, path, parsed.params, query, parsed.fragment))
+
+    return urlunparse(
+        (
+            parsed.scheme,
+            parsed.netloc,
+            path,
+            parsed.params,
+            query,
+            parsed.fragment,
+        )
+    )
 
 
 def parse_announcement_date(text: str) -> Optional[date]:
@@ -240,6 +254,7 @@ def parse_announcement_date(text: str) -> Optional[date]:
             continue
 
         raw = match.group(0).replace(".", "")
+
         for fmt in ("%b %d, %Y", "%B %d, %Y", "%d %b %Y", "%d %B %Y"):
             try:
                 return datetime.strptime(raw, fmt).date()
@@ -261,9 +276,11 @@ def extract_bank_name_from_title(title: str) -> str:
 
     for pattern in patterns:
         match = re.search(pattern, title, flags=re.I)
+
         if match:
             name = match.group(1).strip(" -")
             name = re.sub(r"\s*\(Former.*?\)", "", name, flags=re.I).strip()
+
             if len(name) >= 4:
                 return name
 
@@ -291,12 +308,14 @@ def select_dropdown_by_option_text(page, option_text: str) -> bool:
 
     for i in range(count):
         select = selects.nth(i)
+
         try:
             options = select.locator("option").all_inner_texts()
         except Exception:
             continue
 
-        cleaned = [re.sub(r"\s+", " ", o).strip() for o in options]
+        cleaned = [re.sub(r"\s+", " ", option).strip() for option in options]
+
         if option_text in cleaned:
             select.select_option(label=option_text)
             return True
@@ -305,24 +324,72 @@ def select_dropdown_by_option_text(page, option_text: str) -> bool:
 
 
 def click_search(page) -> None:
-    selectors = [
-        "input[value='Search']",
-        "button:has-text('Search')",
-        "a:has-text('Search')",
-    ]
+    """
+    Click Merolagani Announcement Search button.
 
-    for selector in selectors:
-        locator = page.locator(selector)
-        if locator.count() > 0:
-            locator.first.click()
-            page.wait_for_timeout(1500)
-            try:
-                page.wait_for_load_state("networkidle", timeout=10000)
-            except PlaywrightTimeoutError:
-                pass
-            return
+    Real Search button HTML:
+    <a id="ctl00_ContentPlaceHolder1_lbtnSearch" class="btn btn-primary">Search</a>
 
-    raise RuntimeError("Could not find Search button on Merolagani page.")
+    This avoids the old issue where Playwright selected a hidden:
+    a:has-text('Search')
+    """
+
+    search_selector = "#ctl00_ContentPlaceHolder1_lbtnSearch"
+
+    page.wait_for_load_state("domcontentloaded")
+    page.set_viewport_size({"width": 1600, "height": 1200})
+    page.wait_for_timeout(1000)
+
+    page.wait_for_selector(search_selector, state="attached", timeout=30000)
+
+    search_button = page.locator(search_selector).first
+
+    try:
+        if search_button.is_visible():
+            search_button.scroll_into_view_if_needed(timeout=5000)
+            search_button.click(timeout=15000)
+        else:
+            raise RuntimeError("Search button exists but is not visible.")
+
+    except Exception as exc:
+        logging.warning("Normal Search click failed. Using ASP.NET postback fallback: %s", exc)
+
+        page.evaluate(
+            """
+            () => {
+                const el = document.querySelector("#ctl00_ContentPlaceHolder1_lbtnSearch");
+
+                if (!el) {
+                    throw new Error("Search button not found.");
+                }
+
+                try {
+                    if (typeof showProcessing === "function") {
+                        showProcessing();
+                    }
+                } catch (e) {}
+
+                try {
+                    if (typeof webEngageTrackEvent === "function") {
+                        webEngageTrackEvent("Announcement Search");
+                    }
+                } catch (e) {}
+
+                if (typeof __doPostBack === "function") {
+                    __doPostBack("ctl00$ContentPlaceHolder1$lbtnSearch", "");
+                } else {
+                    el.click();
+                }
+            }
+            """
+        )
+
+    page.wait_for_timeout(2000)
+
+    try:
+        page.wait_for_load_state("networkidle", timeout=15000)
+    except PlaywrightTimeoutError:
+        pass
 
 
 def click_load_more(page) -> bool:
@@ -334,11 +401,13 @@ def click_load_more(page) -> bool:
 
     for selector in selectors:
         locator = page.locator(selector)
+
         if locator.count() > 0 and locator.first.is_visible():
             before = page.content()
             locator.first.click()
             page.wait_for_timeout(2000)
             after = page.content()
+
             return before != after
 
     return False
@@ -349,9 +418,11 @@ def parse_announcements_from_html(html: str, sector: str) -> list[Announcement]:
     results: list[Announcement] = []
 
     links = []
+
     for a in soup.find_all("a", href=True):
         title = a.get_text(" ", strip=True)
         href = a.get("href", "")
+
         if len(title) < 10:
             continue
 
@@ -377,31 +448,38 @@ def parse_announcements_from_html(html: str, sector: str) -> list[Announcement]:
 
         date_found = None
 
-        # Search nearby parent text first.
         node: Optional[Tag] = a
+
         for _ in range(5):
             if node is None:
                 break
+
             text = node.get_text(" ", strip=True)
             date_found = parse_announcement_date(text)
+
             if date_found:
                 break
+
             node = node.parent if isinstance(node.parent, Tag) else None
 
-        # Search previous siblings if date is outside link/card.
         if not date_found:
             prev_texts = []
             prev = a.previous_element
+
             for _ in range(40):
                 if prev is None:
                     break
+
                 if isinstance(prev, str):
                     prev_texts.append(prev)
                 elif isinstance(prev, Tag):
                     prev_texts.append(prev.get_text(" ", strip=True))
+
                 date_found = parse_announcement_date(" ".join(reversed(prev_texts)))
+
                 if date_found:
                     break
+
                 prev = prev.previous_element
 
         if not date_found:
@@ -440,6 +518,7 @@ def collect_current_month_announcements() -> list[Announcement]:
                 logging.info("Processing sector: %s", sector)
 
                 page.goto(LIST_URL, wait_until="domcontentloaded", timeout=60000)
+
                 try:
                     page.wait_for_load_state("networkidle", timeout=15000)
                 except PlaywrightTimeoutError:
@@ -455,15 +534,15 @@ def collect_current_month_announcements() -> list[Announcement]:
 
                 sector_records: list[Announcement] = []
 
-                # Load enough records to cover current month.
                 for _ in range(12):
                     html = page.content()
                     records = parse_announcements_from_html(html, sector)
                     sector_records = records
 
                     if records:
-                        oldest = min(r.announcement_date for r in records)
+                        oldest = min(record.announcement_date for record in records)
                         month_start, _ = current_month_bounds()
+
                         if oldest < month_start:
                             break
 
@@ -492,7 +571,7 @@ def collect_current_month_announcements() -> list[Announcement]:
 
     final = sorted(
         selected.values(),
-        key=lambda x: (x.sector, x.bank_name.lower(), x.announcement_date),
+        key=lambda item: (item.sector, item.bank_name.lower(), item.announcement_date),
     )
 
     if not final:
@@ -503,7 +582,7 @@ def collect_current_month_announcements() -> list[Announcement]:
 
     METADATA_PATH.parent.mkdir(parents=True, exist_ok=True)
     METADATA_PATH.write_text(
-        json.dumps([asdict(x) for x in final], ensure_ascii=False, indent=2, default=str),
+        json.dumps([asdict(item) for item in final], ensure_ascii=False, indent=2, default=str),
         encoding="utf-8",
     )
 
@@ -522,20 +601,22 @@ def find_source_document_url(html: str, detail_url: str) -> str:
         for img in soup.select(selector):
             for attr in ["src", "data-src", "data-original", "data-zoom-image"]:
                 raw = img.get(attr)
+
                 if raw:
                     return normalize_url(raw, detail_url)
 
-    # PDF/document fallback.
     for a in soup.find_all("a", href=True):
         href = a["href"]
+
         if re.search(r"\.(pdf|jpg|jpeg|png|webp)(?:\?|$)", href, flags=re.I):
             return normalize_url(href, detail_url)
+
         if "/Uploads/Repository/" in href:
             return normalize_url(href, detail_url)
 
-    # Last-resort image fallback.
     for img in soup.find_all("img"):
         raw = img.get("src") or ""
+
         if "/Uploads/Repository/" in raw or "images.merolagani.com" in raw:
             return normalize_url(raw, detail_url)
 
@@ -549,6 +630,7 @@ def fetch_detail_and_document_url(session: requests.Session, ann: Announcement) 
     response.raise_for_status()
 
     doc_url = find_source_document_url(response.text, ann.source_url)
+
     if not doc_url:
         logging.warning("No source document found for %s", ann.bank_name)
         return ""
@@ -564,6 +646,7 @@ def get_extension_from_response(url: str, response: requests.Response) -> str:
         ext = ".jpg"
 
     parsed_ext = Path(urlparse(url).path).suffix.lower()
+
     if parsed_ext in [".pdf", ".jpg", ".jpeg", ".png", ".webp"]:
         return parsed_ext
 
@@ -590,7 +673,9 @@ def download_source_document(
     path = bank_dir / filename
 
     path.write_bytes(response.content)
+
     logging.info("Saved source document: %s", path)
+
     return str(path)
 
 
@@ -602,28 +687,33 @@ def extract_text_from_pdf(path: Path) -> str:
     text_parts: list[str] = []
 
     doc = fitz.open(path)
+
     try:
         for page in doc:
             txt = page.get_text("text") or ""
+
             if txt.strip():
                 text_parts.append(txt)
     finally:
         doc.close()
 
     text = "\n".join(text_parts).strip()
+
     if len(text) >= 80:
         return text
 
-    # OCR fallback for scanned PDFs.
     logging.info("PDF has little embedded text. Running OCR: %s", path)
 
     ocr_parts: list[str] = []
+
     doc = fitz.open(path)
+
     try:
         for page_index, page in enumerate(doc):
             pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
             tmp_img = path.with_suffix(f".page_{page_index + 1}.png")
             pix.save(str(tmp_img))
+
             try:
                 img = Image.open(tmp_img)
                 ocr_parts.append(pytesseract.image_to_string(img, lang=OCR_LANG))
@@ -665,12 +755,13 @@ def normalize_text(text: str) -> str:
     text = text.replace("–", "-").replace("—", "-")
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{2,}", "\n", text)
+
     return text.strip()
 
 
 def has_excluded_context(line: str) -> bool:
     low = line.lower()
-    return any(k in low for k in EXCLUDE_KEYWORDS)
+    return any(keyword in low for keyword in EXCLUDE_KEYWORDS)
 
 
 def extract_rates_from_line(line: str) -> list[float]:
@@ -682,7 +773,6 @@ def extract_rates_from_line(line: str) -> list[float]:
         except ValueError:
             continue
 
-        # Conservative range for deposit interest rates.
         if 0 <= value <= 25:
             found.append(value)
 
@@ -693,8 +783,9 @@ def rate_text(value: Optional[float]) -> str:
     if value is None:
         return "Not specified"
 
-    s = f"{value:.2f}".rstrip("0").rstrip(".")
-    return f"{s}%"
+    text = f"{value:.2f}".rstrip("0").rstrip(".")
+
+    return f"{text}%"
 
 
 def max_rate_text(values: list[float]) -> str:
@@ -715,6 +806,7 @@ def detect_effective_date(text: str) -> str:
 
     for pattern in patterns:
         match = re.search(pattern, text, flags=re.I)
+
         if match:
             return match.group(1).strip()
 
@@ -722,8 +814,8 @@ def detect_effective_date(text: str) -> str:
 
 
 def detect_bank_name_from_document(text: str, fallback: str) -> str:
-    lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines()]
-    lines = [x for x in lines if x]
+    lines = [re.sub(r"\s+", " ", item).strip() for item in text.splitlines()]
+    lines = [item for item in lines if item]
 
     for line in lines[:40]:
         match = re.search(
@@ -731,6 +823,7 @@ def detect_bank_name_from_document(text: str, fallback: str) -> str:
             line,
             flags=re.I,
         )
+
         if match:
             return re.sub(r"\s+", " ", match.group(1)).strip()
 
@@ -739,7 +832,7 @@ def detect_bank_name_from_document(text: str, fallback: str) -> str:
 
 def line_has_any(line: str, keywords: list[str]) -> bool:
     low = line.lower()
-    return any(k.lower() in low for k in keywords)
+    return any(keyword.lower() in low for keyword in keywords)
 
 
 def bucket_for_fd_line(line: str) -> Optional[str]:
@@ -781,14 +874,26 @@ def bucket_for_fd_line(line: str) -> Optional[str]:
         r"\b12\s*months?\b",
     ]
 
-    if any(p in low for p in more_patterns):
+    if any(pattern in low for pattern in more_patterns):
         return "gt_1y"
 
-    if any(p in low for p in less_patterns):
+    if any(pattern in low for pattern in less_patterns):
         return "lt_1y"
 
-    if any(re.search(p, low) for p in exact_patterns):
-        if not any(x in low for x in ["above", "more", "over", "below", "less", "up to", "upto", "and above"]):
+    if any(re.search(pattern, low) for pattern in exact_patterns):
+        if not any(
+            marker in low
+            for marker in [
+                "above",
+                "more",
+                "over",
+                "below",
+                "less",
+                "up to",
+                "upto",
+                "and above",
+            ]
+        ):
             return "one_y"
 
     return None
@@ -796,6 +901,7 @@ def bucket_for_fd_line(line: str) -> Optional[str]:
 
 def parse_deposit_rates(text: str, fallback_bank: str) -> ExtractedRates:
     text = normalize_text(text)
+
     rates = ExtractedRates(bank=detect_bank_name_from_document(text, fallback_bank))
     rates.effective_date = detect_effective_date(text)
 
@@ -803,8 +909,8 @@ def parse_deposit_rates(text: str, fallback_bank: str) -> ExtractedRates:
         rates.notes.append("Source document could not be read; all rates marked Not specified.")
         return rates
 
-    raw_lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines()]
-    lines = [x for x in raw_lines if x]
+    raw_lines = [re.sub(r"\s+", " ", item).strip() for item in text.splitlines()]
+    lines = [item for item in raw_lines if item]
 
     saving_values: list[float] = []
     call_values: list[float] = []
@@ -841,30 +947,44 @@ def parse_deposit_rates(text: str, fallback_bank: str) -> ExtractedRates:
             current_context = current_context or "fixed_deposit"
 
         values = extract_rates_from_line(line)
+
         if not values:
             continue
 
-        # Saving
         if current_context == "saving" or line_has_any(line, ["saving", "savings", "बचत"]):
             saving_values.extend(values)
             continue
 
-        # Call
         if current_context == "call" or line_has_any(line, ["call deposit", "call account", "call", "कल"]):
             call_values.extend(values)
             continue
 
-        # FD parsing
         bucket = bucket_for_fd_line(line)
 
-        is_institution = line_has_any(line, ["institution", "institutional", "organization", "corporate", "संस्थागत"])
-        is_individual = line_has_any(line, ["individual", "personal", "natural person", "व्यक्तिगत"])
+        is_institution = line_has_any(
+            line,
+            ["institution", "institutional", "organization", "corporate", "संस्थागत"],
+        )
 
-        # If one line contains both individual and institutional and at least two rates,
-        # assign by visible order conservatively.
+        is_individual = line_has_any(
+            line,
+            ["individual", "personal", "natural person", "व्यक्तिगत"],
+        )
+
         if bucket and is_individual and is_institution and len(values) >= 2:
-            ind_pos = min([low.find(x) for x in ["individual", "personal"] if low.find(x) >= 0] or [9999])
-            inst_pos = min([low.find(x) for x in ["institution", "institutional", "organization", "corporate"] if low.find(x) >= 0] or [9999])
+            ind_pos = min(
+                [low.find(item) for item in ["individual", "personal"] if low.find(item) >= 0]
+                or [9999]
+            )
+
+            inst_pos = min(
+                [
+                    low.find(item)
+                    for item in ["institution", "institutional", "organization", "corporate"]
+                    if low.find(item) >= 0
+                ]
+                or [9999]
+            )
 
             if ind_pos <= inst_pos:
                 individual[bucket].append(values[0])
@@ -872,6 +992,7 @@ def parse_deposit_rates(text: str, fallback_bank: str) -> ExtractedRates:
             else:
                 institution[bucket].append(values[0])
                 individual[bucket].append(values[1])
+
             continue
 
         if bucket:
@@ -880,14 +1001,17 @@ def parse_deposit_rates(text: str, fallback_bank: str) -> ExtractedRates:
             elif is_individual or current_context == "individual_fd":
                 individual[bucket].extend(values)
             elif current_context == "fixed_deposit":
-                # Ambiguous FD context. Do not guess category.
-                rates.notes.append(f"FD line found but individual/institution category unclear: {line[:180]}")
+                rates.notes.append(
+                    f"FD line found but individual/institution category unclear: {line[:180]}"
+                )
+
             continue
 
-    # Saving min/max rule.
     unique_saving = sorted(set(saving_values))
+
     if unique_saving:
         rates.saving_min = rate_text(unique_saving[0])
+
         if len(unique_saving) == 1:
             rates.saving_max = rate_text(unique_saving[0])
             rates.notes.append("Only one saving rate found; used same value for Saving Min and Saving Max.")
@@ -945,7 +1069,12 @@ def apply_border(ws, min_row: int, max_row: int, min_col: int, max_col: int) -> 
     thin = Side(style="thin", color="808080")
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
 
-    for row in ws.iter_rows(min_row=min_row, max_row=max_row, min_col=min_col, max_col=max_col):
+    for row in ws.iter_rows(
+        min_row=min_row,
+        max_row=max_row,
+        min_col=min_col,
+        max_col=max_col,
+    ):
         for cell in row:
             cell.border = border
 
@@ -970,7 +1099,6 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
 
     notes = wb.create_sheet("Notes")
 
-    # Summary two-level headers.
     ws["A1"] = "Bank"
     ws["A2"] = "Bank"
 
@@ -996,18 +1124,18 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
 
     data_start_row = 3
 
-    for row_idx, (ann, r) in enumerate(records, start=data_start_row):
+    for row_idx, (ann, extracted_rates) in enumerate(records, start=data_start_row):
         values = [
-            r.bank,
-            r.saving_min,
-            r.saving_max,
-            r.call,
-            r.individual_fd_lt_1y_max,
-            r.individual_fd_1y,
-            r.individual_fd_gt_1y_max,
-            r.institution_fd_lt_1y_max,
-            r.institution_fd_1y,
-            r.institution_fd_gt_1y_max,
+            extracted_rates.bank,
+            extracted_rates.saving_min,
+            extracted_rates.saving_max,
+            extracted_rates.call,
+            extracted_rates.individual_fd_lt_1y_max,
+            extracted_rates.individual_fd_1y,
+            extracted_rates.individual_fd_gt_1y_max,
+            extracted_rates.institution_fd_lt_1y_max,
+            extracted_rates.institution_fd_1y,
+            extracted_rates.institution_fd_gt_1y_max,
         ]
 
         for col_idx, value in enumerate(values, start=1):
@@ -1015,7 +1143,6 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
             cell.value = str(value)
             cell.number_format = "@"
 
-    # Notes sheet.
     notes_headers = [
         "Bank",
         "Effective Date",
@@ -1024,27 +1151,29 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
         "Source Document URL",
         "Notes / Assumptions",
     ]
+
     notes.append(notes_headers)
 
-    for ann, r in records:
-        note_parts = list(r.notes)
+    for ann, extracted_rates in records:
+        note_parts = list(extracted_rates.notes)
 
         if ann.ignored_duplicates:
             note_parts.extend(ann.ignored_duplicates)
 
-        if not r.source_document_url:
+        if not extracted_rates.source_document_url:
             note_parts.append("Source document URL could not be accessed/found.")
 
-        notes.append([
-            r.bank,
-            r.effective_date,
-            ann.announcement_date.isoformat(),
-            ann.source_url,
-            r.source_document_url or "Not specified",
-            " | ".join(note_parts) if note_parts else "No material assumptions noted.",
-        ])
+        notes.append(
+            [
+                extracted_rates.bank,
+                extracted_rates.effective_date,
+                ann.announcement_date.isoformat(),
+                ann.source_url,
+                extracted_rates.source_document_url or "Not specified",
+                " | ".join(note_parts) if note_parts else "No material assumptions noted.",
+            ]
+        )
 
-    # Formatting.
     header_fill = PatternFill("solid", fgColor="D9EAF7")
     subheader_fill = PatternFill("solid", fgColor="EAF4FB")
     header_font = Font(bold=True)
@@ -1052,7 +1181,11 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
     for sheet in [ws, notes]:
         for row in sheet.iter_rows():
             for cell in row:
-                cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+                cell.alignment = Alignment(
+                    horizontal="center",
+                    vertical="center",
+                    wrap_text=True,
+                )
 
     for cell in ws[1]:
         cell.font = header_font
@@ -1078,13 +1211,14 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
     auto_adjust_widths(ws)
     auto_adjust_widths(notes)
 
-    # Slightly wider source/notes columns.
     notes.column_dimensions["D"].width = 55
     notes.column_dimensions["E"].width = 55
     notes.column_dimensions["F"].width = 80
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
     wb.save(REPORT_PATH)
+
     logging.info("Excel report saved: %s", REPORT_PATH)
 
 
@@ -1095,27 +1229,27 @@ def build_excel_report(records: list[tuple[Announcement, ExtractedRates]]) -> No
 def missing_or_unclear_banks(records: list[tuple[Announcement, ExtractedRates]]) -> list[str]:
     flagged = []
 
-    for ann, r in records:
+    for ann, extracted_rates in records:
         values = [
-            r.saving_min,
-            r.saving_max,
-            r.call,
-            r.individual_fd_lt_1y_max,
-            r.individual_fd_1y,
-            r.individual_fd_gt_1y_max,
-            r.institution_fd_lt_1y_max,
-            r.institution_fd_1y,
-            r.institution_fd_gt_1y_max,
+            extracted_rates.saving_min,
+            extracted_rates.saving_max,
+            extracted_rates.call,
+            extracted_rates.individual_fd_lt_1y_max,
+            extracted_rates.individual_fd_1y,
+            extracted_rates.individual_fd_gt_1y_max,
+            extracted_rates.institution_fd_lt_1y_max,
+            extracted_rates.institution_fd_1y,
+            extracted_rates.institution_fd_gt_1y_max,
         ]
 
-        if any(v in ["Not specified", "Unclear"] for v in values):
-            flagged.append(r.bank)
+        if any(value in ["Not specified", "Unclear"] for value in values):
+            flagged.append(extracted_rates.bank)
 
     return sorted(set(flagged))
 
 
 def verify(records: list[tuple[Announcement, ExtractedRates]]) -> None:
-    bank_keys = [(ann.sector, r.bank.lower()) for ann, r in records]
+    bank_keys = [(ann.sector, extracted_rates.bank.lower()) for ann, extracted_rates in records]
 
     if len(bank_keys) != len(set(bank_keys)):
         raise RuntimeError("Verification failed: duplicate bank found in summary records.")
@@ -1138,10 +1272,14 @@ def print_final_response(records: list[tuple[Announcement, ExtractedRates]]) -> 
 
     print()
     print("✅ Report created successfully")
-    print(f"📊 Number of banks compiled: Commercial Banks = {commercial_count}; Development Banks = {development_count}; Total = {len(records)}")
+    print(
+        f"📊 Number of banks compiled: Commercial Banks = {commercial_count}; "
+        f"Development Banks = {development_count}; Total = {len(records)}"
+    )
 
     if flagged:
         print("⚠️ Banks with missing or unclear values:")
+
         for bank in flagged:
             print(f" - {bank}")
     else:
@@ -1159,6 +1297,7 @@ def main() -> int:
     setup_logging()
 
     session = create_session()
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -1191,6 +1330,7 @@ def main() -> int:
 
                 parsed.source_document_url = doc_url
                 parsed.local_document_path = local_path
+
                 extracted = parsed
 
         except Exception as exc:
@@ -1209,3 +1349,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+```
