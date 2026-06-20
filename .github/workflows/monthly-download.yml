@@ -39,7 +39,7 @@ jobs:
           OCR_LANG: eng+nep
           OUTPUT_DIR: output
         run: |
-          python scripts/bank_interest_report.py
+          python bank_interest_report.py
 
       - name: Upload Excel report artifact
         uses: actions/upload-artifact@v4
@@ -50,11 +50,16 @@ jobs:
             output/latest_bank_files/**
             output/selected_announcements.json
             output/run.log
+          if-no-files-found: warn
 
       - name: Commit generated report to repository
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/interest_rate_report.xlsx output/latest_bank_files output/selected_announcements.json output/run.log
+
+          if [ -d output ]; then
+            git add output
+          fi
+
           git diff --cached --quiet || git commit -m "Update bank interest rate report"
           git push
