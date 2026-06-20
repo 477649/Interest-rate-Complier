@@ -1,5 +1,3 @@
-```python
-#!/usr/bin/env python3
 """
 Nepal bank deposit interest-rate announcement extractor.
 
