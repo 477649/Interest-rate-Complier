@@ -1340,3 +1340,44 @@
 2026-06-29 21:55:42,567 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66061
 2026-06-29 21:55:45,039 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Sindu_Bikas_Bank_Limited/2026-06-14_Sindu_Bikas_Bank_Limited.gif
 2026-06-29 21:55:45,081 | INFO | Excel report saved: output/interest_rate_report.xlsx
+2026-07-15 21:30:06,481 | INFO | Collecting current-month Interest Rate announcements from Merolagani.
+2026-07-15 21:30:06,814 | INFO | Processing sector: Commercial Banks
+2026-07-15 21:30:46,521 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:30:48,837 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:30:51,082 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:30:53,378 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:30:55,640 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:30:57,935 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:00,285 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:02,725 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:05,132 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:07,566 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:10,059 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:12,539 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:14,892 | INFO | Processing sector: Development Bank Limited
+2026-07-15 21:31:49,933 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:52,166 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:54,425 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:56,748 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:31:59,021 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:01,318 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:03,652 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:06,092 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:08,502 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:10,950 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:13,447 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:15,937 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-15 21:32:18,305 | INFO | Selected 4 latest bank-wise announcements.
+2026-07-15 21:32:18,305 | INFO | Extracting rates for: Commercial Banks | Nepal Investment Mega Bank Limited
+2026-07-15 21:32:18,305 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66406
+2026-07-15 21:32:22,641 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Nepal_Investment_Mega_Bank_Limited/2026-07-16_Nepal_Investment_Mega_Bank_Limited.gif
+2026-07-15 21:32:22,643 | INFO | Extracting rates for: Development Bank Limited | Garima Bikas Bank Limited
+2026-07-15 21:32:22,643 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66396
+2026-07-15 21:32:24,571 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Garima_Bikas_Bank_Limited/2026-07-16_Garima_Bikas_Bank_Limited.gif
+2026-07-15 21:32:24,572 | INFO | Extracting rates for: Development Bank Limited | Green Development Bank Limited
+2026-07-15 21:32:24,572 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66395
+2026-07-15 21:32:25,961 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Green_Development_Bank_Limited/2026-07-16_Green_Development_Bank_Limited.gif
+2026-07-15 21:32:25,961 | INFO | Extracting rates for: Development Bank Limited | Lumbini Bikash Bank Limited
+2026-07-15 21:32:25,961 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66392
+2026-07-15 21:32:27,083 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Lumbini_Bikash_Bank_Limited/2026-07-16_Lumbini_Bikash_Bank_Limited.gif
+2026-07-15 21:32:27,115 | INFO | Excel report saved: output/interest_rate_report.xlsx
