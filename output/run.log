@@ -1381,3 +1381,131 @@
 2026-07-15 21:32:25,961 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66392
 2026-07-15 21:32:27,083 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Lumbini_Bikash_Bank_Limited/2026-07-16_Lumbini_Bikash_Bank_Limited.gif
 2026-07-15 21:32:27,115 | INFO | Excel report saved: output/interest_rate_report.xlsx
+2026-07-16 21:32:38,138 | INFO | Collecting current-month Interest Rate announcements from Merolagani.
+2026-07-16 21:32:38,673 | INFO | Processing sector: Commercial Banks
+2026-07-16 21:33:16,138 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:18,402 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:20,633 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:22,910 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:25,188 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:27,490 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:29,836 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:32,277 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:34,702 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:37,129 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:39,651 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:42,141 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:33:44,517 | INFO | Processing sector: Development Bank Limited
+2026-07-16 21:34:19,258 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:21,476 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:23,723 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:26,050 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:28,327 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:30,641 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:33,004 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:35,454 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:37,879 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:40,303 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:42,857 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:45,362 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-07-16 21:34:47,768 | INFO | Selected 33 latest bank-wise announcements.
+2026-07-16 21:34:47,769 | INFO | Extracting rates for: Commercial Banks | Agricultural Development Bank Limited
+2026-07-16 21:34:47,769 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66416
+2026-07-16 21:34:52,062 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Agricultural_Development_Bank_Limited/2026-07-16_Agricultural_Development_Bank_Limited.gif
+2026-07-16 21:34:52,064 | INFO | Extracting rates for: Commercial Banks | Citizens Bank International Limited
+2026-07-16 21:34:52,064 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66415
+2026-07-16 21:34:53,983 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Citizens_Bank_International_Limited/2026-07-16_Citizens_Bank_International_Limited.gif
+2026-07-16 21:34:53,984 | INFO | Extracting rates for: Commercial Banks | Everest Bank Limited
+2026-07-16 21:34:53,984 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66414
+2026-07-16 21:34:55,370 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Everest_Bank_Limited/2026-07-16_Everest_Bank_Limited.gif
+2026-07-16 21:34:55,370 | INFO | Extracting rates for: Commercial Banks | Global IME Bank Limited
+2026-07-16 21:34:55,370 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66413
+2026-07-16 21:34:56,494 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Global_IME_Bank_Limited/2026-07-16_Global_IME_Bank_Limited.gif
+2026-07-16 21:34:56,495 | INFO | Extracting rates for: Commercial Banks | Himalayan Bank Limited
+2026-07-16 21:34:56,495 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66412
+2026-07-16 21:34:57,618 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Himalayan_Bank_Limited/2026-07-16_Himalayan_Bank_Limited.gif
+2026-07-16 21:34:57,618 | INFO | Extracting rates for: Commercial Banks | Kumari Bank Limited
+2026-07-16 21:34:57,618 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66411
+2026-07-16 21:34:58,745 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Kumari_Bank_Limited/2026-07-16_Kumari_Bank_Limited.gif
+2026-07-16 21:34:58,745 | INFO | Extracting rates for: Commercial Banks | Laxmi Sunrise Bank Limited
+2026-07-16 21:34:58,745 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66410
+2026-07-16 21:34:59,598 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Laxmi_Sunrise_Bank_Limited/2026-07-16_Laxmi_Sunrise_Bank_Limited.gif
+2026-07-16 21:34:59,598 | INFO | Extracting rates for: Commercial Banks | Machhapuchchhre Bank Limited
+2026-07-16 21:34:59,598 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66409
+2026-07-16 21:35:00,461 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Machhapuchchhre_Bank_Limited/2026-07-16_Machhapuchchhre_Bank_Limited.gif
+2026-07-16 21:35:00,461 | INFO | Extracting rates for: Commercial Banks | Nabil Bank Limited published a notice regarding the new interest rate on deposits and loans which
+2026-07-16 21:35:00,461 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66408
+2026-07-16 21:35:01,311 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Nabil_Bank_Limited_published_a_notice_regarding_the_new_interest_rate_on_deposits_and_loans_which/2026-07-16_Nabil_Bank_Limited_published_a_notice_regarding_the_new_interest_rate_on_deposits_and_loans_which.gif
+2026-07-16 21:35:01,311 | INFO | Extracting rates for: Commercial Banks | Nepal Bank Limited
+2026-07-16 21:35:01,311 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66407
+2026-07-16 21:35:03,075 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Nepal_Bank_Limited/2026-07-16_Nepal_Bank_Limited.gif
+2026-07-16 21:35:03,075 | INFO | Extracting rates for: Commercial Banks | Nepal Investment Mega Bank Limited
+2026-07-16 21:35:03,075 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66406
+2026-07-16 21:35:03,948 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Nepal_Investment_Mega_Bank_Limited/2026-07-16_Nepal_Investment_Mega_Bank_Limited.gif
+2026-07-16 21:35:03,948 | INFO | Extracting rates for: Commercial Banks | Nepal SBI Bank Limited
+2026-07-16 21:35:03,948 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66417
+2026-07-16 21:35:04,802 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Nepal_SBI_Bank_Limited/2026-07-16_Nepal_SBI_Bank_Limited.gif
+2026-07-16 21:35:04,802 | INFO | Extracting rates for: Commercial Banks | NIC Asia Bank Limited
+2026-07-16 21:35:04,802 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66405
+2026-07-16 21:35:05,653 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/NIC_Asia_Bank_Limited/2026-07-16_NIC_Asia_Bank_Limited.gif
+2026-07-16 21:35:05,653 | INFO | Extracting rates for: Commercial Banks | NMB Bank Limited
+2026-07-16 21:35:05,653 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66404
+2026-07-16 21:35:06,507 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/NMB_Bank_Limited/2026-07-16_NMB_Bank_Limited.gif
+2026-07-16 21:35:06,507 | INFO | Extracting rates for: Commercial Banks | Prabhu Bank Limited
+2026-07-16 21:35:06,507 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66402
+2026-07-16 21:35:07,361 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Prabhu_Bank_Limited/2026-07-16_Prabhu_Bank_Limited.gif
+2026-07-16 21:35:07,362 | INFO | Extracting rates for: Commercial Banks | Prime Commercial Bank Limited
+2026-07-16 21:35:07,362 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66403
+2026-07-16 21:35:08,221 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Prime_Commercial_Bank_Limited/2026-07-16_Prime_Commercial_Bank_Limited.gif
+2026-07-16 21:35:08,221 | INFO | Extracting rates for: Commercial Banks | Rastriya Banijya Bank Limited
+2026-07-16 21:35:08,221 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66401
+2026-07-16 21:35:09,071 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Rastriya_Banijya_Bank_Limited/2026-07-16_Rastriya_Banijya_Bank_Limited.gif
+2026-07-16 21:35:09,071 | INFO | Extracting rates for: Commercial Banks | Sanima Bank Limited
+2026-07-16 21:35:09,071 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66399
+2026-07-16 21:35:09,925 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Sanima_Bank_Limited/2026-07-16_Sanima_Bank_Limited.gif
+2026-07-16 21:35:09,925 | INFO | Extracting rates for: Commercial Banks | Siddhartha Bank Limited
+2026-07-16 21:35:09,925 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66398
+2026-07-16 21:35:10,778 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Siddhartha_Bank_Limited/2026-07-16_Siddhartha_Bank_Limited.gif
+2026-07-16 21:35:10,778 | INFO | Extracting rates for: Commercial Banks | Standard Chartered Bank Nepal Limited
+2026-07-16 21:35:10,778 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66397
+2026-07-16 21:35:11,632 | INFO | Saved source document: output/latest_bank_files/Commercial_Banks/Standard_Chartered_Bank_Nepal_Limited/2026-07-16_Standard_Chartered_Bank_Nepal_Limited.gif
+2026-07-16 21:35:11,633 | INFO | Extracting rates for: Development Bank Limited | Corporate Development Bank Limited
+2026-07-16 21:35:11,633 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66418
+2026-07-16 21:35:12,485 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Corporate_Development_Bank_Limited/2026-07-16_Corporate_Development_Bank_Limited.gif
+2026-07-16 21:35:12,486 | INFO | Extracting rates for: Development Bank Limited | Garima Bikas Bank Limited
+2026-07-16 21:35:12,486 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66396
+2026-07-16 21:35:13,340 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Garima_Bikas_Bank_Limited/2026-07-16_Garima_Bikas_Bank_Limited.gif
+2026-07-16 21:35:13,340 | INFO | Extracting rates for: Development Bank Limited | Green Development Bank Limited
+2026-07-16 21:35:13,340 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66395
+2026-07-16 21:35:14,192 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Green_Development_Bank_Limited/2026-07-16_Green_Development_Bank_Limited.gif
+2026-07-16 21:35:14,192 | INFO | Extracting rates for: Development Bank Limited | Jyoti Bikas Bank Limited
+2026-07-16 21:35:14,192 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66394
+2026-07-16 21:35:15,055 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Jyoti_Bikas_Bank_Limited/2026-07-16_Jyoti_Bikas_Bank_Limited.gif
+2026-07-16 21:35:15,055 | INFO | Extracting rates for: Development Bank Limited | Kamana Sewa Bikas Bank Limited
+2026-07-16 21:35:15,055 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66393
+2026-07-16 21:35:15,918 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Kamana_Sewa_Bikas_Bank_Limited/2026-07-16_Kamana_Sewa_Bikas_Bank_Limited.gif
+2026-07-16 21:35:15,918 | INFO | Extracting rates for: Development Bank Limited | Lumbini Bikash Bank Limited
+2026-07-16 21:35:15,918 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66392
+2026-07-16 21:35:16,779 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Lumbini_Bikash_Bank_Limited/2026-07-16_Lumbini_Bikash_Bank_Limited.gif
+2026-07-16 21:35:16,779 | INFO | Extracting rates for: Development Bank Limited | Mahalaxmi Bikas Bank Limited
+2026-07-16 21:35:16,779 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66391
+2026-07-16 21:35:17,644 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Mahalaxmi_Bikas_Bank_Limited/2026-07-16_Mahalaxmi_Bikas_Bank_Limited.gif
+2026-07-16 21:35:17,644 | INFO | Extracting rates for: Development Bank Limited | Muktinath Bikas Bank Limited
+2026-07-16 21:35:17,644 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66390
+2026-07-16 21:35:18,515 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Muktinath_Bikas_Bank_Limited/2026-07-16_Muktinath_Bikas_Bank_Limited.gif
+2026-07-16 21:35:18,515 | INFO | Extracting rates for: Development Bank Limited | Narayani Development Bank Limited
+2026-07-16 21:35:18,515 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66389
+2026-07-16 21:35:19,377 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Narayani_Development_Bank_Limited/2026-07-16_Narayani_Development_Bank_Limited.gif
+2026-07-16 21:35:19,377 | INFO | Extracting rates for: Development Bank Limited | Salapa Bikas Bank Limited
+2026-07-16 21:35:19,377 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66388
+2026-07-16 21:35:20,242 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Salapa_Bikas_Bank_Limited/2026-07-16_Salapa_Bikas_Bank_Limited.gif
+2026-07-16 21:35:20,242 | INFO | Extracting rates for: Development Bank Limited | Shangri-la Development Bank Limited
+2026-07-16 21:35:20,242 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66387
+2026-07-16 21:35:21,106 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Shangri-la_Development_Bank_Limited/2026-07-16_Shangri-la_Development_Bank_Limited.gif
+2026-07-16 21:35:21,107 | INFO | Extracting rates for: Development Bank Limited | Shine Resunga Development Bank Limited
+2026-07-16 21:35:21,107 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66386
+2026-07-16 21:35:21,969 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Shine_Resunga_Development_Bank_Limited/2026-07-16_Shine_Resunga_Development_Bank_Limited.gif
+2026-07-16 21:35:21,969 | INFO | Extracting rates for: Development Bank Limited | Sindu Bikas Bank Limited
+2026-07-16 21:35:21,970 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66385
+2026-07-16 21:35:22,870 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Sindu_Bikas_Bank_Limited/2026-07-16_Sindu_Bikas_Bank_Limited.gif
+2026-07-16 21:35:22,912 | INFO | Excel report saved: output/interest_rate_report.xlsx
