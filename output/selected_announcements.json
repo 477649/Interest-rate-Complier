@@ -148,10 +148,12 @@
   {
     "sector": "Commercial Banks",
     "bank_name": "Siddhartha Bank Limited",
-    "title": "Siddhartha Bank Limited has published a notice regarding the new interest rate on deposits, loans and advances which is going to be effective from Shrawan 01, 2083",
-    "announcement_date": "2026-07-16",
-    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66398",
-    "ignored_duplicates": []
+    "title": "Siddhartha Bank Limited has published a notice regarding the new interest rate on loans and advances which is going to be effective from Shrawan 01, 2083",
+    "announcement_date": "2026-07-17",
+    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=4104",
+    "ignored_duplicates": [
+      "Ignored older duplicate: 2026-07-16 | Siddhartha Bank Limited has published a notice regarding the new interest rate on deposits, loans and advances which is going to be effective from Shrawan 01, 2083"
+    ]
   },
   {
     "sector": "Commercial Banks",
