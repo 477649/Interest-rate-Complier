@@ -262,9 +262,11 @@
   {
     "sector": "Development Bank Limited",
     "bank_name": "Sindu Bikas Bank Limited",
-    "title": "Sindu Bikas Bank Limited has published a notice regarding new interest rate on fixed deposit which is going to be effective from Shrawan 01, 2083",
-    "announcement_date": "2026-07-16",
-    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66385",
-    "ignored_duplicates": []
+    "title": "Sindu Bikas Bank Limited has made correction on its new interest rate on institutional fixed deposit which is going to be effective for the month of Shrawan, 2083",
+    "announcement_date": "2026-07-29",
+    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66570",
+    "ignored_duplicates": [
+      "Ignored older duplicate: 2026-07-16 | Sindu Bikas Bank Limited has published a notice regarding new interest rate on fixed deposit which is going to be effective from Shrawan 01, 2083"
+    ]
   }
 ]
