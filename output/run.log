@@ -3301,3 +3301,35 @@
 2026-07-30 21:45:23,894 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=66570
 2026-07-30 21:45:25,102 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Sindu_Bikas_Bank_Limited/2026-07-29_Sindu_Bikas_Bank_Limited.gif
 2026-07-30 21:45:25,178 | INFO | Excel report saved: output/interest_rate_report.xlsx
+2026-08-14 20:56:16,359 | INFO | Collecting current-month Interest Rate announcements from Merolagani.
+2026-08-14 20:56:16,642 | INFO | Processing sector: Commercial Banks
+2026-08-14 20:56:59,390 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:01,562 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:03,746 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:05,955 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:08,173 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:10,410 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:12,678 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:15,034 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:17,355 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:19,708 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:22,106 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:24,513 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:57:26,784 | INFO | Processing sector: Development Bank Limited
+2026-08-14 20:58:01,982 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:04,156 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:06,364 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:08,624 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:10,835 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:13,054 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:15,306 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:17,649 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:19,934 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:22,257 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:24,633 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:27,017 | WARNING | Skipping announcement with missing date: Interest Rate
+2026-08-14 20:58:29,293 | INFO | Selected 1 latest bank-wise announcements.
+2026-08-14 20:58:29,293 | INFO | Extracting rates for: Development Bank Limited | Salapa Bikas Bank Limited
+2026-08-14 20:58:29,293 | INFO | Opening detail page: https://merolagani.com/AnnouncementDetail.aspx?id=67039
+2026-08-14 20:58:35,286 | INFO | Saved source document: output/latest_bank_files/Development_Bank_Limited/Salapa_Bikas_Bank_Limited/2026-08-14_Salapa_Bikas_Bank_Limited.gif
+2026-08-14 20:58:35,296 | INFO | Excel report saved: output/interest_rate_report.xlsx
