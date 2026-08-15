@@ -1,6 +1,14 @@
 [
   {
     "sector": "Development Bank Limited",
+    "bank_name": "Green Development Bank Limited",
+    "title": "Green Development Bank Limited has published a notice regarding new interest rate on deposit, loan & advance which is going to be effective from Bhadra 01, 2083",
+    "announcement_date": "2026-08-15",
+    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67049",
+    "ignored_duplicates": []
+  },
+  {
+    "sector": "Development Bank Limited",
     "bank_name": "Salapa Bikas Bank Limited",
     "title": "Salapa Bikas Bank Limited has published a notice regarding new interest rate on deposits and loans product which is going to be effective from Bhadra 01, 2083",
     "announcement_date": "2026-08-14",
