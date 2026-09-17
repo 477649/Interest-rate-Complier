@@ -18,10 +18,12 @@
   {
     "sector": "Commercial Banks",
     "bank_name": "Everest Bank Limited",
-    "title": "Everest Bank Limited has published a notice regarding new interest rate on deposit and loan products which is going to be effective from Ashwin 01, 2083",
-    "announcement_date": "2026-09-16",
-    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67444",
-    "ignored_duplicates": []
+    "title": "Everest Bank Limited has made correction on its new interest rate on normal fixed deposit (NPR) which is going to be effective from Ashwin 01, 2083",
+    "announcement_date": "2026-09-17",
+    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67385",
+    "ignored_duplicates": [
+      "Ignored older duplicate: 2026-09-16 | Everest Bank Limited has published a notice regarding new interest rate on deposit and loan products which is going to be effective from Ashwin 01, 2083"
+    ]
   },
   {
     "sector": "Commercial Banks",
