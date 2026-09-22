@@ -156,10 +156,12 @@
   {
     "sector": "Commercial Banks",
     "bank_name": "Standard Chartered Bank Nepal Limited",
-    "title": "Standard Chartered Bank Nepal Limited has published a notice regarding new interest rate on deposit and lending rates which is going to be effective from Ashwin 01, 2083",
-    "announcement_date": "2026-09-16",
-    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67426",
-    "ignored_duplicates": []
+    "title": "Standard Chartered Bank Nepal Limited has published a notice regarding the amendments to the interest rate on fixed deposits which is going to be effective from Ashwin 01, 2083",
+    "announcement_date": "2026-09-22",
+    "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67526",
+    "ignored_duplicates": [
+      "Ignored older duplicate: 2026-09-16 | Standard Chartered Bank Nepal Limited has published a notice regarding new interest rate on deposit and lending rates which is going to be effective from Ashwin 01, 2083"
+    ]
   },
   {
     "sector": "Development Bank Limited",
