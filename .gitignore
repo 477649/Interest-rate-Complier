@@ -1,0 +1,15 @@
+# downloaded notices (re-create them by running the tool)
+notices/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
