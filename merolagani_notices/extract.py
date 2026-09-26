@@ -24,7 +24,7 @@ import requests
 
 from . import history
 from .report import build_report
-from .rules import NS, fd_buckets, merge_partial
+from .rules import NS, fd_buckets, fd_points, merge_partial
 
 log = logging.getLogger("merolagani_notices.extract")
 
@@ -147,6 +147,8 @@ def to_record(raw: dict, notice: dict) -> dict:
         "call": raw.get("call") or NS,
         "ind_lt1": ind[0], "ind_1y": ind[1], "ind_gt1": ind[2],
         "inst_lt1": inst[0], "inst_1y": inst[1], "inst_gt1": inst[2],
+        "fd_points": {"individual": fd_points(raw["individual_fd"]),
+                      "institutional": fd_points(raw["institutional_fd"])},
         "partial": bool(raw.get("is_partial_amendment")),
         "notes": notes,
         "extracted_by": "openai",

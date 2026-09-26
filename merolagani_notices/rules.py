@@ -55,6 +55,29 @@ def fd_buckets(rows: list[dict]) -> tuple[float | str, float | str, float | str]
     return lt1, y1, gt1
 
 
+FD_POINTS = [("3M", 3), ("6M", 6), ("1Y", 12), ("2Y", 24), ("3Y", 36), ("4Y", 48), ("5Y+", 60)]
+
+
+def rate_at(rows: list[dict], months: int) -> float | str:
+    """FD rate applying to a deposit of exactly `months` (the most specific matching tenure row)."""
+    hits = []
+    for r in rows:
+        if not isinstance(r.get("rate"), (int, float)):
+            continue
+        start, end = r["from_months"], r.get("to_months")
+        inside_end = end is None or months < end or (months == end and r.get("to_inclusive"))
+        if start <= months and inside_end:
+            hits.append(r)
+    if not hits:
+        return NS
+    return max(hits, key=lambda r: (r["from_months"], r["rate"]))["rate"]
+
+
+def fd_points(rows: list[dict]) -> dict[str, float | str]:
+    """Rates at 3M, 6M, 1Y, 2Y, 3Y, 4Y and 5Y+ from general FD tenure rows."""
+    return {label: rate_at(rows, m) for label, m in FD_POINTS}
+
+
 def merge_partial(new: dict, previous: dict | None) -> dict:
     """For amendment notices that only change some rates, keep earlier values for the rest."""
     if not previous:

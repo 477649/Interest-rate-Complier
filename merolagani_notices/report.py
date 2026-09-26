@@ -208,9 +208,84 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
         footer += f" Newer notices not yet extracted: {', '.join(stale)}."
     ws.cell(row=last + 2, column=1, value=footer).font = Font(italic=True, size=9, color="5A6475")
 
+    _dev_spread_sheet(wb, store, current, cur_label)
     _history_sheet(wb, store)
     _notes_sheet(wb, notes_rows, cur_label)
     wb.save(path)
+
+
+SPREAD_POINTS = [("3M", "3 Months"), ("6M", "6 Months"), ("1Y", "1 Year (12 Months)"), ("2Y", "2 Years"),
+                 ("3Y", "3 Years"), ("4Y", "4 Years"), ("5Y+", "5 Years & Above")]
+
+
+def _dev_spread_sheet(wb: Workbook, store: dict, current: str | None, cur_label: str) -> None:
+    """Development banks only: Individual vs Institutional FD rate and their difference, per tenure."""
+    ws = wb.create_sheet("Development FD Spread")
+    ncols = 1 + 3 * len(SPREAD_POINTS)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=ncols)
+    ws["A1"] = f"Development Banks — Fixed Deposit: Individual vs Institutional ({cur_label})"
+    ws["A1"].font = Font(bold=True, size=14, color="0B2447")
+    ws.row_dimensions[1].height = 26
+
+    ws.merge_cells("A3:A4")
+    ws["A3"] = "Bank"
+    diff_cols = []
+    for i, (_, label) in enumerate(SPREAD_POINTS):
+        c = 2 + 3 * i
+        ws.merge_cells(start_row=3, start_column=c, end_row=3, end_column=c + 2)
+        ws.cell(row=3, column=c, value=label)
+        for off, text in enumerate(("Individual", "Institutional", "Difference")):
+            ws.cell(row=4, column=c + off, value=text)
+        diff_cols.append(c + 2)
+    for row in (3, 4):
+        for c in range(1, ncols + 1):
+            cell = ws.cell(row=row, column=c)
+            cell.font, cell.alignment, cell.border = WHITE_BOLD, CENTER, BORDER
+            cell.fill = HEAD if row == 3 else (CHANGE_HEAD if c in diff_cols else SUB)
+    ws.row_dimensions[3].height = 22
+    ws.row_dimensions[4].height = 30
+
+    r = 5
+    for i, symbol in enumerate(sorted(store)):
+        rec = history.as_of(store[symbol], current) if current else None
+        if not rec or rec.get("sector") != "Development Banks":
+            continue
+        points = rec.get("fd_points") or {}
+        ind, inst = points.get("individual", {}), points.get("institutional", {})
+        name = ws.cell(row=r, column=1, value=rec["bank"])
+        name.border = BORDER
+        stripe = (r - 5) % 2 == 1
+        if stripe:
+            name.fill = STRIPE
+        for j, (key, _) in enumerate(SPREAD_POINTS):
+            a, b = ind.get(key, "—" if not points else NS), inst.get(key, "—" if not points else NS)
+            diff = round((a - b) / 100, 6) if isinstance(a, (int, float)) and isinstance(b, (int, float)) else "—"
+            for off, v in enumerate((a, b, diff)):
+                cell = ws.cell(row=r, column=2 + 3 * j + off, value=_cell_value(v) if off < 2 else v)
+                _style_value(cell, stripe)
+                if off == 2 and isinstance(cell.value, float):
+                    cell.number_format = "+0.00%;-0.00%;0.00%"
+        r += 1
+    last = max(r - 1, 5)
+
+    for c in diff_cols:
+        letter = get_column_letter(c)
+        rng, top = f"{letter}5:{letter}{last}", f"{letter}5"
+        for formula, (fill, font) in ((f"AND(ISNUMBER({top}),{top}>0)", UP),
+                                      (f"AND(ISNUMBER({top}),{top}<0)", DOWN),
+                                      (f"AND(ISNUMBER({top}),{top}=0)", SAME)):
+            ws.conditional_formatting.add(rng, FormulaRule(formula=[formula], fill=fill, font=font))
+    ws.auto_filter.ref = f"A4:{get_column_letter(ncols)}{last}"
+    ws.freeze_panes = "B5"
+    ws.column_dimensions["A"].width = 36
+    for c in range(2, ncols + 1):
+        ws.column_dimensions[get_column_letter(c)].width = 12
+    ws.cell(row=last + 2, column=1, value=(
+        "Difference = Individual rate minus Institutional rate (percentage points): green = individuals earn more, "
+        "red = institutions earn more, grey = same. 'Not specified' = the bank publishes no rate for that tenure "
+        "(e.g. institutional FD starting at 6 months or 1 year). Rates are the general FD rate applying to a "
+        "deposit of exactly that tenure; '5 Years & Above' uses the band covering 5 years.")).font = \
+        Font(italic=True, size=9, color="5A6475")
 
 
 def _history_sheet(wb: Workbook, store: dict) -> None:

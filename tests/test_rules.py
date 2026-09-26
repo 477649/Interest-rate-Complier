@@ -48,6 +48,20 @@ class FdBucketTests(unittest.TestCase):
         self.assertEqual(fd_buckets([row(6, None, 2.75)]), (2.75, 2.75, 2.75))
 
 
+class FdPointTests(unittest.TestCase):
+    def test_points_from_bands(self):
+        from merolagani_notices.rules import fd_points
+        # Kamana Sewa style: 3M-2Y 2.75, 2-3Y 3.00, 3-5Y 3.15, 5Y+ 4.28
+        rows = [row(3, 24, 2.75), row(24, 36, 3.00), row(36, 60, 3.15), row(60, None, 4.28)]
+        self.assertEqual(fd_points(rows), {"3M": 2.75, "6M": 2.75, "1Y": 2.75, "2Y": 3.00,
+                                           "3Y": 3.15, "4Y": 3.15, "5Y+": 4.28})
+
+    def test_points_missing_short_tenures(self):
+        from merolagani_notices.rules import fd_points
+        pts = fd_points([row(12, 24, 2.75), row(24, None, 3.35)])
+        self.assertEqual((pts["3M"], pts["6M"], pts["1Y"], pts["5Y+"]), (NS, NS, 2.75, 3.35))
+
+
 class RecordAndReportTests(unittest.TestCase):
     NOTICE = {"symbol": "TEST", "company": "Test Bank Limited", "sector": "Commercial Banks",
               "announcement_id": "10", "date": "2026-09-16", "source_url": "https://example.com"}
@@ -99,7 +113,8 @@ class RecordAndReportTests(unittest.TestCase):
             self.assertAlmostEqual(ws["P6"].value, 0.0025)              # +0.25 points
             self.assertEqual(ws["D6"].value, 0)                         # saving min unchanged
             self.assertTrue(ws.conditional_formatting)                  # green/red colouring present
-            self.assertEqual(wb.sheetnames, ["Interest Rate Summary", "Monthly History", "Notes"])
+            self.assertEqual(wb.sheetnames,
+                             ["Interest Rate Summary", "Development FD Spread", "Monthly History", "Notes"])
             self.assertEqual(wb["Monthly History"].max_row, 3)          # two months stored
 
     def test_history_keeps_newer_notice_within_month(self):

@@ -38,5 +38,25 @@
   "extracted_by": "manual (2026-09-26)",
   "notice_date": "2026-09-16",
   "month": "2083-06",
-  "month_label": "Ashwin 2083"
+  "month_label": "Ashwin 2083",
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.8,
+      "1Y": 2.8,
+      "2Y": 2.9,
+      "3Y": 2.9,
+      "4Y": 3.4,
+      "5Y+": 4.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.0,
+      "4Y": 3.0,
+      "5Y+": 3.0
+    }
+  }
 }
