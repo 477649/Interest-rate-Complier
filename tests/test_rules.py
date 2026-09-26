@@ -70,19 +70,48 @@ class RecordAndReportTests(unittest.TestCase):
         merged = merge_partial(new, old)
         self.assertEqual((merged["call"], merged["ind_1y"], merged["saving_rates"]), ("Up to 0.20%", 2.75, [2.75]))
 
-    def test_report_layout(self):
-        rec = to_record(self.RAW, self.NOTICE)
+    def test_month_comparison_report(self):
+        from merolagani_notices import history
+
+        bhadra = to_record(self.RAW, {**self.NOTICE, "announcement_id": "9", "date": "2026-08-16"})
+        bhadra["effective"] = "1 Bhadra 2083"
+        bhadra["ind_1y"] = 3.25            # Ashwin has 3.50 -> +0.25
+        bhadra["call"] = "Up to 1.42%"     # Ashwin 'Up to 1.37%' -> -0.05
+        ashwin = to_record(self.RAW, self.NOTICE)
         with tempfile.TemporaryDirectory() as tmp:
+            hist = Path(tmp) / "history"
+            self.assertEqual(history.save(hist, bhadra), "2083-05")
+            self.assertEqual(history.save(hist, ashwin), "2083-06")
             path = Path(tmp) / "out.xlsx"
-            build_report([rec], path)
+            build_report([ashwin], path, history_dir=hist)
             wb = load_workbook(path)
             ws = wb["Interest Rate Summary"]
+            # Bank | Saving: Min cur, Min prev, Changes, Max cur, Max prev, Changes | Call cur, prev, Changes | ...
             self.assertEqual(ws["B3"].value, "Saving")
-            self.assertEqual(ws["E4"].value, "Less Than 1 Year Max")
+            self.assertEqual((ws["B4"].value, ws["C4"].value, ws["D4"].value),
+                             ("Min Ashwin 2083", "Min Bhadra 2083", "Changes"))
+            self.assertEqual((ws["H4"].value, ws["I4"].value), ("Ashwin 2083", "Bhadra 2083"))
             self.assertEqual(ws["A6"].value, "Test Bank Ltd.")
-            self.assertAlmostEqual(ws["C6"].value, 0.0275)  # second highest distinct saving rate
-            self.assertEqual(ws["D6"].value, "Up to 1.37%")
-            self.assertIn("Notes", wb.sheetnames)
+            self.assertEqual((ws["H6"].value, ws["I6"].value), ("Up to 1.37%", "Up to 1.42%"))
+            self.assertAlmostEqual(ws["J6"].value, -0.0005)             # call change
+            self.assertAlmostEqual(ws["N6"].value, 0.035)               # Individual 1Y, Ashwin
+            self.assertAlmostEqual(ws["O6"].value, 0.0325)              # Individual 1Y, Bhadra
+            self.assertAlmostEqual(ws["P6"].value, 0.0025)              # +0.25 points
+            self.assertEqual(ws["D6"].value, 0)                         # saving min unchanged
+            self.assertTrue(ws.conditional_formatting)                  # green/red colouring present
+            self.assertEqual(wb.sheetnames, ["Interest Rate Summary", "Monthly History", "Notes"])
+            self.assertEqual(wb["Monthly History"].max_row, 3)          # two months stored
+
+    def test_history_keeps_newer_notice_within_month(self):
+        from merolagani_notices import history
+
+        with tempfile.TemporaryDirectory() as tmp:
+            hist = Path(tmp)
+            newer = to_record(self.RAW, {**self.NOTICE, "announcement_id": "12"})
+            older = to_record(self.RAW, {**self.NOTICE, "announcement_id": "11"})
+            history.save(hist, newer)
+            history.save(hist, older)
+            self.assertEqual(history.load(hist)["TEST"]["2083-06"]["announcement_id"], 12)
 
 
 if __name__ == "__main__":

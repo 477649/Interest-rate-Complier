@@ -22,6 +22,7 @@ from pathlib import Path
 
 import requests
 
+from . import history
 from .report import build_report
 from .rules import NS, fd_buckets, merge_partial
 
@@ -139,6 +140,7 @@ def to_record(raw: dict, notice: dict) -> dict:
         "bank": raw.get("bank_name") or notice["company"],
         "sector": notice["sector"],
         "announcement_id": int(notice["announcement_id"]),
+        "notice_date": notice["date"],
         "effective": raw.get("effective_date") or notice["date"],
         "source_url": notice["source_url"],
         "saving_rates": [s["rate"] for s in raw["saving_rates"]],
@@ -194,9 +196,21 @@ def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     cache_dir = args.notices / "extracted"
+    history_dir = cache_dir / "history"
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache = load_cache(cache_dir)
     notices = latest_notices(args.notices)
+    by_symbol = {n["symbol"]: n for n in notices}
+
+    # make sure every cached record is filed under its Nepali month (one-time for older caches)
+    stored = history.load(history_dir)
+    for symbol, rec in cache.items():
+        if not rec.get("notice_date") and symbol in by_symbol \
+                and int(by_symbol[symbol]["announcement_id"]) == rec.get("announcement_id"):
+            rec["notice_date"] = by_symbol[symbol]["date"]
+        month = history.month_of(rec)
+        if month and month not in stored.get(symbol, {}):
+            history.save(history_dir, rec)
 
     pending = [n for n in notices
                if args.force or cache.get(n["symbol"], {}).get("announcement_id") != int(n["announcement_id"])]
@@ -221,7 +235,9 @@ def main(argv: list[str] | None = None) -> int:
                 (cache_dir / f"{n['symbol']}.json").write_text(
                     json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
                 cache[n["symbol"]] = record
-                log.info("  + %s  %s", n["symbol"], record["bank"])
+                month = history.save(history_dir, record)
+                log.info("  + %s  %s  (%s)", n["symbol"], record["bank"],
+                         history.months.label(month) if month else "month unknown")
     elif pending:
         log.info("%d notice(s) not yet extracted (--report-only).", len(pending))
 
@@ -229,7 +245,7 @@ def main(argv: list[str] | None = None) -> int:
     records = [r for s, r in cache.items() if not current or s in current]
     stale = sorted(n["symbol"] for n in notices
                    if cache.get(n["symbol"], {}).get("announcement_id") != int(n["announcement_id"]))
-    build_report(records, args.report, stale=stale)
+    build_report(records, args.report, stale=stale, history_dir=history_dir)
     log.info("Report: %s (%d banks%s)", args.report, len(records),
              f", {len(stale)} awaiting extraction" if stale else "")
     return 1 if failed else 0

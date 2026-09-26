@@ -1,0 +1,39 @@
+{
+  "symbol": "CORBL",
+  "bank": "Corporate Development Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67425,
+  "effective": "1 Ashwin 2083 (17 Sep 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67425",
+  "saving_rates": [
+    2.85,
+    3.0,
+    2.9,
+    2.9,
+    2.9,
+    3.15,
+    3.45,
+    3.55,
+    3.75,
+    4.0,
+    4.1,
+    2.85
+  ],
+  "call": "Up to 1.42%",
+  "ind_lt1": 3.75,
+  "ind_1y": 4.25,
+  "ind_gt1": 5.5,
+  "inst_lt1": 2.85,
+  "inst_1y": 3.25,
+  "inst_gt1": 4.75,
+  "partial": false,
+  "notes": [
+    "Individual FD: 3M 3.50%, 6-9M 3.75%, 1Y 4.25%, >1-2Y 4.50%, >2-3Y 5.00%, >3-5Y 5.25%, >5Y 5.50%.",
+    "Corporate (institutional) FD minimum 6 months: 6-9M 2.85%, 1Y 3.25%, >5Y 4.75%.",
+    "Saving includes Staff Saving (4.10%, highest) - excluded as first highest per rule."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "notice_date": "2026-09-16",
+  "month": "2083-06",
+  "month_label": "Ashwin 2083"
+}

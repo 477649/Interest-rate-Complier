@@ -1,0 +1,42 @@
+{
+  "symbol": "GRDBL",
+  "bank": "Green Development Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67423,
+  "effective": "1st Ashoj 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67423",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    3.0,
+    3.0,
+    3.0,
+    3.5,
+    4.5
+  ],
+  "call": "Up to 1.375%",
+  "ind_lt1": 3.5,
+  "ind_1y": 4.0,
+  "ind_gt1": 5.25,
+  "inst_lt1": 2.75,
+  "inst_1y": 3.0,
+  "inst_gt1": 4.25,
+  "partial": false,
+  "notes": [
+    "FD bands: 3 Month, 6 Month, 1 Year to below 2 years, 2 to below 4 years, 4 years and above.",
+    "Institutional 3 Month shown as '-'; 6 Month 2.75% used as <1Y max."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "notice_date": "2026-09-16",
+  "month": "2083-06",
+  "month_label": "Ashwin 2083"
+}

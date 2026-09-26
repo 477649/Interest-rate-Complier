@@ -1,0 +1,36 @@
+{
+  "symbol": "SANIMA",
+  "bank": "Sanima Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67429,
+  "effective": "Ashwin 1, 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67429",
+  "saving_rates": [
+    3.8,
+    3.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "call": "Up to 1.375%",
+  "ind_lt1": 2.8,
+  "ind_1y": 2.8,
+  "ind_gt1": 4.5,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.51,
+  "partial": false,
+  "notes": [
+    "Individual '3 Months to 12 Months' 2.80% covers <1Y and 1Y; remittance FD excluded."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "notice_date": "2026-09-16",
+  "month": "2083-06",
+  "month_label": "Ashwin 2083"
+}

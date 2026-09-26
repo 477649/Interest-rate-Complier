@@ -1,0 +1,33 @@
+{
+  "symbol": "KBL",
+  "bank": "Kumari Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67441,
+  "effective": "01 Ashwin 2083 (17 Sep 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67441",
+  "saving_rates": [
+    4.31,
+    2.91,
+    3.91,
+    2.91,
+    3.31,
+    2.91,
+    2.75
+  ],
+  "call": "Up to 0.81%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 3.43,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.01,
+  "partial": false,
+  "notes": [
+    "In-person individual FD rates used; Kumari Smart app rates are higher (2.80% / 3.73%).",
+    "'3 Months to below 2 Years' 2.75% covers <1Y and 1Y."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "notice_date": "2026-09-16",
+  "month": "2083-06",
+  "month_label": "Ashwin 2083"
+}

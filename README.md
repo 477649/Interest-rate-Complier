@@ -123,9 +123,15 @@ the Actions tab if that happens.
 
 ## Interest rates in Excel
 
-📊 **[`reports/Interest_Rate_Summary.xlsx`](reports/Interest_Rate_Summary.xlsx)**: one row per bank with
-Saving (Min/Max), Call, Individual FD and Institution FD (Less Than 1 Year Max / 1 Year / More Than 1 Year Max),
-plus a *Notes* sheet with effective dates and assumptions.
+📊 **[`reports/Interest_Rate_Summary.xlsx`](reports/Interest_Rate_Summary.xlsx)**: **current month vs previous
+month** for every bank. Each rate (Saving Min/Max, Call, Individual FD and Institution FD: Less Than 1 Year Max /
+1 Year / More Than 1 Year Max) has three columns, e.g. `Min Ashwin 2083 | Min Bhadra 2083 | Changes`. The
+Changes column is coloured green (increase), red (decrease) or grey (no change).
+
+- **Month-wise history:** every notice is filed under its Nepali month (Shrawan … Ashadh) in
+  `notices/extracted/history/<BANK>/<YYYY-MM>.json`. A month is stored once and never recalculated; a bank
+  without a new notice keeps its last rates.
+- Sheets: *Interest Rate Summary* (comparison), *Monthly History* (all banks, all months) and *Notes*.
 
 After each download, the workflow runs `python -m merolagani_notices.extract`:
 
