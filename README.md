@@ -117,6 +117,38 @@ then choose the sectors, fiscal year, every notice or PNG copies. The run summar
 GitHub pauses scheduled workflows in repositories with no activity for 60 days. Re-enable it from
 the Actions tab if that happens.
 
+## Interest rates in Excel
+
+📊 **[`reports/Interest_Rate_Summary.xlsx`](reports/Interest_Rate_Summary.xlsx)**: one row per bank with
+Saving (Min/Max), Call, Individual FD and Institution FD (Less Than 1 Year Max / 1 Year / More Than 1 Year Max),
+plus a *Notes* sheet with effective dates and assumptions.
+
+After each download, the workflow runs `python -m merolagani_notices.extract`:
+
+1. Each **new** notice image is read by an OpenAI vision model, which returns the saving products, call rate
+   and general FD tenure rows as structured JSON.
+2. The rules are then applied in Python (`merolagani_notices/rules.py`), so they're consistent and tested:
+   - **Saving Min** = lowest saving rate; **Saving Max** = second highest, excluding the first highest
+   - Call and FCY accounts are not saving rates; remittance and special FD schemes are excluded
+   - **FD less than 1 year** = max of tenures starting below 12 months; **1 year** = the tenure containing
+     12 months (e.g. "1 year and below 2 years"); **more than 1 year** = max of tenures beyond 12 months
+   - Missing values are "Not specified"; unreadable ones are listed in the Notes sheet
+   - Amendment notices that change only some rates keep the other rates from the bank's previous notice
+3. Results are cached in `notices/extracted/<SYMBOL>.json`, so each notice is sent to the API only once.
+
+**Setup:** add a repository secret named **`OPENAI_API_KEY`** (Settings → Secrets and variables → Actions →
+New repository secret). Optionally set a repository *variable* `OPENAI_MODEL` (default `gpt-4.1`).
+Without the key, the workflow still runs and rebuilds the Excel file from cached data, listing banks
+with newer notices at the bottom of the sheet.
+
+Run locally:
+
+```bash
+set OPENAI_API_KEY=sk-...            # macOS/Linux: export OPENAI_API_KEY=sk-...
+python -m merolagani_notices.extract
+python -m merolagani_notices.extract --report-only   # rebuild Excel without calling the API
+```
+
 ## How it works
 
 1. **Listing:** the Announcements page loads results from a JSON endpoint
@@ -143,7 +175,12 @@ merolagani_notices/
 ├── cli.py        # command-line options and the main download loop
 ├── client.py     # HTTP session: rate limiting, retries, site endpoints
 ├── scraper.py    # sectors, listing pagination, title filter, detail-page parsing
-└── storage.py    # folder/file naming, PNG conversion, CSV manifest
+├── storage.py    # folder/file naming, PNG conversion, CSV manifest
+├── extract.py    # OpenAI vision extraction + cache (python -m merolagani_notices.extract)
+├── rules.py      # Saving Min/Max and FD tenure bucket rules
+└── report.py     # Interest Rate Summary Excel workbook
+reports/
+└── Interest_Rate_Summary.xlsx
 tests/
 └── test_parsing.py   # offline unit tests (no network)
 ```

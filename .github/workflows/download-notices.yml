@@ -69,25 +69,36 @@ jobs:
         run: |
           python -m merolagani_notices ${{ steps.opts.outputs.args }} --output notices 2>&1 | tee run.log
 
-      - name: Commit changes to notices/
+      - name: Extract interest rates to Excel
+        # Reads each new notice with OpenAI (needs the OPENAI_API_KEY secret) and rebuilds
+        # reports/Interest_Rate_Summary.xlsx. Without the secret it only rebuilds from cached data.
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        shell: bash
+        run: |
+          python -m merolagani_notices.extract --notices notices --report reports/Interest_Rate_Summary.xlsx 2>&1 | tee -a run.log
+
+      - name: Commit changes
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A notices
+          git add -A notices reports
           if git diff --cached --quiet; then
             echo "No new notices."
             echo "### No new interest-rate notices" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          added=$(git diff --cached --name-only --diff-filter=A -- notices ':!notices/manifest.csv' | wc -l)
-          removed=$(git diff --cached --name-only --diff-filter=D -- notices ':!notices/manifest.csv' | wc -l)
-          git commit -m "Latest notices: $added added, $removed replaced - $(date -u +%Y-%m-%d)"
+          added=$(git diff --cached --name-only --diff-filter=A -- notices ':!notices/manifest.csv' ':!notices/extracted' | wc -l)
+          removed=$(git diff --cached --name-only --diff-filter=D -- notices ':!notices/manifest.csv' ':!notices/extracted' | wc -l)
+          git commit -m "Latest notices: $added added, $removed replaced; Excel updated - $(date -u +%Y-%m-%d)"
           git pull --rebase origin main
           git push origin HEAD:main
           {
             echo "### $added new notice file(s), $removed older file(s) replaced"
             echo '```'
-            grep -E '^(===|---|  \+)' run.log || true
+            grep -E '^(===|---|  [+!]|Report|Extracting|OPENAI)' run.log || true
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 

@@ -1,0 +1,33 @@
+{
+  "symbol": "SCB",
+  "bank": "Standard Chartered Bank Nepal Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67526,
+  "effective": "17 Sep 2026",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67526",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    3.75
+  ],
+  "call": "Up to 0.20%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 3.75,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "partial": false,
+  "notes": [
+    "Latest SCB notice (22 Sep 2026) only amends FCY FD rates; NPR rates taken from SCB's 16 Sep notice.",
+    "Non-individual FD: '1 year and above' 2.75%."
+  ],
+  "extracted_by": "manual (2026-09-26)"
+}

@@ -1,0 +1,43 @@
+{
+  "symbol": "NABIL",
+  "bank": "Nabil Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67438,
+  "effective": "17 Sep 2026 (1 Ashwin 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67438",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.77,
+    2.77,
+    2.77,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    3.8
+  ],
+  "call": "As per agreement",
+  "ind_lt1": 2.85,
+  "ind_1y": 2.85,
+  "ind_gt1": 4.25,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.01,
+  "partial": false,
+  "notes": [
+    "NPR call rate not published; notice says call deposit rate is as per agreement.",
+    "Individual '6 months to 1 year' 2.85% used as 1 Year ('Above 1 to 2 years' is 3.00%)."
+  ],
+  "extracted_by": "manual (2026-09-26)"
+}

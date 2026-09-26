@@ -1,0 +1,35 @@
+{
+  "symbol": "NABBC",
+  "bank": "Narayani Development Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67417,
+  "effective": "Ashwin 01, 2083 (17 Sep 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67417",
+  "saving_rates": [
+    3.5,
+    3.5,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "call": "1.375%",
+  "ind_lt1": 4.95,
+  "ind_1y": 5.15,
+  "ind_gt1": 5.15,
+  "inst_lt1": 4.95,
+  "inst_1y": 5.15,
+  "inst_gt1": 5.15,
+  "partial": false,
+  "notes": [
+    "Individual FD: 3-6M 4.75%, 6-12M 4.95%, 12M above 5.15%.",
+    "Institutional FD: 3-6M N/A, 6-12M 4.95%, 12M above 5.15% (12M above used as 1 Year)."
+  ],
+  "extracted_by": "manual (2026-09-26)"
+}

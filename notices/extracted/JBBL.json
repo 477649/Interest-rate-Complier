@@ -1,0 +1,43 @@
+{
+  "symbol": "JBBL",
+  "bank": "Jyoti Bikas Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67422,
+  "effective": "Ashwin 01, 2083 (17 Sep 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67422",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.8,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "call": "Up to 1.375%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.28,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "partial": false,
+  "notes": [
+    "Individual: 3M 2.75%, 6M to below 3Y 2.75%, 3-5Y 2.75%, 5Y+ 4.28%.",
+    "Institutional: 3M '-', all other tenures 2.75%."
+  ],
+  "extracted_by": "manual (2026-09-26)"
+}

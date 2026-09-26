@@ -1,0 +1,28 @@
+{
+  "symbol": "SBI",
+  "bank": "Nepal SBI Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67428,
+  "effective": "17 Sep 2026 (1st Ashwin 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67428",
+  "saving_rates": [
+    2.75,
+    2.76,
+    2.77,
+    2.77,
+    2.78,
+    2.79,
+    2.8,
+    2.8
+  ],
+  "call": "Up to 0.75%",
+  "ind_lt1": 3.0,
+  "ind_1y": 3.2,
+  "ind_gt1": 4.1,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "partial": false,
+  "notes": [],
+  "extracted_by": "manual (2026-09-26)"
+}

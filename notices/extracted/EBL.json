@@ -1,0 +1,33 @@
+{
+  "symbol": "EBL",
+  "bank": "Everest Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67385,
+  "effective": "17 Sep 2026 (1 Ashoj 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67385",
+  "saving_rates": [
+    3.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "call": "Up to 0.50%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 3.75,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.25,
+  "partial": false,
+  "notes": [
+    "Individual 'Above 3 years' corrected from 3.50% to 3.75% per EBL correction notice (17 Sep 2026).",
+    "'3 months upto 3 years' 2.75% covers <1Y and 1Y."
+  ],
+  "extracted_by": "manual (2026-09-26)"
+}

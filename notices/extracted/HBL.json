@@ -1,0 +1,22 @@
+{
+  "symbol": "HBL",
+  "bank": "Himalayan Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67442,
+  "effective": "Ashwin 01, 2083 (17 Sep 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67442",
+  "saving_rates": [],
+  "call": "Not specified",
+  "ind_lt1": "Not specified",
+  "ind_1y": "Not specified",
+  "ind_gt1": "Not specified",
+  "inst_lt1": "Not specified",
+  "inst_1y": "Not specified",
+  "inst_gt1": "Not specified",
+  "partial": false,
+  "notes": [
+    "This notice only revises USD FD and fixed-rate loans; it states other deposit rates 'remain as it is'.",
+    "NPR saving/call/FD rates are not in the notice (see HBL's earlier notice or website)."
+  ],
+  "extracted_by": "manual (2026-09-26)"
+}
