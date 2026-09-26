@@ -37,7 +37,7 @@ Files are named `<date>_<symbol>_<announcement id>.<ext>`. The announcement ID l
 
 ## Setup
 
-Requires Python 3.9 or newer.
+Requires Python 3.10 or newer.
 
 ```bash
 git clone https://github.com/477649/Interest-rate-Complier.git
@@ -98,7 +98,7 @@ Two workflows live in `.github/workflows/`:
 
 | Workflow | When | What it does |
 |---|---|---|
-| **Tests** (`tests.yml`) | Every push and pull request | Runs the unit tests on Python 3.9 and 3.13 |
+| **Tests** (`tests.yml`) | Every push and pull request | Runs the unit tests on Python 3.10 and 3.13 |
 | **Download interest-rate notices** (`download-notices.yml`) | Daily at 09:00 Nepal time, or manually | Downloads new notices and commits them to the **`notices` branch** |
 
 Downloaded files go to a separate `notices` branch (created on the first run), so `main` stays
