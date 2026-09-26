@@ -7,12 +7,17 @@ It does the same thing as filtering the Announcements page by
 **Sector → Development Bank / Commercial Banks** and **Announcement Type → Interest Rate**,
 opening each notice and saving its image, but for every bank in one run.
 
+- Keeps **only the latest notice of each bank** by default, replacing older ones when a new notice
+  comes out (`--all` keeps every notice instead)
 - Processes **Development Banks first, then Commercial Banks**
 - Saves the **original notice file** (image or PDF) at full quality, with an optional PNG copy
 - One folder per bank, named by symbol and bank name
 - Writes a `manifest.csv` listing every file (opens in Excel)
-- **Resumable**: already-downloaded notices are skipped on the next run
+- Skips notices that are already saved, so re-runs are quick
 - Polite by default: waits 1 second between requests and retries on errors
+
+> **📁 The latest notices are in the [`notices/`](notices) folder of this repository**, updated
+> automatically every day by GitHub Actions.
 
 ## Output
 
@@ -51,26 +56,26 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-# Current fiscal year, development banks then commercial banks
+# Latest notice of each bank: development banks, then commercial banks
 python -m merolagani_notices
 
-# Only the latest notice of each bank, plus PNG copies
-python -m merolagani_notices --latest-only --png
+# Same, plus PNG copies
+python -m merolagani_notices --png
 
-# A specific Nepali fiscal year
-python -m merolagani_notices --fiscal-year 082-083
+# Every notice of the current fiscal year (not just the latest)
+python -m merolagani_notices --all
 
-# Everything published since a date
-python -m merolagani_notices --all-years --since 2025-07-17
+# Every notice published since a date
+python -m merolagani_notices --all --all-years --since 2025-07-17
 
 # Full history (thousands of files, takes a while)
-python -m merolagani_notices --all-years
+python -m merolagani_notices --all --all-years
 
 # Only commercial banks
 python -m merolagani_notices --sectors commercial
 
 # Preview what would be downloaded, without saving anything
-python -m merolagani_notices --latest-only --dry-run
+python -m merolagani_notices --dry-run
 ```
 
 ### Options
@@ -81,7 +86,8 @@ python -m merolagani_notices --latest-only --dry-run
 | `--fiscal-year 083-084` | Nepali fiscal year (default: the latest one listed on the site) |
 | `--all-years` | Ignore fiscal year and go through the full history |
 | `--since YYYY-MM-DD` | Only notices published on or after this date |
-| `--latest-only` | Keep just the most recent notice per bank |
+| `--all` | Download every notice in the period, not just each bank's latest |
+| `--keep-old` | Don't delete a bank's older notice when a newer one is saved |
 | `--keyword TEXT` | Title text to match (repeatable; default `interest rate`) |
 | `-o, --output DIR` | Output folder (default `./notices`) |
 | `--png` | Also save a PNG copy of each image notice |
@@ -99,22 +105,14 @@ Two workflows live in `.github/workflows/`:
 | Workflow | When | What it does |
 |---|---|---|
 | **Tests** (`tests.yml`) | Every push and pull request | Runs the unit tests on Python 3.10 and 3.13 |
-| **Download interest-rate notices** (`download-notices.yml`) | Daily at 09:00 Nepal time, or manually | Downloads new notices and commits them to the **`notices` branch** |
+| **Download interest-rate notices** (`download-notices.yml`) | Daily at 09:00 Nepal time, or manually | Updates the **`notices/` folder** with each bank's latest notice |
 
-Downloaded files go to a separate `notices` branch (created on the first run), so `main` stays
-code-only. That branch holds the same bank-wise folders and `manifest.csv` described above. Because
-the manifest is kept there, each run downloads only notices it hasn't saved before.
+The workflow commits into the [`notices/`](notices) folder on `main`: the bank-wise folders and
+`manifest.csv` described above. When a bank publishes a new notice, its previous file is replaced;
+older versions remain available in the git history.
 
 **Run it by hand:** open the **Actions** tab → *Download interest-rate notices* → **Run workflow**,
-then choose the sectors, fiscal year, full history, latest-only or PNG copies. The run summary lists
-the notices that were added.
-
-**Browse the results:** switch the branch dropdown on GitHub from `main` to `notices`, or:
-
-```bash
-git fetch origin notices
-git switch notices
-```
+then choose the sectors, fiscal year, every notice or PNG copies. The run summary lists what changed.
 
 GitHub pauses scheduled workflows in repositories with no activity for 60 days. Re-enable it from
 the Actions tab if that happens.
@@ -138,7 +136,8 @@ the Actions tab if that happens.
 ```
 .github/workflows/
 ├── tests.yml             # CI: unit tests
-└── download-notices.yml  # daily / manual download to the `notices` branch
+└── download-notices.yml  # daily / manual update of notices/
+notices/                  # latest notice of every bank (maintained by the workflow)
 merolagani_notices/
 ├── __main__.py   # enables `python -m merolagani_notices`
 ├── cli.py        # command-line options and the main download loop

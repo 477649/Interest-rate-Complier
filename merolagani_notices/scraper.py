@@ -55,7 +55,8 @@ def is_interest_rate(title: str, keywords: tuple[str, ...] = DEFAULT_KEYWORDS) -
     return any(k.lower() in text for k in keywords)
 
 
-_PUBLISHED_RE = re.compile(r"\s+has\s+published\b", re.IGNORECASE)
+# "<Bank> has published ...", "<Bank> has made correction ...", "<Bank> published a notice ..."
+_PUBLISHED_RE = re.compile(r"\s+(?:has|have)\s+|\s+(?:re-?)?published\b", re.IGNORECASE)
 
 
 def company_from_title(title: str) -> str:

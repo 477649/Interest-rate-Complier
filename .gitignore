@@ -1,6 +1,3 @@
-# downloaded notices (re-create them by running the tool)
-notices/
-
 # Python
 __pycache__/
 *.py[cod]

@@ -70,6 +70,27 @@ class Manifest:
     def __contains__(self, announcement_id: int) -> bool:
         return announcement_id in self.ids
 
+    def drop_older(self, symbol: str, keep_id: int) -> list[str]:
+        """Remove a bank's rows for every notice except ``keep_id``; return their file paths."""
+        if not self.path.exists():
+            return []
+        with self.path.open(newline="", encoding="utf-8-sig") as fh:
+            rows = list(csv.DictReader(fh))
+        keep, dropped = [], []
+        for row in rows:
+            if row.get("symbol") == symbol and row.get("announcement_id") != str(keep_id):
+                dropped.append(row)
+            else:
+                keep.append(row)
+        if not dropped:
+            return []
+        with self.path.open("w", newline="", encoding="utf-8-sig") as fh:
+            writer = csv.DictWriter(fh, fieldnames=MANIFEST_FIELDS, extrasaction="ignore")
+            writer.writeheader()
+            writer.writerows(keep)
+        self.ids = {int(r["announcement_id"]) for r in keep if r.get("announcement_id", "").isdigit()}
+        return [r["file"] for r in dropped if r.get("file")]
+
     def add(self, rows: list[dict]) -> None:
         if not rows:
             return

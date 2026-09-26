@@ -71,6 +71,10 @@ class FilterTests(unittest.TestCase):
     def test_company_from_title(self):
         self.assertEqual(company_from_title("Garima Bikas Bank Limited has published a notice"),
                          "garima bikas bank limited")
+        self.assertEqual(company_from_title("Everest Bank Limited has made correction on its rates"),
+                         "everest bank limited")
+        self.assertEqual(company_from_title("Nabil Bank Limited published a notice regarding rates"),
+                         "nabil bank limited")
         self.assertEqual(company_from_title("No publisher phrase here"), "")
 
     def test_sector_order_is_development_then_commercial(self):
@@ -100,6 +104,21 @@ class StorageTests(unittest.TestCase):
             self.assertIn(5, Manifest(path))
             with path.open(encoding="utf-8-sig", newline="") as fh:
                 self.assertEqual(next(csv.DictReader(fh))["company"], "Nabil Bank Limited")
+
+    def test_drop_older_keeps_only_latest_notice_per_bank(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = Manifest(Path(tmp) / "manifest.csv")
+            manifest.add([
+                {"symbol": "NABIL", "announcement_id": 1, "file": "Commercial Banks/NABIL/old.gif"},
+                {"symbol": "NABIL", "announcement_id": 2, "file": "Commercial Banks/NABIL/new.gif"},
+                {"symbol": "SCB", "announcement_id": 3, "file": "Commercial Banks/SCB/scb.gif"},
+            ])
+            self.assertEqual(manifest.drop_older("NABIL", keep_id=2), ["Commercial Banks/NABIL/old.gif"])
+            reloaded = Manifest(Path(tmp) / "manifest.csv")
+            self.assertNotIn(1, reloaded)
+            self.assertIn(2, reloaded)
+            self.assertIn(3, reloaded)
+            self.assertEqual(manifest.drop_older("NABIL", keep_id=2), [])
 
 
 if __name__ == "__main__":
