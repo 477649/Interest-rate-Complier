@@ -1,0 +1,38 @@
+{
+  "symbol": "MLBL",
+  "bank": "Mahalaxmi Bikas Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 66791,
+  "notice_date": "2026-08-16",
+  "effective": "17 Aug 2026 (1st Bhadra 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66791",
+  "saving_rates": [
+    3.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "call": "As per NRB guidelines",
+  "ind_lt1": "Not specified",
+  "ind_1y": 2.9,
+  "ind_gt1": 4.5,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 4.45,
+  "partial": false,
+  "notes": [
+    "FD starts at 1 year; in-person individual rates used."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

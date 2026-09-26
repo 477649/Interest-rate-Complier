@@ -1,0 +1,35 @@
+{
+  "symbol": "SCB",
+  "bank": "Standard Chartered Bank Nepal Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 66798,
+  "notice_date": "2026-08-16",
+  "effective": "17 Aug 2026",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66798",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    3.75
+  ],
+  "call": "Up to 0.25%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 3.8,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "partial": false,
+  "notes": [
+    "Individual '6 months to 5 years' 2.75% covers <1Y and 1Y; non-individual '1 year and above' 2.75%."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

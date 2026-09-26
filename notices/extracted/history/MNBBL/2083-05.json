@@ -1,0 +1,27 @@
+{
+  "symbol": "MNBBL",
+  "bank": "Muktinath Bikas Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 66790,
+  "notice_date": "2026-08-16",
+  "effective": "1st Bhadra 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66790",
+  "saving_rates": [
+    2.8,
+    2.8,
+    2.75,
+    3.75
+  ],
+  "call": "Up to 1.00%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.41,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.25,
+  "partial": false,
+  "notes": [],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

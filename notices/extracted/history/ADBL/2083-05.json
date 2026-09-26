@@ -1,0 +1,43 @@
+{
+  "symbol": "ADBL",
+  "bank": "Agricultural Development Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 66818,
+  "notice_date": "2026-08-16",
+  "effective": "Bhadra 01, 2083 (17 Aug 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66818",
+  "saving_rates": [
+    2.78,
+    2.78,
+    2.78,
+    2.78,
+    2.92,
+    3.15,
+    3.16,
+    3.39,
+    3.39,
+    2.78,
+    2.78,
+    3.39,
+    2.78,
+    3.38,
+    3.38,
+    3.38,
+    4.39,
+    4.39
+  ],
+  "call": "0.60%",
+  "ind_lt1": 2.78,
+  "ind_1y": 2.78,
+  "ind_gt1": 4.15,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "partial": false,
+  "notes": [
+    "General FD used; FCY saving and special FD schemes excluded."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

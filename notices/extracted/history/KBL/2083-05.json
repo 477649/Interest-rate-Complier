@@ -1,0 +1,32 @@
+{
+  "symbol": "KBL",
+  "bank": "Kumari Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 66813,
+  "notice_date": "2026-08-16",
+  "effective": "01 Bhadra 2083 (17 Aug 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66813",
+  "saving_rates": [
+    4.31,
+    2.91,
+    3.91,
+    2.91,
+    3.31,
+    2.91,
+    2.75
+  ],
+  "call": "Up to 0.81%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 3.46,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.01,
+  "partial": false,
+  "notes": [
+    "In-person individual FD rates used."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

@@ -1,0 +1,25 @@
+{
+  "symbol": "NICA",
+  "bank": "NIC Asia Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 66806,
+  "notice_date": "2026-08-16",
+  "effective": "1st Bhadra 2083 (17 Aug 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66806",
+  "saving_rates": [
+    3.25,
+    2.75
+  ],
+  "call": "Up to 1.37%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.0,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.0,
+  "partial": false,
+  "notes": [],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

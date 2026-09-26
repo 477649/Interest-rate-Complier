@@ -1,0 +1,24 @@
+{
+  "symbol": "HBL",
+  "bank": "Himalayan Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 66814,
+  "notice_date": "2026-08-16",
+  "effective": "Bhadra 2083 (Nepali notice)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66814",
+  "saving_rates": [],
+  "call": "Not specified",
+  "ind_lt1": "Not specified",
+  "ind_1y": "Not specified",
+  "ind_gt1": "Not specified",
+  "inst_lt1": "Not specified",
+  "inst_1y": "Not specified",
+  "inst_gt1": "Not specified",
+  "partial": false,
+  "notes": [
+    "Notice says Shrawan 2083 rates remain unchanged for Bhadra; no rates listed (Shrawan notice not extracted)."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

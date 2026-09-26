@@ -1,0 +1,37 @@
+{
+  "symbol": "NABBC",
+  "bank": "Narayani Development Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 66789,
+  "notice_date": "2026-08-16",
+  "effective": "Bhadra 1st 2083 (17 Aug 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66789",
+  "saving_rates": [
+    3.52,
+    3.52,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "call": "1.375%",
+  "ind_lt1": 5.2,
+  "ind_1y": 5.4,
+  "ind_gt1": 5.4,
+  "inst_lt1": 5.2,
+  "inst_1y": 5.4,
+  "inst_gt1": 5.4,
+  "partial": false,
+  "notes": [
+    "'12 Months above' used as both 1 Year and >1 Year."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

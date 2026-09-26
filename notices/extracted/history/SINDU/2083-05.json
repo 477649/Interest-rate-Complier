@@ -1,0 +1,25 @@
+{
+  "symbol": "SINDU",
+  "bank": "Sindhu Bikash Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 66785,
+  "notice_date": "2026-08-16",
+  "effective": "2083/05/01 (Nepali notice)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66785",
+  "saving_rates": [],
+  "call": "Not specified",
+  "ind_lt1": "Not specified",
+  "ind_1y": 4.41,
+  "ind_gt1": 4.41,
+  "inst_lt1": "Not specified",
+  "inst_1y": "Not specified",
+  "inst_gt1": "Not specified",
+  "partial": false,
+  "notes": [
+    "Partial notice: only Bima Suraksha saving (2.75%) and individual FD '1 year or above' (4.41%) listed;",
+    "other Bhadra rates stated to be unchanged from Shrawan 2083 (Shrawan notice not extracted), so shown as Not specified."
+  ],
+  "extracted_by": "manual (2026-09-26)",
+  "month": "2083-05",
+  "month_label": "Bhadra 2083"
+}

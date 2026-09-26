@@ -165,7 +165,9 @@ def latest_notices(notices_dir: Path) -> list[dict]:
             if not row.get("file") or row["file"].lower().endswith(".pdf"):
                 continue
             current = banks.get(row["symbol"])
-            if current is None or int(row["announcement_id"]) > int(current["announcement_id"]):
+            # newest by publication date; IDs are not always chronological (e.g. correction notices)
+            order = lambda r: (r.get("date", ""), int(r["announcement_id"]))
+            if current is None or order(row) > order(current):
                 banks[row["symbol"]] = row
             elif row["announcement_id"] == current["announcement_id"] and row["file"].endswith(".png"):
                 banks[row["symbol"]] = row  # prefer the PNG copy when both exist

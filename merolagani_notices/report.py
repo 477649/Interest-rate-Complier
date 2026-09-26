@@ -54,7 +54,8 @@ def _number(value) -> float | None:
     """Rate as a number: 2.75 -> 2.75, 'Up to 1.375%' -> 1.375, 'As per agreement' -> None."""
     if isinstance(value, (int, float)) and not isinstance(value, bool):
         return float(value)
-    if isinstance(value, str) and "50%" not in value:  # "up to 50% of saving rate" is not a rate
+    # "up to 50% of minimum saving rate" describes a formula, not a rate
+    if isinstance(value, str) and not re.search(r"%\s+of\b", value, re.IGNORECASE):
         found = _NUM.findall(value)
         if len(found) == 1:
             return float(found[0])
