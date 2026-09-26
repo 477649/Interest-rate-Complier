@@ -53,6 +53,43 @@ def convert_to_png(data: bytes, target: Path) -> bool:
         return False
 
 
+SKIP_FIELDS = ["symbol", "company", "announcement_id", "date", "reason", "title", "source_url"]
+
+
+class SkipLog:
+    """Notices checked and found to repeat the bank's current rates (unchanged.csv).
+
+    Recorded so they are not fetched or compared again on later runs.
+    """
+
+    def __init__(self, path: Path) -> None:
+        self.path = path
+        self.ids: set[int] = set()
+        if path.exists():
+            with path.open(newline="", encoding="utf-8-sig") as fh:
+                for row in csv.DictReader(fh):
+                    if str(row.get("announcement_id", "")).isdigit():
+                        self.ids.add(int(row["announcement_id"]))
+
+    def __contains__(self, announcement_id: int) -> bool:
+        return announcement_id in self.ids
+
+    def add(self, row: dict) -> None:
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        new_file = not self.path.exists()
+        with self.path.open("a", newline="", encoding="utf-8-sig" if new_file else "utf-8") as fh:
+            writer = csv.DictWriter(fh, fieldnames=SKIP_FIELDS, extrasaction="ignore")
+            if new_file:
+                writer.writeheader()
+            writer.writerow(row)
+        self.ids.add(int(row["announcement_id"]))
+
+
+def file_digest(path: Path) -> str | None:
+    import hashlib
+    return hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
+
+
 class Manifest:
     """CSV record of every downloaded file; also used to skip notices already saved."""
 
@@ -69,6 +106,13 @@ class Manifest:
 
     def __contains__(self, announcement_id: int) -> bool:
         return announcement_id in self.ids
+
+    def files_for(self, symbol: str) -> list[str]:
+        """Relative paths of the files currently recorded for a bank."""
+        if not self.path.exists():
+            return []
+        with self.path.open(newline="", encoding="utf-8-sig") as fh:
+            return [r["file"] for r in csv.DictReader(fh) if r.get("symbol") == symbol and r.get("file")]
 
     def drop_older(self, symbol: str, keep_id: int) -> list[str]:
         """Remove a bank's rows for every notice except ``keep_id``; return their file paths."""

@@ -65,6 +65,17 @@ def company_from_title(title: str) -> str:
     return parts[0].strip().lower() if len(parts) == 2 else ""
 
 
+_UNCHANGED_RE = re.compile(
+    r"\bunchanged\b|\bremains?\s+(?:the\s+)?same\b|\bno\s+change\b|\bnot\s+been\s+changed\b|\bas\s+it\s+is\b",
+    re.IGNORECASE,
+)
+
+
+def says_unchanged(title: str) -> bool:
+    """True for notices announcing that the bank's rates stay the same as before."""
+    return bool(_UNCHANGED_RE.search(title))
+
+
 def iter_announcements(
     client: MeroLaganiClient, sector_id: int, fiscal_year: str = "", max_pages: int = 200
 ) -> Iterator[Announcement]:

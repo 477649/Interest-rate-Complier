@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import logging
 import sys
 from collections import defaultdict
@@ -15,8 +16,9 @@ from . import __version__
 from .client import MeroLaganiClient
 from .scraper import (
     DEFAULT_KEYWORDS, SECTORS, Sector, company_from_title, is_interest_rate, iter_announcements, parse_detail,
+    says_unchanged,
 )
-from .storage import Manifest, bank_folder, convert_to_png, guess_extension, safe_name
+from .storage import Manifest, SkipLog, bank_folder, convert_to_png, file_digest, guess_extension, safe_name
 
 log = logging.getLogger("merolagani_notices")
 
@@ -38,6 +40,8 @@ def build_parser() -> argparse.ArgumentParser:
                    help="download every notice in the period (default: only each bank's latest notice)")
     p.add_argument("--keep-old", action="store_true",
                    help="when a bank has a newer notice, keep its older files instead of deleting them")
+    p.add_argument("--force-update", action="store_true",
+                   help="replace a bank's notice even when the new one repeats the same rates")
     p.add_argument("--keyword", action="append", dest="keywords", metavar="TEXT",
                    help='title keyword to match (repeatable, default: "interest rate")')
     p.add_argument("-o", "--output", type=Path, default=Path("notices"),
@@ -53,13 +57,14 @@ def build_parser() -> argparse.ArgumentParser:
     return p
 
 
-def save_notice(client: MeroLaganiClient, notice, sector: Sector, root: Path, png: bool) -> list[dict]:
+def save_notice(client: MeroLaganiClient, notice, sector: Sector, root: Path, png: bool,
+                fetched: dict[str, tuple[bytes, str]] | None = None) -> list[dict]:
     folder = bank_folder(root, sector, notice)
     folder.mkdir(parents=True, exist_ok=True)
     stamp = notice.date.isoformat() if notice.date else "unknown-date"
     rows = []
     for index, url in enumerate(notice.attachments, start=1):
-        data, content_type = client.download(url)
+        data, content_type = (fetched or {}).get(url) or client.download(url)
         suffix = f"_{index}" if len(notice.attachments) > 1 else ""
         base = safe_name(f"{stamp}_{notice.symbol}_{notice.id}{suffix}", 120)
         target = folder / f"{base}{guess_extension(url, content_type)}"
@@ -99,8 +104,27 @@ def remove_files(root: Path, relative_paths: list[str]) -> int:
     return count
 
 
-def run_sector(client, sector: Sector, args, fiscal_year: str, manifest: Manifest | None) -> dict:
-    stats = {"matched": 0, "downloaded": 0, "skipped": 0, "no_attachment": 0, "failed": 0, "removed": 0}
+def same_as_current(client: MeroLaganiClient, notice, root: Path, manifest: Manifest,
+                    ) -> tuple[bool, dict[str, tuple[bytes, str]]]:
+    """Fetch the new notice's files and compare them with the bank's current files.
+
+    Returns (identical, fetched) so a changed notice can be saved without downloading twice.
+    """
+    current = {file_digest(root / f) for f in manifest.files_for(notice.symbol)} - {None}
+    fetched: dict[str, tuple[bytes, str]] = {}
+    identical = bool(current)
+    for url in notice.attachments:
+        data, ctype = client.download(url)
+        fetched[url] = (data, ctype)
+        if hashlib.sha256(data).hexdigest() not in current:
+            identical = False
+    return identical, fetched
+
+
+def run_sector(client, sector: Sector, args, fiscal_year: str, manifest: Manifest | None,
+               skips: SkipLog | None = None) -> dict:
+    stats = {"matched": 0, "downloaded": 0, "skipped": 0, "unchanged": 0, "no_attachment": 0,
+             "failed": 0, "removed": 0}
     banks: dict[str, int] = defaultdict(int)
     seen_banks: set[str] = set()
     keywords = tuple(args.keywords) if args.keywords else DEFAULT_KEYWORDS
@@ -126,6 +150,14 @@ def run_sector(client, sector: Sector, args, fiscal_year: str, manifest: Manifes
         if manifest is not None and ann.id in manifest and not latest:
             stats["skipped"] += 1
             log.debug("  already saved: %s", ann.id)
+            continue
+
+        # a newer notice already found to repeat this bank's current rates: nothing to do
+        if latest and skips is not None and ann.id in skips:
+            stats["unchanged"] += 1
+            if title_key:
+                seen_banks.add(title_key)
+            log.debug("  unchanged (recorded earlier): %s", ann.id)
             continue
 
         try:
@@ -162,8 +194,32 @@ def run_sector(client, sector: Sector, args, fiscal_year: str, manifest: Manifes
             log.info("  - %s  (no attachment) %s", label, notice.url)
             continue
 
+        fetched = None
+        has_current = latest and manifest is not None and bool(manifest.files_for(notice.symbol))
+        if has_current and not args.force_update:
+            # Rule: only replace the bank's current notice when the rates actually changed.
+            reason = None
+            if says_unchanged(notice.title):
+                reason = "title says rates are unchanged"
+            else:
+                try:
+                    identical, fetched = same_as_current(client, notice, args.output, manifest)
+                except (requests.RequestException, OSError) as exc:
+                    stats["failed"] += 1
+                    log.warning("  ! %s  download failed: %s", label, exc)
+                    continue
+                if identical:
+                    reason = "notice file identical to current one"
+            if reason:
+                stats["unchanged"] += 1
+                skips.add({"symbol": notice.symbol, "company": notice.company, "announcement_id": notice.id,
+                           "date": notice.date.isoformat() if notice.date else "", "reason": reason,
+                           "title": notice.title, "source_url": notice.url})
+                log.info("  = %s  unchanged (%s), keeping current notice", label, reason)
+                continue
+
         try:
-            rows = save_notice(client, notice, sector, args.output, args.png)
+            rows = save_notice(client, notice, sector, args.output, args.png, fetched)
         except (requests.RequestException, OSError) as exc:
             stats["failed"] += 1
             log.warning("  ! %s  download failed: %s", label, exc)
@@ -179,9 +235,10 @@ def run_sector(client, sector: Sector, args, fiscal_year: str, manifest: Manifes
             if removed:
                 log.info("      replaced %d older file%s", removed, "" if removed == 1 else "s")
 
-    log.info("--- %s: %d matching, %d downloaded, %d up to date, %d without attachment, %d failed, "
-             "%d old files removed", sector.name, stats["matched"], stats["downloaded"], stats["skipped"],
-             stats["no_attachment"], stats["failed"], stats["removed"])
+    log.info("--- %s: %d matching, %d downloaded, %d up to date, %d unchanged (skipped), "
+             "%d without attachment, %d failed, %d old files removed", sector.name, stats["matched"],
+             stats["downloaded"], stats["skipped"], stats["unchanged"], stats["no_attachment"],
+             stats["failed"], stats["removed"])
     return stats
 
 
@@ -204,11 +261,12 @@ def main(argv: list[str] | None = None) -> int:
         fiscal_year = years[0] if years else ""
 
     manifest = None if args.dry_run else Manifest(args.output / "manifest.csv")
+    skips = None if args.dry_run else SkipLog(args.output / "unchanged.csv")
     log.info("Saving to: %s", args.output.resolve() if not args.dry_run else "(dry run)")
 
     try:
         for key in args.sectors:
-            run_sector(client, SECTORS[key], args, fiscal_year, manifest)
+            run_sector(client, SECTORS[key], args, fiscal_year, manifest, skips)
     except KeyboardInterrupt:
         log.info("\nStopped. Re-run the same command to continue where you left off.")
         return 130

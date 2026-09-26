@@ -14,6 +14,9 @@ opening each notice and saving its image, but for every bank in one run.
 - One folder per bank, named by symbol and bank name
 - Writes a `manifest.csv` listing every file (opens in Excel)
 - Skips notices that are already saved, so re-runs are quick
+- **Only replaces a bank's notice when the rates changed**: a newer notice is skipped if its title says the
+  rates are unchanged, or if its file is identical to the current one. Skipped notices are listed in
+  `notices/unchanged.csv` and not checked again (`--force-update` overrides this)
 - Polite by default: waits 1 second between requests and retries on errors
 
 > **📁 The latest notices are in the [`notices/`](notices) folder of this repository**, updated
@@ -88,6 +91,7 @@ python -m merolagani_notices --dry-run
 | `--since YYYY-MM-DD` | Only notices published on or after this date |
 | `--all` | Download every notice in the period, not just each bank's latest |
 | `--keep-old` | Don't delete a bank's older notice when a newer one is saved |
+| `--force-update` | Replace a bank's notice even when the new one repeats the same rates |
 | `--keyword TEXT` | Title text to match (repeatable; default `interest rate`) |
 | `-o, --output DIR` | Output folder (default `./notices`) |
 | `--png` | Also save a PNG copy of each image notice |
