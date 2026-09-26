@@ -40,8 +40,8 @@ Files are named `<date>_<symbol>_<announcement id>.<ext>`. The announcement ID l
 Requires Python 3.9 or newer.
 
 ```bash
-git clone https://github.com/<your-username>/merolagani-interest-rate-notices.git
-cd merolagani-interest-rate-notices
+git clone https://github.com/477649/Interest-rate-Complier.git
+cd Interest-rate-Complier
 python -m venv .venv
 # Windows:  .venv\Scripts\activate
 # macOS/Linux:  source .venv/bin/activate
@@ -92,6 +92,33 @@ python -m merolagani_notices --latest-only --dry-run
 
 Stop at any time with `Ctrl+C`. Running the same command again continues where it left off.
 
+## Automatic downloads (GitHub Actions)
+
+Two workflows live in `.github/workflows/`:
+
+| Workflow | When | What it does |
+|---|---|---|
+| **Tests** (`tests.yml`) | Every push and pull request | Runs the unit tests on Python 3.9 and 3.13 |
+| **Download interest-rate notices** (`download-notices.yml`) | Daily at 09:00 Nepal time, or manually | Downloads new notices and commits them to the **`notices` branch** |
+
+Downloaded files go to a separate `notices` branch (created on the first run), so `main` stays
+code-only. That branch holds the same bank-wise folders and `manifest.csv` described above. Because
+the manifest is kept there, each run downloads only notices it hasn't saved before.
+
+**Run it by hand:** open the **Actions** tab → *Download interest-rate notices* → **Run workflow**,
+then choose the sectors, fiscal year, full history, latest-only or PNG copies. The run summary lists
+the notices that were added.
+
+**Browse the results:** switch the branch dropdown on GitHub from `main` to `notices`, or:
+
+```bash
+git fetch origin notices
+git switch notices
+```
+
+GitHub pauses scheduled workflows in repositories with no activity for 60 days. Re-enable it from
+the Actions tab if that happens.
+
 ## How it works
 
 1. **Listing:** the Announcements page loads results from a JSON endpoint
@@ -109,6 +136,9 @@ Stop at any time with `Ctrl+C`. Running the same command again continues where i
 ## Project structure
 
 ```
+.github/workflows/
+├── tests.yml             # CI: unit tests
+└── download-notices.yml  # daily / manual download to the `notices` branch
 merolagani_notices/
 ├── __main__.py   # enables `python -m merolagani_notices`
 ├── cli.py        # command-line options and the main download loop

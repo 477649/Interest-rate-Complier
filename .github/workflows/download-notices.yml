@@ -1,0 +1,118 @@
+name: Download interest-rate notices
+
+# Runs every day and can also be started by hand from the Actions tab.
+# Downloaded notices are committed to the `notices` branch (created on the first run),
+# which keeps `main` code-only. Its manifest.csv lets each run fetch only new notices.
+
+on:
+  schedule:
+    - cron: "15 3 * * *" # 03:15 UTC = 09:00 Nepal time
+  workflow_dispatch:
+    inputs:
+      sectors:
+        description: "Sectors to process"
+        type: choice
+        options: ["development commercial", "development", "commercial"]
+        default: "development commercial"
+      fiscal_year:
+        description: "Nepali fiscal year, e.g. 083-084 (blank = latest on the site)"
+        type: string
+        default: ""
+      all_years:
+        description: "Download the full history (ignores fiscal year)"
+        type: boolean
+        default: false
+      latest_only:
+        description: "Only the most recent notice for each bank"
+        type: boolean
+        default: false
+      png:
+        description: "Also save PNG copies"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: download-notices
+  cancel-in-progress: false
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check out the notices branch into ./data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin notices > /dev/null; then
+            git fetch --depth=1 origin notices:notices
+            git worktree add data notices
+          else
+            echo "No notices branch yet - creating it."
+            git worktree add --orphan -b notices data
+          fi
+
+      - name: Build options
+        id: opts
+        env:
+          SECTORS: ${{ inputs.sectors || 'development commercial' }}
+          FISCAL_YEAR: ${{ inputs.fiscal_year }}
+          ALL_YEARS: ${{ inputs.all_years }}
+          LATEST_ONLY: ${{ inputs.latest_only }}
+          PNG: ${{ inputs.png }}
+        run: |
+          args="--sectors $SECTORS"
+          if [ "$ALL_YEARS" = "true" ]; then
+            args="$args --all-years"
+          elif [ -n "$FISCAL_YEAR" ]; then
+            args="$args --fiscal-year $FISCAL_YEAR"
+          fi
+          [ "$LATEST_ONLY" = "true" ] && args="$args --latest-only"
+          [ "$PNG" = "true" ] && args="$args --png"
+          echo "args=$args" >> "$GITHUB_OUTPUT"
+
+      - name: Download notices
+        shell: bash # enables pipefail, so a scraper error fails the step despite `tee`
+        run: |
+          python -m merolagani_notices ${{ steps.opts.outputs.args }} --output data 2>&1 | tee run.log
+
+      - name: Commit new notices
+        working-directory: data
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No new notices."
+            echo "### No new interest-rate notices" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          count=$(git diff --cached --name-only -- ':!manifest.csv' | wc -l)
+          git commit -m "Add $count notice file(s) - $(date -u +%Y-%m-%d)"
+          git push origin notices
+          {
+            echo "### Added $count notice file(s)"
+            echo '```'
+            grep -E '^(===|---|  \+)' ../run.log || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload run log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-log
+          path: run.log
+          if-no-files-found: ignore
