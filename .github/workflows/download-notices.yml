@@ -113,9 +113,10 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Email the Excel report
-        # Sent when the report changed, or when "send_email" is ticked on a manual run.
+        # Checked every day. Sent once per Nepali month, only when at least 90% of the banks on the
+        # Interest Rate Summary have published their notice for that month. "send_email" on a manual
+        # run sends regardless.
         # Needs secrets SMTP_HOST, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, MAIL_TO (MAIL_CC, MAIL_FROM optional).
-        if: steps.commit.outputs.changed == 'true' || inputs.send_email == true
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
@@ -124,7 +125,16 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
           MAIL_CC: ${{ secrets.MAIL_CC }}
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
-        run: python -m merolagani_notices.mailer --report reports/Interest_Rate_Summary.xlsx
+          FORCE: ${{ inputs.send_email == true && '--force' || '' }}
+        run: python -m merolagani_notices.mailer --report reports/Interest_Rate_Summary.xlsx --min-coverage 0.90 $FORCE
+
+      - name: Remember the emailed month
+        run: |
+          git add notices/email_state.json 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Report emailed: $(python -c "import json;print(json.load(open('notices/email_state.json'))['month_label'])")"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Upload run log
         if: always()

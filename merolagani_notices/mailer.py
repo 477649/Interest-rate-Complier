@@ -11,11 +11,13 @@ from __future__ import annotations
 
 import argparse
 import html
+import json
 import logging
 import os
 import smtplib
 import ssl
 import sys
+from datetime import datetime, timezone
 from email.message import EmailMessage
 from pathlib import Path
 
@@ -108,12 +110,65 @@ def send(msg: EmailMessage, host: str, port: int, username: str, password: str) 
             smtp.send_message(msg)
 
 
+def report_banks(store: dict[str, dict[str, dict]]) -> list[str]:
+    """Banks shown on the Interest Rate Summary sheet (same selection as the report)."""
+    from .report import SUMMARY_BANKS
+    banks = []
+    for symbol, bank_months in store.items():
+        sector = bank_months[max(bank_months)].get("sector", "")
+        if sector in SUMMARY_BANKS and symbol not in SUMMARY_BANKS[sector]:
+            continue
+        banks.append(symbol)
+    return sorted(banks)
+
+
+def coverage(history_dir: Path) -> dict:
+    """How many report banks have a notice for the newest month: {month, found, total, missing}."""
+    from . import history, months
+    store = history.load(history_dir) if history_dir.exists() else {}
+    banks = report_banks(store)
+    newest = max((m for s in banks for m in store[s]), default=None)
+    found = [s for s in banks if newest in store[s]]
+    return {"month": newest, "label": months.label(newest) if newest else "", "found": len(found),
+            "total": len(banks), "missing": [s for s in banks if s not in found]}
+
+
+def load_state(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="merolagani_notices.mailer", description="Email the Excel report.")
     p.add_argument("--report", type=Path, default=Path("reports/Interest_Rate_Summary.xlsx"))
+    p.add_argument("--history", type=Path, default=Path("notices/extracted/history"),
+                   help="month-wise history, used to check how many banks have published")
+    p.add_argument("--state", type=Path, default=Path("notices/email_state.json"),
+                   help="remembers which month was already emailed")
+    p.add_argument("--min-coverage", type=float, default=0.90,
+                   help="send only when this share of report banks has a notice for the new month (default 0.90)")
+    p.add_argument("--force", action="store_true", help="send regardless of coverage and previous sends")
     p.add_argument("--dry-run", action="store_true", help="build the email and print it, without sending")
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(message)s")
+
+    cov = coverage(args.history)
+    state = load_state(args.state)
+    share = cov["found"] / cov["total"] if cov["total"] else 0
+    log.info("%s: %d of %d report banks have published (%.0f%%, need %.0f%%).", cov["label"] or "No month",
+             cov["found"], cov["total"], share * 100, args.min_coverage * 100)
+    if cov["missing"]:
+        log.info("  Still waiting for: %s", ", ".join(cov["missing"]))
+    if not args.force and not args.dry_run:
+        if share < args.min_coverage:
+            log.info("Email not sent: waiting for more banks to publish.")
+            return 0
+        if state.get("last_emailed_month") == cov["month"]:
+            log.info("Email not sent: the %s report was already emailed on %s.", cov["label"],
+                     state.get("emailed_at", "an earlier run"))
+            return 0
 
     env = os.environ
     to, cc = _split(env.get("MAIL_TO")), _split(env.get("MAIL_CC"))
@@ -134,6 +189,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0  # not an error: email is optional
     send(msg, env["SMTP_HOST"], int(env.get("SMTP_PORT") or 587), username, env["SMTP_PASSWORD"])
     log.info("Report emailed to %s%s", ", ".join(to), f" (cc {', '.join(cc)})" if cc else "")
+    args.state.parent.mkdir(parents=True, exist_ok=True)
+    args.state.write_text(json.dumps({
+        "last_emailed_month": cov["month"], "month_label": cov["label"],
+        "emailed_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "banks_published": f"{cov['found']}/{cov['total']}", "forced": args.force,
+    }, indent=2), encoding="utf-8")
     return 0
 
 

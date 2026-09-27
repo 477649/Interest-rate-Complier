@@ -161,9 +161,16 @@ python -m merolagani_notices.extract --report-only   # rebuild Excel without cal
 
 ## Email the report
 
-After each run where the report changed, the workflow emails `Interest_Rate_Summary.xlsx` as an attachment,
-with a summary in the message (banks covered, rates increased/decreased, and which banks changed).
-Tick **send_email** when starting the workflow by hand to send it regardless.
+The workflow runs every day at 9:00 AM Nepal time and checks whether to email `Interest_Rate_Summary.xlsx`:
+
+- It is sent only when **at least 90% of the banks on the Interest Rate Summary sheet** have a notice for the
+  new Nepali month (e.g. 26 of 28). One or two early notices never trigger an email.
+- It is sent **once per month**; `notices/email_state.json` remembers the last month emailed.
+- Notices saying rates are unchanged count as published for that month.
+- Tick **send_email** when starting the workflow by hand to send it regardless.
+
+The run log shows the progress, e.g. `Kartik 2083: 12 of 28 report banks have published (43%, need 90%)`
+and which banks are still missing.
 
 Add these repository secrets (Settings → Secrets and variables → Actions):
 
