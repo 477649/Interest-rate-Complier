@@ -48,6 +48,25 @@ class FdBucketTests(unittest.TestCase):
         self.assertEqual(fd_buckets([row(6, None, 2.75)]), (2.75, 2.75, 2.75))
 
 
+class CallRuleTests(unittest.TestCase):
+    def test_derived_from_lowest_saving(self):
+        from merolagani_notices.rules import resolve_call
+        for text in ("As per agreement", "Negotiable as per NRB Directive",
+                     "Up to 50% of minimum saving deposit rate", "Negotiable (max 50% of lowest saving rate)"):
+            value, note = resolve_call(text, [2.75, 3.80])
+            self.assertEqual(value, "Up to 1.375%")
+            self.assertIn(text, note)
+        self.assertEqual(resolve_call("As per agreement", [2.77, 3.0])[0], "Up to 1.385%")
+        self.assertEqual(resolve_call("As per agreement", [2.80])[0], "Up to 1.40%")
+
+    def test_direct_rate_kept(self):
+        from merolagani_notices.rules import resolve_call
+        self.assertEqual(resolve_call("Up to 0.25%", [2.75]), ("Up to 0.25%", None))
+        self.assertEqual(resolve_call("0.45%", [2.77]), ("0.45%", None))
+        self.assertEqual(resolve_call(NS, [2.75]), (NS, None))
+        self.assertEqual(resolve_call("As per agreement", []), ("As per agreement", None))
+
+
 class FdPointTests(unittest.TestCase):
     def test_points_from_bands(self):
         from merolagani_notices.rules import fd_points

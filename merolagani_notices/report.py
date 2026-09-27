@@ -18,7 +18,7 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
 from . import history, months
-from .rules import NS, saving_min_max
+from .rules import NS, resolve_call, saving_min_max
 
 SECTOR_ORDER = ["Development Banks", "Commercial Banks"]
 
@@ -26,7 +26,7 @@ SECTOR_ORDER = ["Development Banks", "Commercial Banks"]
 METRICS = [
     ("Saving", "Min", lambda r: saving_min_max(r.get("saving_rates", []))[0]),
     ("Saving", "Max", lambda r: saving_min_max(r.get("saving_rates", []))[1]),
-    ("Call", "", lambda r: r.get("call", NS)),
+    ("Call", "", lambda r: resolve_call(r.get("call", NS), r.get("saving_rates", []))[0]),
     ("Individual FD", "Less Than 1 Year Max", lambda r: r.get("ind_lt1", NS)),
     ("Individual FD", "1 Year", lambda r: r.get("ind_1y", NS)),
     ("Individual FD", "More Than 1 Year Max", lambda r: r.get("ind_gt1", NS)),
@@ -178,6 +178,9 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
                 c += 3
             if now:
                 notes = list(now.get("notes", []))
+                call_note = resolve_call(now.get("call", NS), now.get("saving_rates", []))[1]
+                if call_note:
+                    notes.append(call_note)
                 if now.get("month") != current:
                     notes.insert(0, f"No new notice for {cur_label}; rates from {months.label(now['month'])}.")
                 notes_rows.append((now, notes))
@@ -322,7 +325,9 @@ def _notes_sheet(wb: Workbook, notes_rows: list, cur_label: str) -> None:
     rows = [("All banks", "", "", "",
              "Saving Max is the second highest saving rate, excluding the first highest. Call and FCY accounts "
              "are excluded from saving rates; loan, base and spread rates are excluded. Remittance FD rates are "
-             "excluded from Individual FD. Months follow the Nepali calendar (Shrawan to Ashadh).")]
+             "excluded from Individual FD. Where no direct call rate is published (negotiable / as per agreement / "
+             "50% of saving rate), Call = 'Up to' 50% of the lowest saving rate. Months follow the Nepali calendar "
+             "(Shrawan to Ashadh).")]
     for rec, notes in notes_rows:
         rows.append((rec["bank"], rec.get("sector", ""), rec.get("effective", ""),
                      rec.get("source_url", "Merolagani interest-rate notice"),

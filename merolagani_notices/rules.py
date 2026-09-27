@@ -5,6 +5,8 @@ Kept separate from the AI call so the rules are deterministic and unit-tested.
 
 from __future__ import annotations
 
+import re
+
 NS = "Not specified"
 
 
@@ -53,6 +55,30 @@ def fd_buckets(rows: list[dict]) -> tuple[float | str, float | str, float | str]
     y1 = max(one_year, key=lambda r: (r["from_months"], r["rate"]))["rate"] if one_year else NS
     gt1 = max(above) if above else NS
     return lt1, y1, gt1
+
+
+_HAS_RATE = re.compile(r"\d+(?:\.\d+)?\s*%")
+_PERCENT_OF = re.compile(r"%\s+of\b", re.IGNORECASE)
+
+
+def _fmt_pct(value: float) -> str:
+    text = f"{value:.3f}".rstrip("0")
+    return text + "0" if text.endswith(".") or len(text.split(".")[1]) < 2 else text
+
+
+def resolve_call(call, saving_rates: list[float]) -> tuple[str, str | None]:
+    """Call rate for the report, and a note when it was derived.
+
+    When the notice gives no direct call rate (e.g. "Negotiable", "As per agreement",
+    "Up to 50% of minimum saving rate"), use 50% of the lowest saving rate: "Up to x%".
+    """
+    text = str(call or "").strip()
+    has_direct_rate = bool(_HAS_RATE.search(text)) and not _PERCENT_OF.search(text)
+    rates = [float(r) for r in saving_rates or [] if isinstance(r, (int, float))]
+    if has_direct_rate or not text or text == NS or not rates:
+        return (text or NS), None
+    derived = f"Up to {_fmt_pct(min(rates) / 2)}%"
+    return derived, f"Call: notice says '{text}'; shown as 50% of lowest saving rate ({min(rates):.2f}%) = {derived}."
 
 
 FD_POINTS = [("3M", 3), ("6M", 6), ("1Y", 12), ("2Y", 24), ("3Y", 36), ("4Y", 48), ("5Y+", 60)]
