@@ -22,6 +22,12 @@ from .rules import NS, resolve_call, saving_min_max
 
 SECTOR_ORDER = ["Development Banks", "Commercial Banks"]
 
+# Banks shown per sector on the "Interest Rate Summary" sheet (other sheets list every bank).
+# A sector not listed here shows all of its banks.
+SUMMARY_BANKS = {
+    "Development Banks": ["GBBL", "JBBL", "KSBBL", "LBBL", "MLBL", "MNBBL", "SADBL", "SHINE"],
+}
+
 # (group, sub-label prefix, value getter)
 METRICS = [
     ("Saving", "Min", lambda r: saving_min_max(r.get("saving_rates", []))[0]),
@@ -153,6 +159,8 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
     first_data_row = r
     for sector in sectors:
         symbols = sorted(s for s, b in banks.items() if b["sector"] == sector)
+        if sector in SUMMARY_BANKS:
+            symbols = [s for s in symbols if s in SUMMARY_BANKS[sector]]
         if not symbols:
             continue
         ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=ncols)
