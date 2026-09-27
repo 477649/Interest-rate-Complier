@@ -26,6 +26,10 @@ on:
         description: "Also save PNG copies"
         type: boolean
         default: false
+      send_email:
+        description: "Email the Excel report even if nothing changed"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -80,16 +84,22 @@ jobs:
           python -m merolagani_notices.extract --notices notices --report reports/Interest_Rate_Summary.xlsx 2>&1 | tee -a run.log
 
       - name: Commit changes
+        id: commit
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A notices reports
+          # Only publish when the notice data changed; the Excel file is rebuilt every run
+          # but its bytes differ even with identical data, so it alone is not a change.
+          git add -A notices
           if git diff --cached --quiet; then
             echo "No new notices."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "### No new interest-rate notices" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git add -A reports
           added=$(git diff --cached --name-only --diff-filter=A -- notices ':!notices/manifest.csv' ':!notices/extracted' | wc -l)
           removed=$(git diff --cached --name-only --diff-filter=D -- notices ':!notices/manifest.csv' ':!notices/extracted' | wc -l)
           git commit -m "Latest notices: $added added, $removed replaced; Excel updated - $(date -u +%Y-%m-%d)"
@@ -101,6 +111,20 @@ jobs:
             grep -E '^(===|---|  [+!]|Report|Extracting|OPENAI)' run.log || true
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Email the Excel report
+        # Sent when the report changed, or when "send_email" is ticked on a manual run.
+        # Needs secrets SMTP_HOST, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, MAIL_TO (MAIL_CC, MAIL_FROM optional).
+        if: steps.commit.outputs.changed == 'true' || inputs.send_email == true
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_CC: ${{ secrets.MAIL_CC }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        run: python -m merolagani_notices.mailer --report reports/Interest_Rate_Summary.xlsx
 
       - name: Upload run log
         if: always()

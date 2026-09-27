@@ -159,6 +159,30 @@ python -m merolagani_notices.extract
 python -m merolagani_notices.extract --report-only   # rebuild Excel without calling the API
 ```
 
+## Email the report
+
+After each run where the report changed, the workflow emails `Interest_Rate_Summary.xlsx` as an attachment,
+with a summary in the message (banks covered, rates increased/decreased, and which banks changed).
+Tick **send_email** when starting the workflow by hand to send it regardless.
+
+Add these repository secrets (Settings → Secrets and variables → Actions):
+
+| Secret | Example | Notes |
+|---|---|---|
+| `SMTP_HOST` | `smtp.gmail.com` / `smtp.office365.com` | Your mail server |
+| `SMTP_PORT` | `587` | 587 = STARTTLS, 465 = SSL |
+| `SMTP_USERNAME` | `reports@yourbank.com` | Mailbox that sends the report |
+| `SMTP_PASSWORD` | app password | For Gmail/Outlook use an **app password**, not your normal password |
+| `MAIL_TO` | `ceo@bank.com, cfo@bank.com` | Comma-separated recipients |
+| `MAIL_CC` | `team@bank.com` | Optional |
+| `MAIL_FROM` | `Interest Rate Reports <reports@yourbank.com>` | Optional, defaults to `SMTP_USERNAME` |
+
+Without these secrets the email step is skipped quietly. Preview the email locally without sending:
+
+```bash
+python -m merolagani_notices.mailer --dry-run
+```
+
 ## How it works
 
 1. **Listing:** the Announcements page loads results from a JSON endpoint
