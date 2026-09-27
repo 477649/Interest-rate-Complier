@@ -35,18 +35,22 @@ METRICS = [
     ("Institution FD", "More Than 1 Year Max", lambda r: r.get("inst_gt1", NS)),
 ]
 
-_thin = Side(style="thin", color="8EA9C1")
+# Bank brand palette: blue #0B4EA2 (primary), green #8DC63F (accent); white body for presentation
+BRAND_BLUE = "0B4EA2"
+BRAND_GREEN = "8DC63F"
+_thin = Side(style="thin", color="C9D3E0")
 BORDER = Border(left=_thin, right=_thin, top=_thin, bottom=_thin)
-HEAD = PatternFill("solid", fgColor="0B2447")
-SUB = PatternFill("solid", fgColor="19376D")
-CHANGE_HEAD = PatternFill("solid", fgColor="24477F")
-SECTOR = PatternFill("solid", fgColor="D9E7F5")
-STRIPE = PatternFill("solid", fgColor="F5F9FD")
+HEAD = PatternFill("solid", fgColor=BRAND_BLUE)            # group headers
+SUB = PatternFill("solid", fgColor="2F6BBF")               # month / sub-headers (lighter brand blue)
+CHANGE_HEAD = PatternFill("solid", fgColor="6FA52E")       # "Changes"/"Difference" headers (deep brand green)
+SECTOR = PatternFill("solid", fgColor="EEF5E4")            # sector divider (soft brand green)
+STRIPE = PatternFill(fill_type=None)                       # no row banding: plain white body
 WHITE_BOLD = Font(bold=True, color="FFFFFF")
 CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
-UP = (PatternFill("solid", fgColor="C6EFCE"), Font(color="006100", bold=True))
-DOWN = (PatternFill("solid", fgColor="FFC7CE"), Font(color="9C0006", bold=True))
-SAME = (PatternFill("solid", fgColor="EDEDED"), Font(color="595959"))
+UP = (PatternFill("solid", fgColor="E3F1D3"), Font(color="3F6F12", bold=True))
+DOWN = (PatternFill("solid", fgColor="FBE3E1"), Font(color="B42318", bold=True))
+SAME = (PatternFill(fill_type=None), Font(color="6B7280"))
+TITLE = Font(bold=True, size=14, color=BRAND_BLUE)
 _NUM = re.compile(r"(\d+(?:\.\d+)?)\s*%?")
 
 
@@ -110,7 +114,7 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
     ncols = 1 + 3 * len(METRICS)
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=ncols)
     ws["A1"] = f"Bank Deposit Interest Rates — {cur_label} vs {prev_label}"
-    ws["A1"].font = Font(bold=True, size=14, color="0B2447")
+    ws["A1"].font = TITLE
     ws.row_dimensions[1].height = 26
 
     # headers: row 3 = group, row 4 = "<metric> <month>" / Changes
@@ -152,7 +156,7 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
         if not symbols:
             continue
         ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=ncols)
-        ws.cell(row=r, column=1, value=sector).font = Font(bold=True, color="0B2447")
+        ws.cell(row=r, column=1, value=sector).font = Font(bold=True, color=BRAND_BLUE)
         for c in range(1, ncols + 1):
             ws.cell(row=r, column=c).fill = SECTOR
             ws.cell(row=r, column=c).border = BORDER
@@ -186,6 +190,8 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
                 notes_rows.append((now, notes))
             r += 1
     last = max(r - 1, 4)
+    for rr in range(5, last + 1):  # uniform row height for a clean, printable table
+        ws.row_dimensions[rr].height = 20
 
     # conditional colours on the Changes columns (numbers only; '—' stays neutral)
     for c in change_cols:
@@ -227,7 +233,7 @@ def _dev_spread_sheet(wb: Workbook, store: dict, current: str | None, cur_label:
     ncols = 1 + 3 * len(SPREAD_POINTS)
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=ncols)
     ws["A1"] = f"Development Banks — Fixed Deposit: Individual vs Institutional ({cur_label})"
-    ws["A1"].font = Font(bold=True, size=14, color="0B2447")
+    ws["A1"].font = TITLE
     ws.row_dimensions[1].height = 26
 
     ws.merge_cells("A3:A4")
@@ -270,6 +276,8 @@ def _dev_spread_sheet(wb: Workbook, store: dict, current: str | None, cur_label:
                     cell.number_format = "+0.00%;-0.00%;0.00%"
         r += 1
     last = max(r - 1, 5)
+    for rr in range(5, last + 1):
+        ws.row_dimensions[rr].height = 20
 
     for c in diff_cols:
         letter = get_column_letter(c)
