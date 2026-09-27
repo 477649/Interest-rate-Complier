@@ -3,8 +3,10 @@
 Sheets:
   Interest Rate Summary  – Bank | Saving (Min, Max) | Call | Individual FD x3 | Institution FD x3,
                            each as <current month> | <previous month> | Changes
-  Monthly History        – every bank and every stored month (Shrawan ... Ashadh)
-  Notes                  – effective dates, sources and assumptions for the current month
+  Development FD Spread  – selected development banks: Individual vs Institutional FD by tenure
+  Monthly History        – every bank, last 12 Nepali months
+
+(No Notes sheet in the output; assumptions stay in the stored JSON records.)
 """
 
 from __future__ import annotations
@@ -227,8 +229,8 @@ def build_report(records: list[dict], path: Path, stale: list[str] | None = None
     ws.cell(row=last + 2, column=1, value=footer).font = Font(italic=True, size=9, color="5A6475")
 
     _dev_spread_sheet(wb, store, current, cur_label)
-    _history_sheet(wb, store)
-    _notes_sheet(wb, notes_rows, cur_label)
+    _history_sheet(wb, store, current)
+    # The Notes sheet is intentionally not included in the output workbook.
     wb.save(path)
 
 
@@ -310,7 +312,19 @@ def _dev_spread_sheet(wb: Workbook, store: dict, current: str | None, cur_label:
         Font(italic=True, size=9, color="5A6475")
 
 
-def _history_sheet(wb: Workbook, store: dict) -> None:
+HISTORY_MONTHS = 12  # Monthly History sheet shows the last 12 Nepali months
+
+
+def _last_months(current: str | None, count: int = HISTORY_MONTHS) -> set[str]:
+    keys, m = set(), current
+    for _ in range(count if current else 0):
+        keys.add(m)
+        m = months.previous(m)
+    return keys
+
+
+def _history_sheet(wb: Workbook, store: dict, current: str | None = None) -> None:
+    window = _last_months(current)
     hs = wb.create_sheet("Monthly History")
     headers = ["Bank", "Sector", "Month", "Fiscal Month #", "Saving Min", "Saving Max", "Call",
                "Individual FD <1Y Max", "Individual FD 1Y", "Individual FD >1Y Max",
@@ -321,6 +335,8 @@ def _history_sheet(wb: Workbook, store: dict) -> None:
     rows = []
     for symbol, bank_months in store.items():
         for month, rec in bank_months.items():
+            if window and month not in window:
+                continue
             rows.append((rec.get("sector", ""), rec.get("bank", symbol), month, rec))
     rows.sort(key=lambda x: (SECTOR_ORDER.index(x[0]) if x[0] in SECTOR_ORDER else 9, x[1], x[2]))
     for r, (sector, bank, month, rec) in enumerate(rows, start=2):

@@ -133,8 +133,28 @@ class RecordAndReportTests(unittest.TestCase):
             self.assertEqual(ws["D6"].value, 0)                         # saving min unchanged
             self.assertTrue(ws.conditional_formatting)                  # green/red colouring present
             self.assertEqual(wb.sheetnames,
-                             ["Interest Rate Summary", "Development FD Spread", "Monthly History", "Notes"])
+                             ["Interest Rate Summary", "Development FD Spread", "Monthly History"])
             self.assertEqual(wb["Monthly History"].max_row, 3)          # two months stored
+
+    def test_monthly_history_limited_to_last_12_months(self):
+        from merolagani_notices import history
+
+        with tempfile.TemporaryDirectory() as tmp:
+            hist = Path(tmp) / "history"
+            # 14 months: Ashadh 2082 (2082-03) ... Bhadra 2083 (2083-05)
+            month_keys = [f"2082-{m:02d}" for m in range(3, 13)] + [f"2083-{m:02d}" for m in range(1, 6)]
+            for i, key in enumerate(month_keys[-14:], start=1):
+                rec = to_record(self.RAW, {**self.NOTICE, "announcement_id": str(i)})
+                rec["month"] = key
+                history.save(hist, rec)
+            path = Path(tmp) / "out.xlsx"
+            build_report([], path, history_dir=hist)
+            hs = load_workbook(path)["Monthly History"]
+            shown = [hs.cell(row=r, column=3).value for r in range(2, hs.max_row + 1)]
+            self.assertEqual(len(shown), 12)
+            self.assertEqual(shown[0], "Ashwin 2082")      # 12 months back from Bhadra 2083
+            self.assertEqual(shown[-1], "Bhadra 2083")
+            self.assertEqual(len(list(hist.glob("*/*.json"))), 14)  # stored history untouched
 
     def test_history_keeps_newer_notice_within_month(self):
         from merolagani_notices import history
