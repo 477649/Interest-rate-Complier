@@ -22,7 +22,8 @@ from .rules import NS, resolve_call, saving_min_max
 
 SECTOR_ORDER = ["Development Banks", "Commercial Banks"]
 
-# Banks shown per sector on the "Interest Rate Summary" sheet (other sheets list every bank).
+# Banks shown per sector on the "Interest Rate Summary" and "Development FD Spread" sheets
+# (Monthly History lists every bank).
 # A sector not listed here shows all of its banks.
 SUMMARY_BANKS = {
     "Development Banks": ["GBBL", "JBBL", "KSBBL", "LBBL", "MLBL", "MNBBL", "SADBL", "SHINE"],
@@ -266,6 +267,8 @@ def _dev_spread_sheet(wb: Workbook, store: dict, current: str | None, cur_label:
     for i, symbol in enumerate(sorted(store)):
         rec = history.as_of(store[symbol], current) if current else None
         if not rec or rec.get("sector") != "Development Banks":
+            continue
+        if "Development Banks" in SUMMARY_BANKS and symbol not in SUMMARY_BANKS["Development Banks"]:
             continue
         points = rec.get("fd_points") or {}
         ind, inst = points.get("individual", {}), points.get("institutional", {})
