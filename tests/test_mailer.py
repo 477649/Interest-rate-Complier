@@ -26,8 +26,9 @@ class MailerTests(unittest.TestCase):
             self.assertEqual(msg["Subject"], "Deposit Interest Rate Report: Ashwin 2083 vs Bhadra 2083")
             self.assertEqual((msg["To"], msg["Cc"]), ("boss@example.com", "team@example.com"))
             text = msg.get_body(("plain",)).get_content()
-            self.assertIn("Rates decreased: 1", text)          # saving min 3.00 -> 2.75
-            self.assertIn("ABC Bank Ltd.: 0 up, 1 down", text)
+            # saving min 3.00 -> 2.75 and saving max (second highest) 3.00 -> 2.75
+            self.assertIn("Rates decreased: 2", text)
+            self.assertIn("ABC Bank Ltd.: 0 up, 2 down", text)
             attachments = list(msg.iter_attachments())
             self.assertEqual(attachments[0].get_filename(), "Interest_Rate_Summary.xlsx")
 
