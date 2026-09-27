@@ -1,0 +1,63 @@
+{
+  "symbol": "HBL",
+  "bank": "Himalayan Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 66412,
+  "notice_date": "2026-07-16",
+  "effective": "Shrawan 01, 2083 (17 Jul 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66412",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.8,
+    2.8,
+    3.0,
+    2.8,
+    4.25,
+    2.75,
+    2.75,
+    3.25,
+    2.8,
+    3.25,
+    3.25,
+    2.75,
+    2.75
+  ],
+  "call": "Up to 1.375%",
+  "ind_lt1": 2.9,
+  "ind_1y": 3.0,
+  "ind_gt1": 4.0,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.76,
+  "inst_gt1": 3.5,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.8,
+      "1Y": 3.0,
+      "2Y": 3.0,
+      "3Y": 3.5,
+      "4Y": 3.5,
+      "5Y+": 4.0
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.76,
+      "2Y": 2.76,
+      "3Y": 3.25,
+      "4Y": 3.25,
+      "5Y+": 3.5
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "month": "2083-04",
+  "month_label": "Shrawan 2083",
+  "notes": [
+    "Full notice. 100/200-day special FDs and HimalRemit FD excluded."
+  ],
+  "extracted_by": "manual (2026-09-27)"
+}

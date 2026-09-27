@@ -24,7 +24,7 @@ import requests
 
 from . import history
 from .report import build_report
-from .rules import NS, fd_buckets, fd_points, merge_partial
+from .rules import NS, fd_buckets, fd_points
 
 log = logging.getLogger("merolagani_notices.extract")
 
@@ -50,11 +50,12 @@ SCHEMA = {
     "schema": {
         "type": "object",
         "additionalProperties": False,
-        "required": ["bank_name", "effective_date", "is_partial_amendment", "saving_rates", "call",
-                     "individual_fd", "institutional_fd", "notes", "unclear"],
+        "required": ["bank_name", "effective_date", "rates_unchanged", "is_partial_amendment", "saving_rates",
+                     "call", "individual_fd", "institutional_fd", "notes", "unclear"],
         "properties": {
             "bank_name": {"type": "string"},
             "effective_date": {"type": "string"},
+            "rates_unchanged": {"type": "boolean"},
             "is_partial_amendment": {"type": "boolean"},
             "saving_rates": {"type": "array", "items": {
                 "type": "object", "additionalProperties": False, "required": ["product", "rate"],
@@ -73,8 +74,12 @@ Read the whole image carefully. Accuracy matters more than completeness: never g
 
 - bank_name: from the header/logo.
 - effective_date: as written (e.g. "1 Ashwin 2083 (17 Sep 2026)"); "" if absent.
-- is_partial_amendment: true if the notice only amends some rates (e.g. only FCY deposits or loans)
-  and says other rates remain unchanged.
+- rates_unchanged: true if the notice states that the bank's deposit interest rates remain unchanged /
+  the same as the previous month (English "remain unchanged", "remain the same", "as it is", or Nepali
+  equivalents such as "यथावत", "परिवर्तन नगरिएको", "साविक बमोजिम") and does not publish a new deposit rate table.
+- is_partial_amendment: true if the notice changes or lists only some deposit rates (e.g. only FCY deposits,
+  only fixed deposits, only loans) and says the other rates remain unchanged / as before.
+  Only list the rates actually printed in the notice; never copy rates you assume from earlier months.
 - saving_rates: every NPR (LCY) saving account product and its rate, one entry per product, including
   remittance, staff and special saving accounts. EXCLUDE call, current, margin, locker, recurring,
   fixed deposits and all foreign-currency (FCY/USD/EUR...) accounts.
@@ -144,11 +149,13 @@ def to_record(raw: dict, notice: dict) -> dict:
         "effective": raw.get("effective_date") or notice["date"],
         "source_url": notice["source_url"],
         "saving_rates": [s["rate"] for s in raw["saving_rates"]],
+        "saving_products": {s["product"]: s["rate"] for s in raw["saving_rates"]},
         "call": raw.get("call") or NS,
         "ind_lt1": ind[0], "ind_1y": ind[1], "ind_gt1": ind[2],
         "inst_lt1": inst[0], "inst_1y": inst[1], "inst_gt1": inst[2],
         "fd_points": {"individual": fd_points(raw["individual_fd"]),
                       "institutional": fd_points(raw["institutional_fd"])},
+        "unchanged": bool(raw.get("rates_unchanged")),
         "partial": bool(raw.get("is_partial_amendment")),
         "notes": notes,
         "extracted_by": "openai",
@@ -174,6 +181,34 @@ def latest_notices(notices_dir: Path) -> list[dict]:
             elif row["announcement_id"] == current["announcement_id"] and row["file"].endswith(".png"):
                 banks[row["symbol"]] = row  # prefer the PNG copy when both exist
     return sorted(banks.values(), key=lambda r: r["symbol"])
+
+
+def record_unchanged_notices(notices_dir: Path, history_dir: Path, cache: dict[str, dict]) -> int:
+    """File notices whose title says rates remain unchanged (skipped by the downloader, listed in
+    unchanged.csv) as that month's record, flagged so the report carries the previous month forward."""
+    path = notices_dir / "unchanged.csv"
+    if not path.exists():
+        return 0
+    count = 0
+    with path.open(newline="", encoding="utf-8-sig") as fh:
+        for row in csv.DictReader(fh):
+            symbol = row.get("symbol", "")
+            base = cache.get(symbol, {})
+            if not symbol or not base:
+                continue
+            record = {
+                "symbol": symbol, "bank": base.get("bank", row.get("company", symbol)),
+                "sector": base.get("sector", ""), "announcement_id": int(row["announcement_id"]),
+                "notice_date": row.get("date", ""), "effective": row.get("title", ""),
+                "source_url": row.get("source_url", ""), "saving_rates": [], "call": NS,
+                **{k: NS for k in ("ind_lt1", "ind_1y", "ind_gt1", "inst_lt1", "inst_1y", "inst_gt1")},
+                "unchanged": True, "partial": False,
+                "notes": [f"Notice title states rates remain unchanged ({row.get('reason', '')})."],
+                "extracted_by": "title rule",
+            }
+            if history.save(history_dir, record):
+                count += 1
+    return count
 
 
 def load_cache(folder: Path) -> dict[str, dict]:
@@ -216,6 +251,8 @@ def main(argv: list[str] | None = None) -> int:
         if month and month not in stored.get(symbol, {}):
             history.save(history_dir, rec)
 
+    record_unchanged_notices(args.notices, history_dir, cache)
+
     pending = [n for n in notices
                if args.force or cache.get(n["symbol"], {}).get("announcement_id") != int(n["announcement_id"])]
     failed = 0
@@ -234,8 +271,8 @@ def main(argv: list[str] | None = None) -> int:
                     log.warning("  ! %s: %s", n["symbol"], exc)
                     continue
                 record = to_record(raw, n)
-                if record["partial"]:
-                    record = merge_partial(record, cache.get(n["symbol"]))
+                # unchanged / partial notices are stored as printed; missing rates are carried
+                # forward from the previous month when the report is built (history.resolve)
                 (cache_dir / f"{n['symbol']}.json").write_text(
                     json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
                 cache[n["symbol"]] = record

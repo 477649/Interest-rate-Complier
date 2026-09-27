@@ -1,0 +1,57 @@
+{
+  "symbol": "SINDU",
+  "bank": "Sindhu Bikash Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 66570,
+  "notice_date": "2026-07-16",
+  "effective": "2083/04/01 (Nepali notice)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=66385",
+  "saving_products": {
+    "Remittance Bachat": 4.0,
+    "Bima Suraksha": 2.85,
+    "Mahabachat": 3.0,
+    "Super Bachat": 3.0
+  },
+  "saving_rates": [
+    4.0,
+    2.85,
+    3.0,
+    3.0
+  ],
+  "call": "Not specified",
+  "ind_lt1": 2.76,
+  "ind_1y": 4.6,
+  "ind_gt1": 4.6,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": "Not specified",
+      "6M": 2.76,
+      "1Y": 4.6,
+      "2Y": 4.6,
+      "3Y": 4.6,
+      "4Y": 4.6,
+      "5Y+": 4.6
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
+  "partial": true,
+  "month": "2083-04",
+  "month_label": "Shrawan 2083",
+  "notes": [
+    "Partial notice: lists 4 saving products and the FD table; other rates kept at Ashadh 2083.",
+    "Institutional 6M-<1Y corrected to 2.75% per correction notice (id 66570)."
+  ],
+  "extracted_by": "manual (2026-09-27)"
+}

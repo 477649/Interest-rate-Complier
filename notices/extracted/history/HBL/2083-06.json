@@ -13,13 +13,13 @@
   "inst_lt1": "Not specified",
   "inst_1y": "Not specified",
   "inst_gt1": "Not specified",
-  "partial": false,
+  "partial": true,
   "notes": [
-    "This notice only revises USD FD and fixed-rate loans; it states other deposit rates 'remain as it is'.",
-    "NPR saving/call/FD rates are not in the notice (see HBL's earlier notice or website)."
+    "Notice revises only USD fixed deposit and fixed-rate loans; other rates remain as it is."
   ],
   "extracted_by": "manual (2026-09-26)",
   "notice_date": "2026-09-16",
   "month": "2083-06",
-  "month_label": "Ashwin 2083"
+  "month_label": "Ashwin 2083",
+  "unchanged": false
 }

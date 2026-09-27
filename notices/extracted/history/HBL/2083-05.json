@@ -16,9 +16,10 @@
   "inst_gt1": "Not specified",
   "partial": false,
   "notes": [
-    "Notice says Shrawan 2083 rates remain unchanged for Bhadra; no rates listed (Shrawan notice not extracted)."
+    "Notice states rates remain the same as Shrawan 2083."
   ],
   "extracted_by": "manual (2026-09-26)",
   "month": "2083-05",
-  "month_label": "Bhadra 2083"
+  "month_label": "Bhadra 2083",
+  "unchanged": true
 }

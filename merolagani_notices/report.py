@@ -337,6 +337,7 @@ def _history_sheet(wb: Workbook, store: dict, current: str | None = None) -> Non
         for month, rec in bank_months.items():
             if window and month not in window:
                 continue
+            rec = history.resolve(bank_months, month) or rec  # apply carry-forward per month
             rows.append((rec.get("sector", ""), rec.get("bank", symbol), month, rec))
     rows.sort(key=lambda x: (SECTOR_ORDER.index(x[0]) if x[0] in SECTOR_ORDER else 9, x[1], x[2]))
     for r, (sector, bank, month, rec) in enumerate(rows, start=2):
