@@ -1,0 +1,216 @@
+{
+  "symbol": "PCBL",
+  "bank": "Prime Commercial Bank Ltd.",
+  "sector": "Commercial Banks",
+  "announcement_id": 67901,
+  "notice_date": "2026-10-17",
+  "effective": "01st Kartik 2083 (18th October 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67901",
+  "saving_rates": [
+    4.02,
+    4.02,
+    4.02,
+    3.02,
+    3.02,
+    3.02,
+    3.02,
+    3.02,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76
+  ],
+  "saving_products": {
+    "Baideshik Remit": 4.02,
+    "Premium Remit": 4.02,
+    "Remit": 4.02,
+    "Jeevan Surakshya": 3.02,
+    "Supreme Corporate Staff": 3.02,
+    "Supreme Nari": 3.02,
+    "Supreme Karmachari": 3.02,
+    "Supreme Jestha Nagarik": 3.02,
+    "Supreme Bachat": 2.76,
+    "Premium Jestha Nagarik": 2.76,
+    "Premium Nari": 2.76,
+    "Premium Karmachari": 2.76,
+    "Sahaj": 2.76,
+    "Sunaulo": 2.76,
+    "Sarba Sulabh": 2.76,
+    "Deposit Plus": 2.76,
+    "All Other": 2.76
+  },
+  "call": "Up to 1.37%",
+  "ind_lt1": 2.9,
+  "ind_1y": 3.0,
+  "ind_gt1": 4.0,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.9,
+      "1Y": 3.0,
+      "2Y": 4.0,
+      "3Y": 4.0,
+      "4Y": 4.0,
+      "5Y+": 4.0
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance FD and recurring deposits excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Prime Commercial Bank Ltd.",
+    "effective_date": "01st Kartik 2083 (18th October 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Baideshik Remit",
+        "rate": 4.02
+      },
+      {
+        "product": "Premium Remit",
+        "rate": 4.02
+      },
+      {
+        "product": "Remit",
+        "rate": 4.02
+      },
+      {
+        "product": "Jeevan Surakshya",
+        "rate": 3.02
+      },
+      {
+        "product": "Supreme Corporate Staff",
+        "rate": 3.02
+      },
+      {
+        "product": "Supreme Nari",
+        "rate": 3.02
+      },
+      {
+        "product": "Supreme Karmachari",
+        "rate": 3.02
+      },
+      {
+        "product": "Supreme Jestha Nagarik",
+        "rate": 3.02
+      },
+      {
+        "product": "Supreme Bachat",
+        "rate": 2.76
+      },
+      {
+        "product": "Premium Jestha Nagarik",
+        "rate": 2.76
+      },
+      {
+        "product": "Premium Nari",
+        "rate": 2.76
+      },
+      {
+        "product": "Premium Karmachari",
+        "rate": 2.76
+      },
+      {
+        "product": "Sahaj",
+        "rate": 2.76
+      },
+      {
+        "product": "Sunaulo",
+        "rate": 2.76
+      },
+      {
+        "product": "Sarba Sulabh",
+        "rate": 2.76
+      },
+      {
+        "product": "Deposit Plus",
+        "rate": 2.76
+      },
+      {
+        "product": "All Other",
+        "rate": 2.76
+      }
+    ],
+    "call": "Up to 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to Below 6 Months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "6 Months to Below 1 Year",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.9
+      },
+      {
+        "tenure_text": "1 Year to Below 2 Years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "2 Years & Above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.0
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months to Below 1 Year",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "1 Year to Below 2 Years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "2 Years & Above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Remittance FD and recurring deposits excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

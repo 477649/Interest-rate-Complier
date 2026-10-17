@@ -1,0 +1,171 @@
+{
+  "symbol": "NBL",
+  "bank": "Nepal Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67905,
+  "notice_date": "2026-10-17",
+  "effective": "1st Kartik 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67905",
+  "saving_rates": [
+    3.75,
+    3.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "saving_products": {
+    "Remittance": 3.75,
+    "Remittance IPO": 3.75,
+    "Social Security": 2.75,
+    "Other All": 2.75,
+    "Employee Welfare": 2.75,
+    "Trust Fund": 2.75
+  },
+  "call": "0.20%",
+  "ind_lt1": 2.76,
+  "ind_1y": 2.76,
+  "ind_gt1": 4.15,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.5,
+  "fd_points": {
+    "individual": {
+      "3M": 2.76,
+      "6M": 2.76,
+      "1Y": 2.76,
+      "2Y": 3.0,
+      "3Y": 3.3,
+      "4Y": 3.3,
+      "5Y+": 3.3
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.8,
+      "4Y": 2.8,
+      "5Y+": 3.0
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance FD and recurring deposits excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Nepal Bank Limited",
+    "effective_date": "1st Kartik 2083",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Remittance",
+        "rate": 3.75
+      },
+      {
+        "product": "Remittance IPO",
+        "rate": 3.75
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.75
+      },
+      {
+        "product": "Other All",
+        "rate": 2.75
+      },
+      {
+        "product": "Employee Welfare",
+        "rate": 2.75
+      },
+      {
+        "product": "Trust Fund",
+        "rate": 2.75
+      }
+    ],
+    "call": "0.20%",
+    "individual_fd": [
+      {
+        "tenure_text": "3M Upto 1Y",
+        "from_months": 3,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 2.76
+      },
+      {
+        "tenure_text": "Above 1Y upto 2Y",
+        "from_months": 13,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "Above 2Y upto 5Y",
+        "from_months": 25,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.3
+      },
+      {
+        "tenure_text": "Above 5Y upto 10Y",
+        "from_months": 61,
+        "to_months": 120,
+        "to_inclusive": true,
+        "rate": 3.75
+      },
+      {
+        "tenure_text": "Above 10Y",
+        "from_months": 121,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6M upto 1Y",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 1Y upto 2Y",
+        "from_months": 13,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 2Y upto 4Y",
+        "from_months": 25,
+        "to_months": 48,
+        "to_inclusive": true,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "Above 4Y upto 10Y",
+        "from_months": 49,
+        "to_months": 120,
+        "to_inclusive": true,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "Above 10Y",
+        "from_months": 121,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.5
+      }
+    ],
+    "notes": [
+      "Remittance FD and recurring deposits excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

@@ -1,0 +1,234 @@
+{
+  "symbol": "NMB",
+  "bank": "NMB Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67902,
+  "notice_date": "2026-10-17",
+  "effective": "Kartik 1, 2083 (October 18, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67902",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    3.75
+  ],
+  "saving_products": {
+    "Premium Super Talab": 2.75,
+    "General Payroll": 2.75,
+    "Go-Green": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Mahila": 2.75,
+    "Karmath Yuva": 2.75,
+    "Student": 2.75,
+    "Amulya": 2.75,
+    "Super Talab": 2.75,
+    "Sabaiko Sahara": 2.75,
+    "Jeevan Chakra": 2.75,
+    "Social Security": 2.75,
+    "Ujyalo Pariwar": 2.75,
+    "Ujyalo Pension": 2.75,
+    "Normal DO": 2.75,
+    "Sulav Muddati Retail": 2.75,
+    "Digital Banking": 2.75,
+    "All Other": 2.75,
+    "Pradesh": 2.75,
+    "Janmabhumi (Remittance)": 3.75
+  },
+  "call": "Up to 1.375%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.5,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 3.5,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.5,
+      "4Y": 3.5,
+      "5Y+": 4.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.0,
+      "4Y": 3.0,
+      "5Y+": 3.5
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Janmabhumi remittance FD excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "NMB Bank Limited",
+    "effective_date": "Kartik 1, 2083 (October 18, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Premium Super Talab",
+        "rate": 2.75
+      },
+      {
+        "product": "General Payroll",
+        "rate": 2.75
+      },
+      {
+        "product": "Go-Green",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Mahila",
+        "rate": 2.75
+      },
+      {
+        "product": "Karmath Yuva",
+        "rate": 2.75
+      },
+      {
+        "product": "Student",
+        "rate": 2.75
+      },
+      {
+        "product": "Amulya",
+        "rate": 2.75
+      },
+      {
+        "product": "Super Talab",
+        "rate": 2.75
+      },
+      {
+        "product": "Sabaiko Sahara",
+        "rate": 2.75
+      },
+      {
+        "product": "Jeevan Chakra",
+        "rate": 2.75
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.75
+      },
+      {
+        "product": "Ujyalo Pariwar",
+        "rate": 2.75
+      },
+      {
+        "product": "Ujyalo Pension",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal DO",
+        "rate": 2.75
+      },
+      {
+        "product": "Sulav Muddati Retail",
+        "rate": 2.75
+      },
+      {
+        "product": "Digital Banking",
+        "rate": 2.75
+      },
+      {
+        "product": "All Other",
+        "rate": 2.75
+      },
+      {
+        "product": "Pradesh",
+        "rate": 2.75
+      },
+      {
+        "product": "Janmabhumi (Remittance)",
+        "rate": 3.75
+      }
+    ],
+    "call": "Up to 1.375%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to Below 1 Year",
+        "from_months": 3,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "1 Year to Below 3 Years",
+        "from_months": 12,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "3 Years to Below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "5 Years and Above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.5
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 Year to Below 3 Years",
+        "from_months": 12,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "3 Years to Below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "5 Years and Above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.5
+      }
+    ],
+    "notes": [
+      "Janmabhumi remittance FD excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

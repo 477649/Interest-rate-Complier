@@ -2,9 +2,10 @@
   "symbol": "SINDU",
   "bank": "Sindhu Bikash Bank Ltd.",
   "sector": "Development Banks",
-  "announcement_id": 67413,
-  "effective": "2083/06/01 (Nepali notice)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67413",
+  "announcement_id": 67860,
+  "notice_date": "2026-10-16",
+  "effective": "2083/07/01",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67860",
   "saving_rates": [
     3.8,
     2.75,
@@ -20,21 +21,161 @@
     2.75,
     2.75,
     2.75,
-    2.75,
     2.75
   ],
+  "saving_products": {
+    "Remittance": 3.8,
+    "Bima Suraksha": 2.75,
+    "Mahabachat": 2.8,
+    "Mero Pahilo": 2.75,
+    "Super": 2.8,
+    "Jestha Nagarik": 2.75,
+    "Shubha Laxmi": 2.75,
+    "Sadharan": 2.75,
+    "Sanchayakosh": 2.75,
+    "Shareholder": 2.75,
+    "Lagani": 2.75,
+    "Karmachari": 2.75,
+    "Balbalika": 2.75,
+    "Samajik Suraksha": 2.75,
+    "Sajilo": 2.75
+  },
   "call": "Up to 1.37%",
   "ind_lt1": 2.75,
-  "ind_1y": 3.94,
-  "ind_gt1": 4.28,
+  "ind_1y": 3.48,
+  "ind_gt1": 4.15,
   "inst_lt1": 2.75,
   "inst_1y": 2.75,
   "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 3.48,
+      "2Y": 3.48,
+      "3Y": 3.48,
+      "4Y": 3.48,
+      "5Y+": 4.15
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Notice in Nepali. Margin account and current account (0.00%) excluded from saving.",
-    "Individual '1 year to below 5 years' 3.94% used as 1 Year.",
-    "Institutional: single rate '6 months or above' 2.75% applied to all tenures."
+    "Notice in Nepali. Remittance FD and monthly recurring excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Sindhu Bikash Bank Ltd.",
+    "effective_date": "2083/07/01",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Remittance",
+        "rate": 3.8
+      },
+      {
+        "product": "Bima Suraksha",
+        "rate": 2.75
+      },
+      {
+        "product": "Mahabachat",
+        "rate": 2.8
+      },
+      {
+        "product": "Mero Pahilo",
+        "rate": 2.75
+      },
+      {
+        "product": "Super",
+        "rate": 2.8
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Shubha Laxmi",
+        "rate": 2.75
+      },
+      {
+        "product": "Sadharan",
+        "rate": 2.75
+      },
+      {
+        "product": "Sanchayakosh",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Lagani",
+        "rate": 2.75
+      },
+      {
+        "product": "Karmachari",
+        "rate": 2.75
+      },
+      {
+        "product": "Balbalika",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Suraksha",
+        "rate": 2.75
+      },
+      {
+        "product": "Sajilo",
+        "rate": 2.75
+      }
+    ],
+    "call": "Up to 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months to below 1 year",
+        "from_months": 3,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "1 year to below 5 years",
+        "from_months": 12,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.48
+      },
+      {
+        "tenure_text": "5 years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 months and above",
+        "from_months": 6,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Notice in Nepali. Remittance FD and monthly recurring excluded."
+    ],
+    "unclear": []
+  }
 }

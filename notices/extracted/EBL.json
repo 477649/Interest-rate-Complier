@@ -1,10 +1,11 @@
 {
   "symbol": "EBL",
-  "bank": "Everest Bank Ltd.",
+  "bank": "Everest Bank Limited",
   "sector": "Commercial Banks",
-  "announcement_id": 67385,
-  "effective": "17 Sep 2026 (1 Ashoj 2083)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67385",
+  "announcement_id": 67911,
+  "notice_date": "2026-10-17",
+  "effective": "18th October 2026 (1st Kartik 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67911",
   "saving_rates": [
     3.75,
     2.75,
@@ -17,17 +18,130 @@
     2.75,
     2.75
   ],
-  "call": "Up to 0.50%",
+  "saving_products": {
+    "Remittance Plus/Gorkha Regiment": 3.75,
+    "Maxi": 2.75,
+    "Premium": 2.75,
+    "Matribhumi": 2.75,
+    "Special": 2.75,
+    "Payroll": 2.75,
+    "Corporate Salary": 2.75,
+    "Saving Salary": 2.75,
+    "Pension": 2.75,
+    "Other": 2.75
+  },
+  "call": "Upto 0.50%",
   "ind_lt1": 2.75,
   "ind_1y": 2.75,
   "ind_gt1": 3.75,
   "inst_lt1": 2.75,
   "inst_1y": 2.75,
   "inst_gt1": 3.25,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 3.75,
+      "5Y+": 3.75
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 3.25,
+      "5Y+": 3.25
+    }
+  },
+  "unchanged": false,
   "partial": false,
-  "notes": [
-    "Individual 'Above 3 years' corrected from 3.50% to 3.75% per EBL correction notice (17 Sep 2026).",
-    "'3 months upto 3 years' 2.75% covers <1Y and 1Y."
-  ],
-  "extracted_by": "manual (2026-09-26)"
+  "notes": [],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Everest Bank Limited",
+    "effective_date": "18th October 2026 (1st Kartik 2083)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Remittance Plus/Gorkha Regiment",
+        "rate": 3.75
+      },
+      {
+        "product": "Maxi",
+        "rate": 2.75
+      },
+      {
+        "product": "Premium",
+        "rate": 2.75
+      },
+      {
+        "product": "Matribhumi",
+        "rate": 2.75
+      },
+      {
+        "product": "Special",
+        "rate": 2.75
+      },
+      {
+        "product": "Payroll",
+        "rate": 2.75
+      },
+      {
+        "product": "Corporate Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Saving Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Pension",
+        "rate": 2.75
+      },
+      {
+        "product": "Other",
+        "rate": 2.75
+      }
+    ],
+    "call": "Upto 0.50%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months upto 3 years",
+        "from_months": 3,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 3 years",
+        "from_months": 37,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.75
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 months upto 3 years",
+        "from_months": 6,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 3 years",
+        "from_months": 37,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.25
+      }
+    ],
+    "notes": [],
+    "unclear": []
+  }
 }

@@ -1,10 +1,11 @@
 {
   "symbol": "SANIMA",
-  "bank": "Sanima Bank Ltd.",
+  "bank": "Sanima Bank Limited",
   "sector": "Commercial Banks",
-  "announcement_id": 67429,
-  "effective": "Ashwin 1, 2083",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67429",
+  "announcement_id": 67898,
+  "notice_date": "2026-10-17",
+  "effective": "Kartik 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67898",
   "saving_rates": [
     3.8,
     3.8,
@@ -18,6 +19,19 @@
     2.75,
     2.75
   ],
+  "saving_products": {
+    "Super Remittance": 3.8,
+    "Remittance IPO": 3.8,
+    "NRN Special": 2.8,
+    "Super Savings": 2.8,
+    "Family Super": 2.8,
+    "Sunaulo": 2.8,
+    "Sahaj": 2.75,
+    "Special Salary": 2.75,
+    "Dirghayu Talab": 2.75,
+    "Generation Sanima": 2.75,
+    "All Other": 2.75
+  },
   "call": "Up to 1.375%",
   "ind_lt1": 2.8,
   "ind_1y": 2.8,
@@ -25,9 +39,147 @@
   "inst_lt1": 2.75,
   "inst_1y": 2.75,
   "inst_gt1": 3.51,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.8,
+      "1Y": 2.8,
+      "2Y": 2.85,
+      "3Y": 3.5,
+      "4Y": 3.5,
+      "5Y+": 3.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.85,
+      "4Y": 3.01,
+      "5Y+": 3.01
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Individual '3 Months to 12 Months' 2.80% covers <1Y and 1Y; remittance FD excluded."
+    "Remittance FD and recurring deposit excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Sanima Bank Limited",
+    "effective_date": "Kartik 2083",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Super Remittance",
+        "rate": 3.8
+      },
+      {
+        "product": "Remittance IPO",
+        "rate": 3.8
+      },
+      {
+        "product": "NRN Special",
+        "rate": 2.8
+      },
+      {
+        "product": "Super Savings",
+        "rate": 2.8
+      },
+      {
+        "product": "Family Super",
+        "rate": 2.8
+      },
+      {
+        "product": "Sunaulo",
+        "rate": 2.8
+      },
+      {
+        "product": "Sahaj",
+        "rate": 2.75
+      },
+      {
+        "product": "Special Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Dirghayu Talab",
+        "rate": 2.75
+      },
+      {
+        "product": "Generation Sanima",
+        "rate": 2.75
+      },
+      {
+        "product": "All Other",
+        "rate": 2.75
+      }
+    ],
+    "call": "Up to 1.375%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to 12 Months",
+        "from_months": 3,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "Above 12 Months to 24 Months",
+        "from_months": 13,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.85
+      },
+      {
+        "tenure_text": "Above 24 Months to 60 Months",
+        "from_months": 25,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "Above 60 Months",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.5
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months to 2 Years",
+        "from_months": 6,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 2 Years to 3 Years",
+        "from_months": 25,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 2.85
+      },
+      {
+        "tenure_text": "Above 3 Years to 5 Years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.01
+      },
+      {
+        "tenure_text": "Above 5 Years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.51
+      }
+    ],
+    "notes": [
+      "Remittance FD and recurring deposit excluded."
+    ],
+    "unclear": []
+  }
 }

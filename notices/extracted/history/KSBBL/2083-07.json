@@ -1,0 +1,249 @@
+{
+  "symbol": "KSBBL",
+  "bank": "Kamana Sewa Bikas Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67890,
+  "notice_date": "2026-10-17",
+  "effective": "1st Kartik 2083 (18 Oct 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67890",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.9,
+    3.0,
+    3.0,
+    4.0,
+    4.0
+  ],
+  "saving_products": {
+    "Normal Saving": 2.75,
+    "Pragati Silver": 2.75,
+    "Sabal Nari": 2.75,
+    "Salary": 2.75,
+    "Shareholder": 2.75,
+    "Bal Bachat": 2.75,
+    "Samajik Surakchhya": 2.75,
+    "Swabhiman": 2.75,
+    "Provident Fund": 2.75,
+    "Other saving": 2.75,
+    "Pragati Gold": 2.8,
+    "Timrai Lagi": 2.8,
+    "Pragati Platinum": 2.8,
+    "Bishista": 2.8,
+    "KS PMS": 2.9,
+    "AlphaGrow": 3.0,
+    "Staff": 3.0,
+    "Foreign Employment": 4.0,
+    "Remittance": 4.0
+  },
+  "call": "Up to 1.375%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.15,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 3.35,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 3.0,
+      "3Y": 3.15,
+      "4Y": 3.15,
+      "5Y+": 4.15
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 3.35,
+      "5Y+": 3.35
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Timrai Lagi FD schemes excluded from general FD."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Kamana Sewa Bikas Bank Ltd.",
+    "effective_date": "1st Kartik 2083 (18 Oct 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Normal Saving",
+        "rate": 2.75
+      },
+      {
+        "product": "Pragati Silver",
+        "rate": 2.75
+      },
+      {
+        "product": "Sabal Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Surakchhya",
+        "rate": 2.75
+      },
+      {
+        "product": "Swabhiman",
+        "rate": 2.75
+      },
+      {
+        "product": "Provident Fund",
+        "rate": 2.75
+      },
+      {
+        "product": "Other saving",
+        "rate": 2.75
+      },
+      {
+        "product": "Pragati Gold",
+        "rate": 2.8
+      },
+      {
+        "product": "Timrai Lagi",
+        "rate": 2.8
+      },
+      {
+        "product": "Pragati Platinum",
+        "rate": 2.8
+      },
+      {
+        "product": "Bishista",
+        "rate": 2.8
+      },
+      {
+        "product": "KS PMS",
+        "rate": 2.9
+      },
+      {
+        "product": "AlphaGrow",
+        "rate": 3.0
+      },
+      {
+        "product": "Staff",
+        "rate": 3.0
+      },
+      {
+        "product": "Foreign Employment",
+        "rate": 4.0
+      },
+      {
+        "product": "Remittance",
+        "rate": 4.0
+      }
+    ],
+    "call": "Up to 1.375%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months and below 6 months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "6 months and below 12 months",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "1 year and below 2 years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "2 years and below 3 years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "3 years and below 4 years",
+        "from_months": 36,
+        "to_months": 48,
+        "to_inclusive": false,
+        "rate": 3.15
+      },
+      {
+        "tenure_text": "4 years and below 5 years",
+        "from_months": 48,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.15
+      },
+      {
+        "tenure_text": "5 years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 year and below 2 years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "2 years and upto 3 years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 3 years",
+        "from_months": 37,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.35
+      }
+    ],
+    "notes": [
+      "Timrai Lagi FD schemes excluded from general FD."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

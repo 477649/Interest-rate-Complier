@@ -1,0 +1,221 @@
+{
+  "symbol": "CORBL",
+  "bank": "Corporate Development Bank Limited",
+  "sector": "Development Banks",
+  "announcement_id": 67894,
+  "notice_date": "2026-10-17",
+  "effective": "01 Kartik, 2083 (18th October, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67894",
+  "saving_rates": [
+    2.85,
+    3.0,
+    2.9,
+    2.9,
+    2.9,
+    3.15,
+    3.45,
+    3.55,
+    3.75,
+    4.0,
+    4.1,
+    2.85
+  ],
+  "saving_products": {
+    "Corporate Saving": 2.85,
+    "Nari Bachat": 3.0,
+    "Senior": 2.9,
+    "Student": 2.9,
+    "Bal Bachat": 2.9,
+    "Higher": 3.15,
+    "Fast Track": 3.45,
+    "Patron": 3.55,
+    "Super Corporate": 3.75,
+    "Golden": 4.0,
+    "Staff": 4.1,
+    "Social Security": 2.85
+  },
+  "call": "Up to 1.42%",
+  "ind_lt1": 3.75,
+  "ind_1y": 4.25,
+  "ind_gt1": 5.5,
+  "inst_lt1": "Not specified",
+  "inst_1y": 3.25,
+  "inst_gt1": 4.75,
+  "fd_points": {
+    "individual": {
+      "3M": 3.5,
+      "6M": 3.75,
+      "1Y": 4.25,
+      "2Y": 4.5,
+      "3Y": 5.0,
+      "4Y": 5.25,
+      "5Y+": 5.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 3.25,
+      "2Y": 3.5,
+      "3Y": 4.25,
+      "4Y": 4.5,
+      "5Y+": 4.75
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Recurring/fixed-return schemes excluded. Corporate 3M and 6M rates shown as '-'."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Corporate Development Bank Limited",
+    "effective_date": "01 Kartik, 2083 (18th October, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Corporate Saving",
+        "rate": 2.85
+      },
+      {
+        "product": "Nari Bachat",
+        "rate": 3.0
+      },
+      {
+        "product": "Senior",
+        "rate": 2.9
+      },
+      {
+        "product": "Student",
+        "rate": 2.9
+      },
+      {
+        "product": "Bal Bachat",
+        "rate": 2.9
+      },
+      {
+        "product": "Higher",
+        "rate": 3.15
+      },
+      {
+        "product": "Fast Track",
+        "rate": 3.45
+      },
+      {
+        "product": "Patron",
+        "rate": 3.55
+      },
+      {
+        "product": "Super Corporate",
+        "rate": 3.75
+      },
+      {
+        "product": "Golden",
+        "rate": 4.0
+      },
+      {
+        "product": "Staff",
+        "rate": 4.1
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.85
+      }
+    ],
+    "call": "Up to 1.42%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "6 Months To 9 Months",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 3.75
+      },
+      {
+        "tenure_text": "1 Year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 4.25
+      },
+      {
+        "tenure_text": "2 Years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 4.5
+      },
+      {
+        "tenure_text": "3 Years",
+        "from_months": 36,
+        "to_months": 37,
+        "to_inclusive": false,
+        "rate": 5.0
+      },
+      {
+        "tenure_text": "Above 3 Years To 5 Years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 5.25
+      },
+      {
+        "tenure_text": "Above 5 Years",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 5.5
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 Year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 3.25
+      },
+      {
+        "tenure_text": "2 Years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "3 Years",
+        "from_months": 36,
+        "to_months": 37,
+        "to_inclusive": false,
+        "rate": 4.25
+      },
+      {
+        "tenure_text": "Above 3 Years To 5 Years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 4.5
+      },
+      {
+        "tenure_text": "Above 5 Years",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.75
+      }
+    ],
+    "notes": [
+      "Recurring/fixed-return schemes excluded. Corporate 3M and 6M rates shown as '-'."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

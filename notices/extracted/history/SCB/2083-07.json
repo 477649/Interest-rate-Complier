@@ -1,0 +1,146 @@
+{
+  "symbol": "SCB",
+  "bank": "Standard Chartered Bank Nepal Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67895,
+  "notice_date": "2026-10-17",
+  "effective": "18th October 2026",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67895",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    3.75
+  ],
+  "saving_products": {
+    "Normal": 2.75,
+    "Access plus": 2.75,
+    "Kiddy Bank": 2.75,
+    "Women": 2.75,
+    "Shareholder": 2.75,
+    "Senior Citizen": 2.75,
+    "Payroll Plus": 2.75,
+    "Amulya Bachat": 2.75,
+    "Special": 2.75,
+    "Remittance": 3.75
+  },
+  "call": "Up to 0.15%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 3.7,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance FD excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Standard Chartered Bank Nepal Limited",
+    "effective_date": "18th October 2026",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Access plus",
+        "rate": 2.75
+      },
+      {
+        "product": "Kiddy Bank",
+        "rate": 2.75
+      },
+      {
+        "product": "Women",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Senior Citizen",
+        "rate": 2.75
+      },
+      {
+        "product": "Payroll Plus",
+        "rate": 2.75
+      },
+      {
+        "product": "Amulya Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Special",
+        "rate": 2.75
+      },
+      {
+        "product": "Remittance",
+        "rate": 3.75
+      }
+    ],
+    "call": "Up to 0.15%",
+    "individual_fd": [
+      {
+        "tenure_text": "6 months to 5 years",
+        "from_months": 6,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 5 years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.7
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 year and above",
+        "from_months": 12,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Remittance FD excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

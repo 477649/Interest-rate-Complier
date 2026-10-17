@@ -1,10 +1,11 @@
 {
   "symbol": "CZBIL",
-  "bank": "Citizens Bank International Ltd.",
+  "bank": "Citizens Bank International Limited",
   "sector": "Commercial Banks",
-  "announcement_id": 67445,
-  "effective": "1 Ashwin 2083 (17 Sep 2026)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67445",
+  "announcement_id": 67912,
+  "notice_date": "2026-10-17",
+  "effective": "1st Kartik 2083 (18th October 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67912",
   "saving_rates": [
     2.75,
     2.75,
@@ -35,6 +36,36 @@
     3.75,
     3.75
   ],
+  "saving_products": {
+    "Bishesh": 2.75,
+    "Normal": 2.75,
+    "Mero Citizens": 2.75,
+    "Mahila": 2.75,
+    "G2P": 2.75,
+    "Dasak": 2.75,
+    "Sharedhani": 2.75,
+    "Muna": 2.75,
+    "Senior Citizens": 2.75,
+    "Branchless": 2.75,
+    "Matribhumi": 2.75,
+    "Smart": 2.75,
+    "Bidhyarthi": 2.75,
+    "Saral": 2.75,
+    "Microfinance Personal": 2.75,
+    "Samrakhshit": 2.75,
+    "Gen Z": 2.8,
+    "Enterprises Fund": 2.8,
+    "Privilege": 2.8,
+    "Talab": 2.8,
+    "Share Lagani": 2.8,
+    "Health and Wealth": 2.8,
+    "Hamro Karnali": 2.8,
+    "Premium Talab": 2.8,
+    "Premium Family": 2.8,
+    "Freelancer": 2.8,
+    "Intl Remit": 3.75,
+    "Remittance IPO": 3.75
+  },
   "call": "Negotiable as per NRB Directive",
   "ind_lt1": 2.85,
   "ind_1y": 2.9,
@@ -42,10 +73,194 @@
   "inst_lt1": "Not specified",
   "inst_1y": "Not specified",
   "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.85,
+      "1Y": 2.9,
+      "2Y": 3.85,
+      "3Y": 3.85,
+      "4Y": 3.85,
+      "5Y+": 3.85
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": "Not specified",
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Institutional FD only listed for '24 Months and above' (2.75%); <1Y and 1Y not specified.",
-    "Individual 1 Year = '12 Months and below 24 Months' 2.90%."
+    "Ekmusta, remittance, BLB and digital FD schemes excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Citizens Bank International Limited",
+    "effective_date": "1st Kartik 2083 (18th October 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Bishesh",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Mero Citizens",
+        "rate": 2.75
+      },
+      {
+        "product": "Mahila",
+        "rate": 2.75
+      },
+      {
+        "product": "G2P",
+        "rate": 2.75
+      },
+      {
+        "product": "Dasak",
+        "rate": 2.75
+      },
+      {
+        "product": "Sharedhani",
+        "rate": 2.75
+      },
+      {
+        "product": "Muna",
+        "rate": 2.75
+      },
+      {
+        "product": "Senior Citizens",
+        "rate": 2.75
+      },
+      {
+        "product": "Branchless",
+        "rate": 2.75
+      },
+      {
+        "product": "Matribhumi",
+        "rate": 2.75
+      },
+      {
+        "product": "Smart",
+        "rate": 2.75
+      },
+      {
+        "product": "Bidhyarthi",
+        "rate": 2.75
+      },
+      {
+        "product": "Saral",
+        "rate": 2.75
+      },
+      {
+        "product": "Microfinance Personal",
+        "rate": 2.75
+      },
+      {
+        "product": "Samrakhshit",
+        "rate": 2.75
+      },
+      {
+        "product": "Gen Z",
+        "rate": 2.8
+      },
+      {
+        "product": "Enterprises Fund",
+        "rate": 2.8
+      },
+      {
+        "product": "Privilege",
+        "rate": 2.8
+      },
+      {
+        "product": "Talab",
+        "rate": 2.8
+      },
+      {
+        "product": "Share Lagani",
+        "rate": 2.8
+      },
+      {
+        "product": "Health and Wealth",
+        "rate": 2.8
+      },
+      {
+        "product": "Hamro Karnali",
+        "rate": 2.8
+      },
+      {
+        "product": "Premium Talab",
+        "rate": 2.8
+      },
+      {
+        "product": "Premium Family",
+        "rate": 2.8
+      },
+      {
+        "product": "Freelancer",
+        "rate": 2.8
+      },
+      {
+        "product": "Intl Remit",
+        "rate": 3.75
+      },
+      {
+        "product": "Remittance IPO",
+        "rate": 3.75
+      }
+    ],
+    "call": "Negotiable as per NRB Directive",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months and below 6 Months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "6 Months and below 12 Months",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.85
+      },
+      {
+        "tenure_text": "12 Months and below 24 Months",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.9
+      },
+      {
+        "tenure_text": "24 Months and above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.85
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "24 Months and above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Ekmusta, remittance, BLB and digital FD schemes excluded."
+    ],
+    "unclear": []
+  }
 }

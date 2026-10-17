@@ -1,0 +1,168 @@
+{
+  "symbol": "NABBC",
+  "bank": "Narayani Development Bank Limited",
+  "sector": "Development Banks",
+  "announcement_id": 67861,
+  "notice_date": "2026-10-16",
+  "effective": "Kartik 1st 2083 (October 18th 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67861",
+  "saving_rates": [
+    3.5,
+    3.5,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "saving_products": {
+    "Sunaulo": 3.5,
+    "Staff": 3.5,
+    "Special": 2.75,
+    "Salary": 2.75,
+    "Normal": 2.75,
+    "Balbachat": 2.75,
+    "Grihini": 2.75,
+    "Jestha Citizens": 2.75,
+    "Shareholder": 2.75,
+    "Remittance": 2.75,
+    "Provident Fund": 2.75,
+    "Student": 2.75
+  },
+  "call": "1.375%",
+  "ind_lt1": 4.95,
+  "ind_1y": 5.15,
+  "ind_gt1": 5.15,
+  "inst_lt1": 4.95,
+  "inst_1y": 5.15,
+  "inst_gt1": 5.15,
+  "fd_points": {
+    "individual": {
+      "3M": 4.75,
+      "6M": 4.95,
+      "1Y": 5.15,
+      "2Y": 5.15,
+      "3Y": 5.15,
+      "4Y": 5.15,
+      "5Y+": 5.15
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 4.95,
+      "1Y": 5.15,
+      "2Y": 5.15,
+      "3Y": 5.15,
+      "4Y": 5.15,
+      "5Y+": 5.15
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Narayani Development Bank Limited",
+    "effective_date": "Kartik 1st 2083 (October 18th 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Sunaulo",
+        "rate": 3.5
+      },
+      {
+        "product": "Staff",
+        "rate": 3.5
+      },
+      {
+        "product": "Special",
+        "rate": 2.75
+      },
+      {
+        "product": "Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Balbachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Grihini",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Citizens",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Remittance",
+        "rate": 2.75
+      },
+      {
+        "product": "Provident Fund",
+        "rate": 2.75
+      },
+      {
+        "product": "Student",
+        "rate": 2.75
+      }
+    ],
+    "call": "1.375%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months upto 6 Months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": true,
+        "rate": 4.75
+      },
+      {
+        "tenure_text": "6 Months upto 12 Months",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 4.95
+      },
+      {
+        "tenure_text": "12 Months above",
+        "from_months": 12,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 5.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months upto 12 Months",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 4.95
+      },
+      {
+        "tenure_text": "12 Months above",
+        "from_months": 12,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 5.15
+      }
+    ],
+    "notes": [],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

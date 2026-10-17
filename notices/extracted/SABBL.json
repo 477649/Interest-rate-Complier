@@ -1,11 +1,13 @@
 {
   "symbol": "SABBL",
-  "bank": "Salapa Bikas Bank Ltd.",
+  "bank": "Salapa Bikas Bank Limited",
   "sector": "Development Banks",
-  "announcement_id": 67416,
-  "effective": "Ashoj 01, 2083",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67416",
+  "announcement_id": 67840,
+  "notice_date": "2026-10-16",
+  "effective": "1st Kartik, 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67840",
   "saving_rates": [
+    2.75,
     2.75,
     2.75,
     2.75,
@@ -23,16 +25,179 @@
     3.0,
     4.0
   ],
-  "call": "Up to 1.37%",
+  "saving_products": {
+    "Nari": 2.75,
+    "Student": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Pension": 2.75,
+    "Bal Bachat": 2.75,
+    "Normal": 2.75,
+    "Khutruke": 2.75,
+    "Sabaiko": 2.75,
+    "Salapa Special": 2.75,
+    "Samajik Suraksya": 2.75,
+    "Life": 2.75,
+    "High Education": 2.75,
+    "Microfinance": 2.75,
+    "Promoter": 3.0,
+    "Staff": 3.0,
+    "Salapa Staff": 3.0,
+    "Remit": 4.0
+  },
+  "call": "Upto 1.37%",
   "ind_lt1": 4.5,
   "ind_1y": 5.0,
   "ind_gt1": 5.5,
   "inst_lt1": 4.0,
   "inst_1y": 4.25,
   "inst_gt1": 5.0,
+  "fd_points": {
+    "individual": {
+      "3M": 4.5,
+      "6M": 4.5,
+      "1Y": 5.0,
+      "2Y": 5.5,
+      "3Y": 5.5,
+      "4Y": 5.5,
+      "5Y+": 5.5
+    },
+    "institutional": {
+      "3M": 4.0,
+      "6M": 4.0,
+      "1Y": 4.25,
+      "2Y": 5.0,
+      "3Y": 5.0,
+      "4Y": 5.0,
+      "5Y+": 5.0
+    }
+  },
+  "unchanged": false,
   "partial": false,
-  "notes": [
-    "FD bands: 3-9 months, One year, Two year and above."
-  ],
-  "extracted_by": "manual (2026-09-26)"
+  "notes": [],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Salapa Bikas Bank Limited",
+    "effective_date": "1st Kartik, 2083",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Student",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Pension",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Khutruke",
+        "rate": 2.75
+      },
+      {
+        "product": "Sabaiko",
+        "rate": 2.75
+      },
+      {
+        "product": "Salapa Special",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Suraksya",
+        "rate": 2.75
+      },
+      {
+        "product": "Life",
+        "rate": 2.75
+      },
+      {
+        "product": "High Education",
+        "rate": 2.75
+      },
+      {
+        "product": "Microfinance",
+        "rate": 2.75
+      },
+      {
+        "product": "Promoter",
+        "rate": 3.0
+      },
+      {
+        "product": "Staff",
+        "rate": 3.0
+      },
+      {
+        "product": "Salapa Staff",
+        "rate": 3.0
+      },
+      {
+        "product": "Remit",
+        "rate": 4.0
+      }
+    ],
+    "call": "Upto 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "Three to Nine months",
+        "from_months": 3,
+        "to_months": 9,
+        "to_inclusive": true,
+        "rate": 4.5
+      },
+      {
+        "tenure_text": "One year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 5.0
+      },
+      {
+        "tenure_text": "Two year and above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 5.5
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "Three to Nine months",
+        "from_months": 3,
+        "to_months": 9,
+        "to_inclusive": true,
+        "rate": 4.0
+      },
+      {
+        "tenure_text": "One year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 4.25
+      },
+      {
+        "tenure_text": "Two year and above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 5.0
+      }
+    ],
+    "notes": [],
+    "unclear": []
+  }
 }

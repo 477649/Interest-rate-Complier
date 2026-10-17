@@ -1,41 +1,214 @@
 {
   "symbol": "GBBL",
-  "bank": "Garima Bikas Bank Ltd.",
+  "bank": "Garima Bikas Bank Limited",
   "sector": "Development Banks",
-  "announcement_id": 67424,
-  "effective": "2083.06.01 (17 Sep 2026)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67424",
+  "announcement_id": 67893,
+  "notice_date": "2026-10-17",
+  "effective": "2083.07.01 (October 18, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67893",
   "saving_rates": [
-    2.75,
-    2.75,
-    2.75,
-    3.75,
-    3.0,
-    2.75,
-    2.75,
-    2.75,
-    2.95,
-    2.95,
-    4.75,
-    2.75,
-    4.75,
-    3.75,
-    3.75,
-    2.75,
-    2.75
+    2.76,
+    2.76,
+    2.76,
+    3.76,
+    3.01,
+    2.76,
+    2.76,
+    2.76,
+    2.96,
+    2.96,
+    4.76,
+    2.76,
+    4.76,
+    3.76,
+    3.76,
+    2.76,
+    2.76
   ],
-  "call": "Up to 1.37%",
-  "ind_lt1": 2.75,
-  "ind_1y": 2.75,
-  "ind_gt1": 4.28,
-  "inst_lt1": 2.75,
-  "inst_1y": 2.75,
+  "saving_products": {
+    "Anibarya": 2.76,
+    "Home Employee": 2.76,
+    "Janakalyan": 2.76,
+    "Mero Share": 3.76,
+    "Five in One": 3.01,
+    "Super Saving": 2.76,
+    "Staff": 2.76,
+    "General": 2.76,
+    "Shuva Lava": 2.96,
+    "Dampati": 2.96,
+    "Foreign Remittance": 4.76,
+    "Sworojgar": 2.76,
+    "Foreign Employment IPO": 4.76,
+    "PMS": 3.76,
+    "Green Saver": 3.76,
+    "Surakshit Talab": 2.76,
+    "All Other": 2.76
+  },
+  "call": "Up to 1.38%",
+  "ind_lt1": 2.76,
+  "ind_1y": 2.76,
+  "ind_gt1": 4.15,
+  "inst_lt1": 2.76,
+  "inst_1y": 2.76,
   "inst_gt1": 3.25,
+  "fd_points": {
+    "individual": {
+      "3M": 2.76,
+      "6M": 2.76,
+      "1Y": 2.76,
+      "2Y": 3.0,
+      "3Y": 3.25,
+      "4Y": 3.25,
+      "5Y+": 4.15
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.76,
+      "1Y": 2.76,
+      "2Y": 2.76,
+      "3Y": 3.0,
+      "4Y": 3.0,
+      "5Y+": 3.25
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Individual '3 Months to below 2 Years' 2.75% covers <1Y and 1Y.",
-    "Institutional '6 Months to Below 3 Years' 2.75% covers <1Y and 1Y.",
-    "Current, margin and FCY saving accounts excluded from saving."
+    "Named FD schemes (Sunaulo Bhabisya, Swornim, Surakshit) and FCY excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Garima Bikas Bank Limited",
+    "effective_date": "2083.07.01 (October 18, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Anibarya",
+        "rate": 2.76
+      },
+      {
+        "product": "Home Employee",
+        "rate": 2.76
+      },
+      {
+        "product": "Janakalyan",
+        "rate": 2.76
+      },
+      {
+        "product": "Mero Share",
+        "rate": 3.76
+      },
+      {
+        "product": "Five in One",
+        "rate": 3.01
+      },
+      {
+        "product": "Super Saving",
+        "rate": 2.76
+      },
+      {
+        "product": "Staff",
+        "rate": 2.76
+      },
+      {
+        "product": "General",
+        "rate": 2.76
+      },
+      {
+        "product": "Shuva Lava",
+        "rate": 2.96
+      },
+      {
+        "product": "Dampati",
+        "rate": 2.96
+      },
+      {
+        "product": "Foreign Remittance",
+        "rate": 4.76
+      },
+      {
+        "product": "Sworojgar",
+        "rate": 2.76
+      },
+      {
+        "product": "Foreign Employment IPO",
+        "rate": 4.76
+      },
+      {
+        "product": "PMS",
+        "rate": 3.76
+      },
+      {
+        "product": "Green Saver",
+        "rate": 3.76
+      },
+      {
+        "product": "Surakshit Talab",
+        "rate": 2.76
+      },
+      {
+        "product": "All Other",
+        "rate": 2.76
+      }
+    ],
+    "call": "Up to 1.38%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to below 2 Years",
+        "from_months": 3,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.76
+      },
+      {
+        "tenure_text": "2 Year to Below 3 Years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "3 Years to Below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.25
+      },
+      {
+        "tenure_text": "5 Years and Above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months to Below 3 Years",
+        "from_months": 6,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 2.76
+      },
+      {
+        "tenure_text": "3 Years to Below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "5 Years and Above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.25
+      }
+    ],
+    "notes": [
+      "Named FD schemes (Sunaulo Bhabisya, Swornim, Surakshit) and FCY excluded."
+    ],
+    "unclear": []
+  }
 }

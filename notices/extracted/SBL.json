@@ -1,10 +1,11 @@
 {
   "symbol": "SBL",
-  "bank": "Siddhartha Bank Ltd.",
+  "bank": "Siddhartha Bank Limited",
   "sector": "Commercial Banks",
-  "announcement_id": 67427,
-  "effective": "17 Sep 2026",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67427",
+  "announcement_id": 67896,
+  "notice_date": "2026-10-17",
+  "effective": "October 18, 2026",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67896",
   "saving_rates": [
     2.75,
     2.75,
@@ -32,16 +33,216 @@
     3.05,
     4.05
   ],
-  "call": "Up to 0.25%",
+  "saving_products": {
+    "Sajilo": 2.75,
+    "Peacekeeping": 2.75,
+    "Life Secure": 2.75,
+    "Gen-Z": 2.75,
+    "Jeevan Surakshya": 2.75,
+    "Platinum": 2.75,
+    "Super Salary": 2.75,
+    "Mero Share": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Bachat": 2.75,
+    "Nari": 2.75,
+    "Branchless": 2.75,
+    "Bal": 2.75,
+    "Social Security": 2.75,
+    "Investors": 2.75,
+    "NPL": 2.75,
+    "Pay and Save (Parents)": 2.75,
+    "Pay and Save (Child)": 3.0,
+    "Remit": 3.0,
+    "Platinum Plus": 3.05,
+    "Priority": 3.05,
+    "Professional": 3.05,
+    "Horizon Platinum": 3.05,
+    "Smart Salary": 3.05,
+    "Premium Remit": 4.05
+  },
+  "call": "up to 0.25%",
   "ind_lt1": 2.75,
   "ind_1y": 2.75,
   "ind_gt1": 3.76,
   "inst_lt1": "Not specified",
   "inst_1y": 2.75,
   "inst_gt1": 3.05,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.05,
+      "4Y": 3.05,
+      "5Y+": 3.05
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Institutional FD starts at 1 year; <1Y not specified."
+    "Remittance FD and Goal Saver recurring excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Siddhartha Bank Limited",
+    "effective_date": "October 18, 2026",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Sajilo",
+        "rate": 2.75
+      },
+      {
+        "product": "Peacekeeping",
+        "rate": 2.75
+      },
+      {
+        "product": "Life Secure",
+        "rate": 2.75
+      },
+      {
+        "product": "Gen-Z",
+        "rate": 2.75
+      },
+      {
+        "product": "Jeevan Surakshya",
+        "rate": 2.75
+      },
+      {
+        "product": "Platinum",
+        "rate": 2.75
+      },
+      {
+        "product": "Super Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Mero Share",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Branchless",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal",
+        "rate": 2.75
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.75
+      },
+      {
+        "product": "Investors",
+        "rate": 2.75
+      },
+      {
+        "product": "NPL",
+        "rate": 2.75
+      },
+      {
+        "product": "Pay and Save (Parents)",
+        "rate": 2.75
+      },
+      {
+        "product": "Pay and Save (Child)",
+        "rate": 3.0
+      },
+      {
+        "product": "Remit",
+        "rate": 3.0
+      },
+      {
+        "product": "Platinum Plus",
+        "rate": 3.05
+      },
+      {
+        "product": "Priority",
+        "rate": 3.05
+      },
+      {
+        "product": "Professional",
+        "rate": 3.05
+      },
+      {
+        "product": "Horizon Platinum",
+        "rate": 3.05
+      },
+      {
+        "product": "Smart Salary",
+        "rate": 3.05
+      },
+      {
+        "product": "Premium Remit",
+        "rate": 4.05
+      }
+    ],
+    "call": "up to 0.25%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months to 2 years",
+        "from_months": 3,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 2 years to 5 years",
+        "from_months": 25,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.05
+      },
+      {
+        "tenure_text": "Above 5 years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.76
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 year to 5 years",
+        "from_months": 12,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 5 years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.05
+      }
+    ],
+    "notes": [
+      "Remittance FD and Goal Saver recurring excluded."
+    ],
+    "unclear": []
+  }
 }

@@ -1,0 +1,75 @@
+{
+  "symbol": "HBL",
+  "bank": "Himalayan Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67839,
+  "notice_date": "2026-10-16",
+  "effective": "Kartik 01, 2083 (October18, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67839",
+  "saving_rates": [],
+  "saving_products": {},
+  "call": "Not specified",
+  "ind_lt1": "Not specified",
+  "ind_1y": "Not specified",
+  "ind_gt1": "Not specified",
+  "inst_lt1": "Not specified",
+  "inst_1y": "Not specified",
+  "inst_gt1": 3.25,
+  "fd_points": {
+    "individual": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": "Not specified",
+      "2Y": "Not specified",
+      "3Y": "Not specified",
+      "4Y": "Not specified",
+      "5Y+": "Not specified"
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": "Not specified",
+      "2Y": "Not specified",
+      "3Y": 2.85,
+      "4Y": 2.85,
+      "5Y+": 2.85
+    }
+  },
+  "unchanged": false,
+  "partial": true,
+  "notes": [
+    "Notice revises only institutional LCY fixed deposit; other rates remain unchanged."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Himalayan Bank Limited",
+    "effective_date": "Kartik 01, 2083 (October18, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": true,
+    "saving_rates": [],
+    "call": "Not specified",
+    "individual_fd": [],
+    "institutional_fd": [
+      {
+        "tenure_text": "Above 2 Years up to 5 Years",
+        "from_months": 25,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 2.85
+      },
+      {
+        "tenure_text": "Above 5 Years up to 10 Years",
+        "from_months": 61,
+        "to_months": 120,
+        "to_inclusive": true,
+        "rate": 3.25
+      }
+    ],
+    "notes": [
+      "Notice revises only institutional LCY fixed deposit; other rates remain unchanged."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

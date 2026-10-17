@@ -2,12 +2,11 @@
   "symbol": "SADBL",
   "bank": "Shangri-la Development Bank Ltd.",
   "sector": "Development Banks",
-  "announcement_id": 67415,
-  "effective": "Ashwin 01, 2083 (17 Sep 2026)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67415",
+  "announcement_id": 67853,
+  "notice_date": "2026-10-16",
+  "effective": "Kartik 01, 2083 (October 18, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67853",
   "saving_rates": [
-    2.75,
-    2.75,
     2.75,
     2.75,
     2.75,
@@ -35,6 +34,34 @@
     2.75,
     3.75
   ],
+  "saving_products": {
+    "Staff": 2.75,
+    "Normal": 2.75,
+    "Bal Bhabishya": 2.75,
+    "Pewa": 2.75,
+    "Nari": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Gurkha": 2.75,
+    "Salary": 2.75,
+    "Shareholder": 2.75,
+    "Super Premium": 2.75,
+    "Bidhharthi": 2.75,
+    "Group Saving-MF": 2.75,
+    "Personal Saving-MF": 2.75,
+    "Micro Finance": 2.75,
+    "Karmachari Sulav": 2.75,
+    "Samajik Surakchya": 2.75,
+    "Sambriddhi": 2.75,
+    "Pay roll": 2.75,
+    "Naulo": 2.75,
+    "Mero Shangri-la": 2.75,
+    "Uchhatam": 2.75,
+    "Swornim Nari": 2.75,
+    "Green Saving": 2.75,
+    "Surakshit Bal": 2.75,
+    "Buddha Bhumi": 2.75,
+    "Sunaulo Remittance": 3.75
+  },
   "call": "Up to 1.37%",
   "ind_lt1": 2.75,
   "ind_1y": 2.75,
@@ -42,10 +69,186 @@
   "inst_lt1": 2.75,
   "inst_1y": 2.75,
   "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 3.0,
+      "3Y": 3.0,
+      "4Y": 3.5,
+      "5Y+": 4.28
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Individual '3 Months to 1 Year' 2.75% covers both <1Y and 1Y.",
-    "Institutional: single rate '6 Months and Above' 2.75% applied to all tenures."
+    "Recurring account excluded from saving."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Shangri-la Development Bank Ltd.",
+    "effective_date": "Kartik 01, 2083 (October 18, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Staff",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal Bhabishya",
+        "rate": 2.75
+      },
+      {
+        "product": "Pewa",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Gurkha",
+        "rate": 2.75
+      },
+      {
+        "product": "Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Super Premium",
+        "rate": 2.75
+      },
+      {
+        "product": "Bidhharthi",
+        "rate": 2.75
+      },
+      {
+        "product": "Group Saving-MF",
+        "rate": 2.75
+      },
+      {
+        "product": "Personal Saving-MF",
+        "rate": 2.75
+      },
+      {
+        "product": "Micro Finance",
+        "rate": 2.75
+      },
+      {
+        "product": "Karmachari Sulav",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Surakchya",
+        "rate": 2.75
+      },
+      {
+        "product": "Sambriddhi",
+        "rate": 2.75
+      },
+      {
+        "product": "Pay roll",
+        "rate": 2.75
+      },
+      {
+        "product": "Naulo",
+        "rate": 2.75
+      },
+      {
+        "product": "Mero Shangri-la",
+        "rate": 2.75
+      },
+      {
+        "product": "Uchhatam",
+        "rate": 2.75
+      },
+      {
+        "product": "Swornim Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Green Saving",
+        "rate": 2.75
+      },
+      {
+        "product": "Surakshit Bal",
+        "rate": 2.75
+      },
+      {
+        "product": "Buddha Bhumi",
+        "rate": 2.75
+      },
+      {
+        "product": "Sunaulo Remittance",
+        "rate": 3.75
+      }
+    ],
+    "call": "Up to 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to 1 Year",
+        "from_months": 3,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 1 Year to 3 Years",
+        "from_months": 13,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "Above 3 Years to 5 Years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "Above 5 Years",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.28
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months and Above",
+        "from_months": 6,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Recurring account excluded from saving."
+    ],
+    "unclear": []
+  }
 }

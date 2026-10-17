@@ -1,0 +1,238 @@
+{
+  "symbol": "MBL",
+  "bank": "Machhapuchchhre Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67907,
+  "notice_date": "2026-10-17",
+  "effective": "18 October, 2026",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67907",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    3.8
+  ],
+  "saving_products": {
+    "Smart Bachat": 2.75,
+    "Ek Byakti Ek Khata": 2.75,
+    "Normal": 2.75,
+    "Nari Shakti": 2.75,
+    "Digi Yuva": 2.75,
+    "Shareholders": 2.75,
+    "Samman": 2.75,
+    "BalBalika": 2.75,
+    "Premium": 2.75,
+    "Retirement Plan": 2.75,
+    "New Smart Bachat": 2.75,
+    "Machhapuchchhre Bachat": 2.75,
+    "NRN": 2.75,
+    "Mero Lagani": 2.75,
+    "Salary Management": 2.75,
+    "Surakshit Talab": 2.75,
+    "Special Salary Management": 2.75,
+    "Smart Salary": 2.75,
+    "M'Smart": 2.8,
+    "Smart Plus": 2.8,
+    "GRID": 2.8,
+    "New Smart Talab": 2.8,
+    "Karmashil": 3.8
+  },
+  "call": "Up to 0.25%",
+  "ind_lt1": 3.0,
+  "ind_1y": 3.0,
+  "ind_gt1": 4.5,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.0,
+  "fd_points": {
+    "individual": {
+      "3M": 2.76,
+      "6M": 3.0,
+      "1Y": 3.0,
+      "2Y": 3.0,
+      "3Y": 4.5,
+      "4Y": 4.5,
+      "5Y+": 4.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.0,
+      "4Y": 3.0,
+      "5Y+": 3.0
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance FD and recurring deposits excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Machhapuchchhre Bank Limited",
+    "effective_date": "18 October, 2026",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Smart Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Ek Byakti Ek Khata",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari Shakti",
+        "rate": 2.75
+      },
+      {
+        "product": "Digi Yuva",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholders",
+        "rate": 2.75
+      },
+      {
+        "product": "Samman",
+        "rate": 2.75
+      },
+      {
+        "product": "BalBalika",
+        "rate": 2.75
+      },
+      {
+        "product": "Premium",
+        "rate": 2.75
+      },
+      {
+        "product": "Retirement Plan",
+        "rate": 2.75
+      },
+      {
+        "product": "New Smart Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Machhapuchchhre Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "NRN",
+        "rate": 2.75
+      },
+      {
+        "product": "Mero Lagani",
+        "rate": 2.75
+      },
+      {
+        "product": "Salary Management",
+        "rate": 2.75
+      },
+      {
+        "product": "Surakshit Talab",
+        "rate": 2.75
+      },
+      {
+        "product": "Special Salary Management",
+        "rate": 2.75
+      },
+      {
+        "product": "Smart Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "M'Smart",
+        "rate": 2.8
+      },
+      {
+        "product": "Smart Plus",
+        "rate": 2.8
+      },
+      {
+        "product": "GRID",
+        "rate": 2.8
+      },
+      {
+        "product": "New Smart Talab",
+        "rate": 2.8
+      },
+      {
+        "product": "Karmashil",
+        "rate": 3.8
+      }
+    ],
+    "call": "Up to 0.25%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months to below 6 months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.76
+      },
+      {
+        "tenure_text": "6 months to below 3 years",
+        "from_months": 6,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "3 years and above",
+        "from_months": 36,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.5
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 months up to 2 years",
+        "from_months": 6,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "above 2 years",
+        "from_months": 25,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.0
+      }
+    ],
+    "notes": [
+      "Remittance FD and recurring deposits excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

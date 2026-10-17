@@ -1,30 +1,126 @@
 {
   "symbol": "KBL",
-  "bank": "Kumari Bank Ltd.",
+  "bank": "Kumari Bank Limited",
   "sector": "Commercial Banks",
-  "announcement_id": 67441,
-  "effective": "01 Ashwin 2083 (17 Sep 2026)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67441",
+  "announcement_id": 67909,
+  "notice_date": "2026-10-17",
+  "effective": "01 Kartik 2083 (18 October 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67909",
   "saving_rates": [
-    4.31,
-    2.91,
-    3.91,
-    2.91,
-    3.31,
-    2.91,
-    2.75
+    4.32,
+    2.92,
+    3.92,
+    2.92,
+    3.32,
+    2.92,
+    2.76
   ],
+  "saving_products": {
+    "Hereko Herai Remit": 4.32,
+    "Remit IPO": 2.92,
+    "Remit Premium": 3.92,
+    "Chhori": 2.92,
+    "Silver": 3.32,
+    "Green": 2.92,
+    "Other": 2.76
+  },
   "call": "Up to 0.81%",
   "ind_lt1": 2.75,
   "ind_1y": 2.75,
-  "ind_gt1": 3.43,
+  "ind_gt1": 3.4,
   "inst_lt1": 2.75,
   "inst_1y": 2.75,
-  "inst_gt1": 3.01,
+  "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 3.4,
+      "3Y": 3.4,
+      "4Y": 3.4,
+      "5Y+": 3.4
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "In-person individual FD rates used; Kumari Smart app rates are higher (2.80% / 3.73%).",
-    "'3 Months to below 2 Years' 2.75% covers <1Y and 1Y."
+    "In-person FD rates used (mobile app rates excluded). Fixed Deposit Plus/Recurring excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Kumari Bank Limited",
+    "effective_date": "01 Kartik 2083 (18 October 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Hereko Herai Remit",
+        "rate": 4.32
+      },
+      {
+        "product": "Remit IPO",
+        "rate": 2.92
+      },
+      {
+        "product": "Remit Premium",
+        "rate": 3.92
+      },
+      {
+        "product": "Chhori",
+        "rate": 2.92
+      },
+      {
+        "product": "Silver",
+        "rate": 3.32
+      },
+      {
+        "product": "Green",
+        "rate": 2.92
+      },
+      {
+        "product": "Other",
+        "rate": 2.76
+      }
+    ],
+    "call": "Up to 0.81%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to below 2 Years",
+        "from_months": 3,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "2 Years and above",
+        "from_months": 24,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.4
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months and Above",
+        "from_months": 6,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "In-person FD rates used (mobile app rates excluded). Fixed Deposit Plus/Recurring excluded."
+    ],
+    "unclear": []
+  }
 }

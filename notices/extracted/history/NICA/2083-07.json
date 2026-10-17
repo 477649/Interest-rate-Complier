@@ -1,0 +1,108 @@
+{
+  "symbol": "NICA",
+  "bank": "NIC Asia Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67904,
+  "notice_date": "2026-10-17",
+  "effective": "1st Kartik 2083 (18th October 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67904",
+  "saving_rates": [
+    3.25,
+    2.75
+  ],
+  "saving_products": {
+    "Sathi Bachat": 3.25,
+    "Other": 2.75
+  },
+  "call": "Up to 1.37%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.0,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.0,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.01,
+      "4Y": 3.01,
+      "5Y+": 4.0
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 3.0
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "NIC Asia Bank Limited",
+    "effective_date": "1st Kartik 2083 (18th October 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Sathi Bachat",
+        "rate": 3.25
+      },
+      {
+        "product": "Other",
+        "rate": 2.75
+      }
+    ],
+    "call": "Up to 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months to 2 Years",
+        "from_months": 3,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 2 Years to less than 5 Years",
+        "from_months": 25,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.01
+      },
+      {
+        "tenure_text": "5 Years and Above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.0
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months to less than 5 Years",
+        "from_months": 6,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "5 Years and Above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.0
+      }
+    ],
+    "notes": [],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

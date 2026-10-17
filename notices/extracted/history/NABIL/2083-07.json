@@ -1,0 +1,213 @@
+{
+  "symbol": "NABIL",
+  "bank": "Nabil Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67906,
+  "notice_date": "2026-10-17",
+  "effective": "18th October 2026 (1st Kartik 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67906",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.77,
+    2.77,
+    2.77,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    3.8
+  ],
+  "saving_products": {
+    "General": 2.75,
+    "Premium Nari": 2.75,
+    "Corporate Staff": 2.75,
+    "Jestha": 2.75,
+    "Bal": 2.75,
+    "Karmashil": 2.75,
+    "Social Security": 2.75,
+    "Gen N": 2.75,
+    "Sahuliyat": 2.75,
+    "Corporate General": 2.75,
+    "Gen Alpha": 2.75,
+    "Digo": 2.75,
+    "Shareholders": 2.77,
+    "Premium Payroll": 2.77,
+    "Corporate Premium": 2.77,
+    "Gold": 2.8,
+    "Corporate Super": 2.8,
+    "Gold Payroll": 2.8,
+    "Dhukka": 2.8,
+    "Premium Remittance": 3.8
+  },
+  "call": "As per agreement",
+  "ind_lt1": 2.8,
+  "ind_1y": 2.8,
+  "ind_gt1": 3.75,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.8,
+      "1Y": 2.8,
+      "2Y": 2.8,
+      "3Y": 2.8,
+      "4Y": 2.8,
+      "5Y+": 2.8
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance and cumulative FD excluded. Call: as per agreement subject to NRB guidelines."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Nabil Bank Limited",
+    "effective_date": "18th October 2026 (1st Kartik 2083)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "General",
+        "rate": 2.75
+      },
+      {
+        "product": "Premium Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Corporate Staff",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal",
+        "rate": 2.75
+      },
+      {
+        "product": "Karmashil",
+        "rate": 2.75
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.75
+      },
+      {
+        "product": "Gen N",
+        "rate": 2.75
+      },
+      {
+        "product": "Sahuliyat",
+        "rate": 2.75
+      },
+      {
+        "product": "Corporate General",
+        "rate": 2.75
+      },
+      {
+        "product": "Gen Alpha",
+        "rate": 2.75
+      },
+      {
+        "product": "Digo",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholders",
+        "rate": 2.77
+      },
+      {
+        "product": "Premium Payroll",
+        "rate": 2.77
+      },
+      {
+        "product": "Corporate Premium",
+        "rate": 2.77
+      },
+      {
+        "product": "Gold",
+        "rate": 2.8
+      },
+      {
+        "product": "Corporate Super",
+        "rate": 2.8
+      },
+      {
+        "product": "Gold Payroll",
+        "rate": 2.8
+      },
+      {
+        "product": "Dhukka",
+        "rate": 2.8
+      },
+      {
+        "product": "Premium Remittance",
+        "rate": 3.8
+      }
+    ],
+    "call": "As per agreement",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months to 5 years",
+        "from_months": 3,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "Above 5 to 10 years",
+        "from_months": 61,
+        "to_months": 120,
+        "to_inclusive": true,
+        "rate": 3.25
+      },
+      {
+        "tenure_text": "Above 10 years",
+        "from_months": 121,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.75
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 months and above",
+        "from_months": 6,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Remittance and cumulative FD excluded. Call: as per agreement subject to NRB guidelines."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

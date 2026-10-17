@@ -1,0 +1,284 @@
+{
+  "symbol": "RBB",
+  "bank": "Rastriya Banijya Bank Limited",
+  "sector": "Commercial Banks",
+  "announcement_id": 67899,
+  "notice_date": "2026-10-17",
+  "effective": "2083 Kartik 01 (18th October 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67899",
+  "saving_rates": [
+    2.75,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    2.8,
+    3.8
+  ],
+  "saving_products": {
+    "Samanya": 2.75,
+    "Bishesh": 2.8,
+    "Sunaulo": 2.8,
+    "Diamond": 2.8,
+    "Karmayogi": 2.8,
+    "Mahalaxmi": 2.8,
+    "Chhanamuna": 2.8,
+    "Shikshak": 2.8,
+    "Nepal Sarkar Pensioner": 2.8,
+    "RBB Pensioner": 2.8,
+    "Samajik Suraksha": 2.8,
+    "Sashastra Prahari": 2.8,
+    "Prahari": 2.8,
+    "University Pension": 2.8,
+    "NTC Pensioner": 2.8,
+    "Krishi Anusandhan Pensioner": 2.8,
+    "Dirghayu": 2.8,
+    "Muabja": 2.8,
+    "Bhukampa Pidit": 2.8,
+    "RBB Karmachari": 2.8,
+    "Nepal Army Karmachari": 2.8,
+    "Talabi": 2.8,
+    "Bidhyarthi Super": 2.8,
+    "Samriddhi": 2.8,
+    "Chhori Suraksha": 2.8,
+    "Remittance": 3.8
+  },
+  "call": "0.50%",
+  "ind_lt1": 3.0,
+  "ind_1y": 3.15,
+  "ind_gt1": 4.0,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 3.0,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 3.0,
+      "1Y": 3.15,
+      "2Y": 3.15,
+      "3Y": 3.25,
+      "4Y": 3.5,
+      "5Y+": 3.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.8,
+      "5Y+": 2.8
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Notice in Nepali. General FD used; special, remittance and Akshayakosh FD excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Rastriya Banijya Bank Limited",
+    "effective_date": "2083 Kartik 01 (18th October 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Samanya",
+        "rate": 2.75
+      },
+      {
+        "product": "Bishesh",
+        "rate": 2.8
+      },
+      {
+        "product": "Sunaulo",
+        "rate": 2.8
+      },
+      {
+        "product": "Diamond",
+        "rate": 2.8
+      },
+      {
+        "product": "Karmayogi",
+        "rate": 2.8
+      },
+      {
+        "product": "Mahalaxmi",
+        "rate": 2.8
+      },
+      {
+        "product": "Chhanamuna",
+        "rate": 2.8
+      },
+      {
+        "product": "Shikshak",
+        "rate": 2.8
+      },
+      {
+        "product": "Nepal Sarkar Pensioner",
+        "rate": 2.8
+      },
+      {
+        "product": "RBB Pensioner",
+        "rate": 2.8
+      },
+      {
+        "product": "Samajik Suraksha",
+        "rate": 2.8
+      },
+      {
+        "product": "Sashastra Prahari",
+        "rate": 2.8
+      },
+      {
+        "product": "Prahari",
+        "rate": 2.8
+      },
+      {
+        "product": "University Pension",
+        "rate": 2.8
+      },
+      {
+        "product": "NTC Pensioner",
+        "rate": 2.8
+      },
+      {
+        "product": "Krishi Anusandhan Pensioner",
+        "rate": 2.8
+      },
+      {
+        "product": "Dirghayu",
+        "rate": 2.8
+      },
+      {
+        "product": "Muabja",
+        "rate": 2.8
+      },
+      {
+        "product": "Bhukampa Pidit",
+        "rate": 2.8
+      },
+      {
+        "product": "RBB Karmachari",
+        "rate": 2.8
+      },
+      {
+        "product": "Nepal Army Karmachari",
+        "rate": 2.8
+      },
+      {
+        "product": "Talabi",
+        "rate": 2.8
+      },
+      {
+        "product": "Bidhyarthi Super",
+        "rate": 2.8
+      },
+      {
+        "product": "Samriddhi",
+        "rate": 2.8
+      },
+      {
+        "product": "Chhori Suraksha",
+        "rate": 2.8
+      },
+      {
+        "product": "Remittance",
+        "rate": 3.8
+      }
+    ],
+    "call": "0.50%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 months to 6 months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "6 months to 1 year",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "1 year to 2 years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 3.15
+      },
+      {
+        "tenure_text": "2 years to 3 years",
+        "from_months": 25,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 3.25
+      },
+      {
+        "tenure_text": "3 years to 5 years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "Above 5 years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.0
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 months to 3 years",
+        "from_months": 6,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "3 years to 5 years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "Above 5 years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.0
+      }
+    ],
+    "notes": [
+      "Notice in Nepali. General FD used; special, remittance and Akshayakosh FD excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

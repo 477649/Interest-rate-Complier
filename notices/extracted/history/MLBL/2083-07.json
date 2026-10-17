@@ -1,0 +1,205 @@
+{
+  "symbol": "MLBL",
+  "bank": "Mahalaxmi Bikas Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67888,
+  "notice_date": "2026-10-17",
+  "effective": "October 18, 2026 (1st Kartik, 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67888",
+  "saving_rates": [
+    3.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75
+  ],
+  "saving_products": {
+    "Remittance": 3.75,
+    "Sambridhhi": 2.75,
+    "Staff Salary": 2.75,
+    "PMS": 2.75,
+    "Karmachari": 2.75,
+    "Investor's Share": 2.75,
+    "Grihalaxmi": 2.75,
+    "Student": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Baal": 2.75,
+    "Bhukampa Pidit": 2.75,
+    "Samajik Surakshya": 2.75,
+    "Online": 2.75,
+    "Normal": 2.75
+  },
+  "call": "As per NRB guidelines",
+  "ind_lt1": "Not specified",
+  "ind_1y": 2.8,
+  "ind_gt1": 4.3,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 4.25,
+  "fd_points": {
+    "individual": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.8,
+      "2Y": 3.2,
+      "3Y": 3.7,
+      "4Y": 3.7,
+      "5Y+": 4.3
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.9,
+      "3Y": 3.2,
+      "4Y": 3.2,
+      "5Y+": 4.25
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "In-person FD rates used (app rates excluded). Dollar and Margin Locker accounts excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Mahalaxmi Bikas Bank Ltd.",
+    "effective_date": "October 18, 2026 (1st Kartik, 2083)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Remittance",
+        "rate": 3.75
+      },
+      {
+        "product": "Sambridhhi",
+        "rate": 2.75
+      },
+      {
+        "product": "Staff Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "PMS",
+        "rate": 2.75
+      },
+      {
+        "product": "Karmachari",
+        "rate": 2.75
+      },
+      {
+        "product": "Investor's Share",
+        "rate": 2.75
+      },
+      {
+        "product": "Grihalaxmi",
+        "rate": 2.75
+      },
+      {
+        "product": "Student",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Baal",
+        "rate": 2.75
+      },
+      {
+        "product": "Bhukampa Pidit",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Surakshya",
+        "rate": 2.75
+      },
+      {
+        "product": "Online",
+        "rate": 2.75
+      },
+      {
+        "product": "Normal",
+        "rate": 2.75
+      }
+    ],
+    "call": "As per NRB guidelines",
+    "individual_fd": [
+      {
+        "tenure_text": "1 Year to below 2 Years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "2 Years to below 3 Years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 3.2
+      },
+      {
+        "tenure_text": "3 Years to below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.7
+      },
+      {
+        "tenure_text": "5 Years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.3
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 Year to below 2 Years",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "2 Years to below 3 Years",
+        "from_months": 24,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 2.9
+      },
+      {
+        "tenure_text": "3 Years to below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.2
+      },
+      {
+        "tenure_text": "5 Years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.25
+      }
+    ],
+    "notes": [
+      "In-person FD rates used (app rates excluded). Dollar and Margin Locker accounts excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

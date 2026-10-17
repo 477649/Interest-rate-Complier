@@ -1,0 +1,234 @@
+{
+  "symbol": "JBBL",
+  "bank": "Jyoti Bikash Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67891,
+  "notice_date": "2026-10-17",
+  "effective": "Kartik 01, 2083 (October 18, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67891",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.8
+  ],
+  "saving_products": {
+    "Bumper": 2.75,
+    "Premium": 2.75,
+    "Salary": 2.75,
+    "Sawari Chalak": 2.75,
+    "Ansiyar": 2.75,
+    "ASBA": 2.75,
+    "Dampati": 2.75,
+    "Bal": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Samridhi": 2.75,
+    "Hamro Surakshit": 2.75,
+    "Micro Finance": 2.75,
+    "Bhukampa Pidit": 2.75,
+    "Remittance": 2.75,
+    "Muwabja": 2.75,
+    "Staff": 2.75,
+    "Samajik Surakshya": 2.75,
+    "Smart": 2.75,
+    "Super Smart": 2.75,
+    "Nari Samman": 2.8
+  },
+  "call": "Up to 1.375%",
+  "ind_lt1": 2.75,
+  "ind_1y": 2.75,
+  "ind_gt1": 4.15,
+  "inst_lt1": 2.75,
+  "inst_1y": 2.75,
+  "inst_gt1": 2.75,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 4.15
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Jyoti Dui Guna scheme excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Jyoti Bikash Bank Ltd.",
+    "effective_date": "Kartik 01, 2083 (October 18, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Bumper",
+        "rate": 2.75
+      },
+      {
+        "product": "Premium",
+        "rate": 2.75
+      },
+      {
+        "product": "Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "Sawari Chalak",
+        "rate": 2.75
+      },
+      {
+        "product": "Ansiyar",
+        "rate": 2.75
+      },
+      {
+        "product": "ASBA",
+        "rate": 2.75
+      },
+      {
+        "product": "Dampati",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Samridhi",
+        "rate": 2.75
+      },
+      {
+        "product": "Hamro Surakshit",
+        "rate": 2.75
+      },
+      {
+        "product": "Micro Finance",
+        "rate": 2.75
+      },
+      {
+        "product": "Bhukampa Pidit",
+        "rate": 2.75
+      },
+      {
+        "product": "Remittance",
+        "rate": 2.75
+      },
+      {
+        "product": "Muwabja",
+        "rate": 2.75
+      },
+      {
+        "product": "Staff",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Surakshya",
+        "rate": 2.75
+      },
+      {
+        "product": "Smart",
+        "rate": 2.75
+      },
+      {
+        "product": "Super Smart",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari Samman",
+        "rate": 2.8
+      }
+    ],
+    "call": "Up to 1.375%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Months",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "6 Months to below 3 Year",
+        "from_months": 6,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "3 Years to below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "5 Years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months to below 3 Year",
+        "from_months": 6,
+        "to_months": 36,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "3 Years to below 5 Years",
+        "from_months": 36,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "5 Years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 2.75
+      }
+    ],
+    "notes": [
+      "Jyoti Dui Guna scheme excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

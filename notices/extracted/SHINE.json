@@ -2,9 +2,10 @@
   "symbol": "SHINE",
   "bank": "Shine Resunga Development Bank Ltd.",
   "sector": "Development Banks",
-  "announcement_id": 67414,
-  "effective": "2083-06-01 (17 Sep 2026)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67414",
+  "announcement_id": 67859,
+  "notice_date": "2026-10-16",
+  "effective": "2083-07-01 (18th October, 2026)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67859",
   "saving_rates": [
     2.75,
     2.75,
@@ -25,20 +26,215 @@
     2.75,
     2.75,
     2.75,
-    2.9,
-    3.25,
-    4.25
+    2.75,
+    3.0,
+    4.0
   ],
+  "saving_products": {
+    "Shareholder": 2.75,
+    "Unnati": 2.75,
+    "Samunnat": 2.75,
+    "Nari": 2.75,
+    "Professional": 2.75,
+    "Baal": 2.75,
+    "Salary": 2.75,
+    "S.R.": 2.75,
+    "Jestha Nagrik": 2.75,
+    "Student": 2.75,
+    "Surplus": 2.75,
+    "Social Security": 2.75,
+    "Surakchya": 2.75,
+    "PF & Gratuity": 2.75,
+    "Mero Bachat": 2.75,
+    "Compulsory": 2.75,
+    "Upakar Fund": 2.75,
+    "Utsav": 2.75,
+    "Shine Bachat": 2.75,
+    "Pragati": 2.75,
+    "Samriddhi": 3.0,
+    "Remittance": 4.0
+  },
   "call": "Up to 1.37%",
   "ind_lt1": 2.75,
   "ind_1y": 3.25,
-  "ind_gt1": 4.59,
+  "ind_gt1": 4.15,
   "inst_lt1": 2.75,
   "inst_1y": 2.75,
-  "inst_gt1": 3.5,
+  "inst_gt1": 3.15,
+  "fd_points": {
+    "individual": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 3.25,
+      "2Y": 3.25,
+      "3Y": 3.25,
+      "4Y": 3.75,
+      "5Y+": 4.15
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 3.0,
+      "5Y+": 3.15
+    }
+  },
+  "unchanged": false,
   "partial": false,
-  "notes": [
-    "Institutional 2.75% is a single rate for 6 months to below 4 years."
-  ],
-  "extracted_by": "manual (2026-09-26)"
+  "notes": [],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Shine Resunga Development Bank Ltd.",
+    "effective_date": "2083-07-01 (18th October, 2026)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Unnati",
+        "rate": 2.75
+      },
+      {
+        "product": "Samunnat",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Professional",
+        "rate": 2.75
+      },
+      {
+        "product": "Baal",
+        "rate": 2.75
+      },
+      {
+        "product": "Salary",
+        "rate": 2.75
+      },
+      {
+        "product": "S.R.",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagrik",
+        "rate": 2.75
+      },
+      {
+        "product": "Student",
+        "rate": 2.75
+      },
+      {
+        "product": "Surplus",
+        "rate": 2.75
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.75
+      },
+      {
+        "product": "Surakchya",
+        "rate": 2.75
+      },
+      {
+        "product": "PF & Gratuity",
+        "rate": 2.75
+      },
+      {
+        "product": "Mero Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Compulsory",
+        "rate": 2.75
+      },
+      {
+        "product": "Upakar Fund",
+        "rate": 2.75
+      },
+      {
+        "product": "Utsav",
+        "rate": 2.75
+      },
+      {
+        "product": "Shine Bachat",
+        "rate": 2.75
+      },
+      {
+        "product": "Pragati",
+        "rate": 2.75
+      },
+      {
+        "product": "Samriddhi",
+        "rate": 3.0
+      },
+      {
+        "product": "Remittance",
+        "rate": 4.0
+      }
+    ],
+    "call": "Up to 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "6 Months to below 1 Year",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "1 Year to below 4 Years",
+        "from_months": 12,
+        "to_months": 48,
+        "to_inclusive": false,
+        "rate": 3.25
+      },
+      {
+        "tenure_text": "4 Years to below 5 Years",
+        "from_months": 48,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.75
+      },
+      {
+        "tenure_text": "5 Years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.15
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Months to below 4 Years",
+        "from_months": 6,
+        "to_months": 48,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "4 Years to below 5 Years",
+        "from_months": 48,
+        "to_months": 60,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "5 Years and above",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.15
+      }
+    ],
+    "notes": [],
+    "unclear": []
+  }
 }

@@ -1,0 +1,224 @@
+{
+  "symbol": "GRDBL",
+  "bank": "Green Development Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67892,
+  "notice_date": "2026-10-17",
+  "effective": "1st Kartik 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67892",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.85,
+    2.85,
+    2.85,
+    3.05,
+    4.05
+  ],
+  "saving_products": {
+    "Normal": 2.75,
+    "Special": 2.75,
+    "Bal": 2.75,
+    "Nari": 2.75,
+    "Dampati": 2.75,
+    "Kramachari": 2.75,
+    "Jestha Nagarik": 2.75,
+    "Yuva Vidharthi": 2.75,
+    "Staff": 2.75,
+    "Sharedhani": 2.75,
+    "Samajik Surakchya": 2.75,
+    "Suraksha": 2.85,
+    "Combo": 2.85,
+    "Pabitra": 2.85,
+    "Samriddhi": 3.05,
+    "Remit": 4.05
+  },
+  "call": "Up to 1.375%",
+  "ind_lt1": 3.05,
+  "ind_1y": 3.55,
+  "ind_gt1": 4.8,
+  "inst_lt1": 2.75,
+  "inst_1y": 3.0,
+  "inst_gt1": 4.0,
+  "fd_points": {
+    "individual": {
+      "3M": 2.75,
+      "6M": 3.05,
+      "1Y": 3.55,
+      "2Y": 4.3,
+      "3Y": 4.3,
+      "4Y": 4.8,
+      "5Y+": 4.8
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": 2.75,
+      "1Y": 3.0,
+      "2Y": 3.5,
+      "3Y": 3.5,
+      "4Y": 4.0,
+      "5Y+": 4.0
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance FD row excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Green Development Bank Ltd.",
+    "effective_date": "1st Kartik 2083",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Special",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Dampati",
+        "rate": 2.75
+      },
+      {
+        "product": "Kramachari",
+        "rate": 2.75
+      },
+      {
+        "product": "Jestha Nagarik",
+        "rate": 2.75
+      },
+      {
+        "product": "Yuva Vidharthi",
+        "rate": 2.75
+      },
+      {
+        "product": "Staff",
+        "rate": 2.75
+      },
+      {
+        "product": "Sharedhani",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Surakchya",
+        "rate": 2.75
+      },
+      {
+        "product": "Suraksha",
+        "rate": 2.85
+      },
+      {
+        "product": "Combo",
+        "rate": 2.85
+      },
+      {
+        "product": "Pabitra",
+        "rate": 2.85
+      },
+      {
+        "product": "Samriddhi",
+        "rate": 3.05
+      },
+      {
+        "product": "Remit",
+        "rate": 4.05
+      }
+    ],
+    "call": "Up to 1.375%",
+    "individual_fd": [
+      {
+        "tenure_text": "3 Month",
+        "from_months": 3,
+        "to_months": 6,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "6 Month",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 3.05
+      },
+      {
+        "tenure_text": "1 Year to below 2 year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 3.55
+      },
+      {
+        "tenure_text": "2 year to below 4 years",
+        "from_months": 24,
+        "to_months": 48,
+        "to_inclusive": false,
+        "rate": 4.3
+      },
+      {
+        "tenure_text": "4 year and above",
+        "from_months": 48,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.8
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "6 Month",
+        "from_months": 6,
+        "to_months": 12,
+        "to_inclusive": false,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "1 Year to below 2 year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": false,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "2 year to below 4 years",
+        "from_months": 24,
+        "to_months": 48,
+        "to_inclusive": false,
+        "rate": 3.5
+      },
+      {
+        "tenure_text": "4 year and above",
+        "from_months": 48,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.0
+      }
+    ],
+    "notes": [
+      "Remittance FD row excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}

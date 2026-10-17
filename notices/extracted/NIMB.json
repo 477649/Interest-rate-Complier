@@ -2,47 +2,241 @@
   "symbol": "NIMB",
   "bank": "Nepal Investment Mega Bank Ltd.",
   "sector": "Commercial Banks",
-  "announcement_id": 67435,
-  "effective": "17 Sep 2026 (1st Ashwin 2083)",
-  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67435",
+  "announcement_id": 67903,
+  "notice_date": "2026-10-17",
+  "effective": "18th October, 2026 (1st Kartik 2083)",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67903",
   "saving_rates": [
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    2.75,
-    3.25,
-    3.75,
-    4.75,
-    4.75
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    2.76,
+    3.26,
+    3.76,
+    4.76,
+    4.76
   ],
+  "saving_products": {
+    "Afnai": 2.76,
+    "Keta Keti": 2.76,
+    "Karmachari": 2.76,
+    "EZEE": 2.76,
+    "Surakshya": 2.76,
+    "EZEE Student": 2.76,
+    "Lotus": 2.76,
+    "Savings Bonanza": 2.76,
+    "Branchless": 2.76,
+    "Social Security": 2.76,
+    "Access to Finance": 2.76,
+    "Retirement Fund": 2.76,
+    "Shrijansil Nari": 2.76,
+    "Swabhiman": 2.76,
+    "Triple Benefit Plus": 2.76,
+    "Chhoriko Surakshya": 2.76,
+    "Janasewak": 2.76,
+    "Ek Se Ek": 2.76,
+    "Prabardhak": 2.76,
+    "Shareholder": 2.76,
+    "Professional": 3.26,
+    "Green Future": 3.76,
+    "Prithvi Remittance": 4.76,
+    "Janani Janmabhumi": 4.76
+  },
   "call": "Up to 1.35%",
-  "ind_lt1": 2.9,
+  "ind_lt1": "Not specified",
   "ind_1y": 3.0,
-  "ind_gt1": 4.5,
+  "ind_gt1": 3.7,
   "inst_lt1": "Not specified",
   "inst_1y": 2.75,
-  "inst_gt1": 3.5,
+  "inst_gt1": 3.0,
+  "fd_points": {
+    "individual": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 3.0,
+      "2Y": 3.0,
+      "3Y": 3.0,
+      "4Y": 3.0,
+      "5Y+": 3.0
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 2.75,
+      "4Y": 2.75,
+      "5Y+": 2.75
+    }
+  },
+  "unchanged": false,
   "partial": false,
   "notes": [
-    "Institutional FD starts at 1 year; <1Y not specified."
+    "Minimum FD tenure is 1 year, so <1Y not specified. Locker account excluded."
   ],
-  "extracted_by": "manual (2026-09-26)"
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Nepal Investment Mega Bank Ltd.",
+    "effective_date": "18th October, 2026 (1st Kartik 2083)",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Afnai",
+        "rate": 2.76
+      },
+      {
+        "product": "Keta Keti",
+        "rate": 2.76
+      },
+      {
+        "product": "Karmachari",
+        "rate": 2.76
+      },
+      {
+        "product": "EZEE",
+        "rate": 2.76
+      },
+      {
+        "product": "Surakshya",
+        "rate": 2.76
+      },
+      {
+        "product": "EZEE Student",
+        "rate": 2.76
+      },
+      {
+        "product": "Lotus",
+        "rate": 2.76
+      },
+      {
+        "product": "Savings Bonanza",
+        "rate": 2.76
+      },
+      {
+        "product": "Branchless",
+        "rate": 2.76
+      },
+      {
+        "product": "Social Security",
+        "rate": 2.76
+      },
+      {
+        "product": "Access to Finance",
+        "rate": 2.76
+      },
+      {
+        "product": "Retirement Fund",
+        "rate": 2.76
+      },
+      {
+        "product": "Shrijansil Nari",
+        "rate": 2.76
+      },
+      {
+        "product": "Swabhiman",
+        "rate": 2.76
+      },
+      {
+        "product": "Triple Benefit Plus",
+        "rate": 2.76
+      },
+      {
+        "product": "Chhoriko Surakshya",
+        "rate": 2.76
+      },
+      {
+        "product": "Janasewak",
+        "rate": 2.76
+      },
+      {
+        "product": "Ek Se Ek",
+        "rate": 2.76
+      },
+      {
+        "product": "Prabardhak",
+        "rate": 2.76
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.76
+      },
+      {
+        "product": "Professional",
+        "rate": 3.26
+      },
+      {
+        "product": "Green Future",
+        "rate": 3.76
+      },
+      {
+        "product": "Prithvi Remittance",
+        "rate": 4.76
+      },
+      {
+        "product": "Janani Janmabhumi",
+        "rate": 4.76
+      }
+    ],
+    "call": "Up to 1.35%",
+    "individual_fd": [
+      {
+        "tenure_text": "1 Year to 5 Years",
+        "from_months": 12,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.0
+      },
+      {
+        "tenure_text": "Above 5 Years to 7 Years",
+        "from_months": 61,
+        "to_months": 84,
+        "to_inclusive": true,
+        "rate": 3.25
+      },
+      {
+        "tenure_text": "Above 7 Years",
+        "from_months": 85,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.7
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "1 Year to 5 Years",
+        "from_months": 12,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 5 Years",
+        "from_months": 61,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.0
+      }
+    ],
+    "notes": [
+      "Minimum FD tenure is 1 year, so <1Y not specified. Locker account excluded."
+    ],
+    "unclear": []
+  }
 }

@@ -1,0 +1,197 @@
+{
+  "symbol": "LBBL",
+  "bank": "Lumbini Bikas Bank Ltd.",
+  "sector": "Development Banks",
+  "announcement_id": 67889,
+  "notice_date": "2026-10-17",
+  "effective": "Kartik 2083",
+  "source_url": "https://merolagani.com/AnnouncementDetail.aspx?id=67889",
+  "saving_rates": [
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.75,
+    2.8,
+    3.8
+  ],
+  "saving_products": {
+    "Normal": 2.75,
+    "Check-In": 2.75,
+    "Premium": 2.75,
+    "Nari": 2.75,
+    "Bal Surakshya": 2.75,
+    "Senior Citizen": 2.75,
+    "Shareholder": 2.75,
+    "Welcome": 2.75,
+    "Provident Fund Other": 2.75,
+    "Sadharan": 2.75,
+    "Bal Bhawishya": 2.75,
+    "Talab": 2.75,
+    "Samajik Surakshya": 2.75,
+    "Sahayatra": 2.8,
+    "Remittance": 3.8
+  },
+  "call": "Up to 1.37%",
+  "ind_lt1": 2.8,
+  "ind_1y": 2.8,
+  "ind_gt1": 4.5,
+  "inst_lt1": "Not specified",
+  "inst_1y": 2.75,
+  "inst_gt1": 3.0,
+  "fd_points": {
+    "individual": {
+      "3M": 2.8,
+      "6M": 2.8,
+      "1Y": 2.8,
+      "2Y": 2.9,
+      "3Y": 2.9,
+      "4Y": 3.4,
+      "5Y+": 4.5
+    },
+    "institutional": {
+      "3M": "Not specified",
+      "6M": "Not specified",
+      "1Y": 2.75,
+      "2Y": 2.75,
+      "3Y": 3.0,
+      "4Y": 3.0,
+      "5Y+": 3.0
+    }
+  },
+  "unchanged": false,
+  "partial": false,
+  "notes": [
+    "Remittance FD excluded."
+  ],
+  "extracted_by": "manual (2026-10-17)",
+  "raw": {
+    "bank_name": "Lumbini Bikas Bank Ltd.",
+    "effective_date": "Kartik 2083",
+    "rates_unchanged": false,
+    "is_partial_amendment": false,
+    "saving_rates": [
+      {
+        "product": "Normal",
+        "rate": 2.75
+      },
+      {
+        "product": "Check-In",
+        "rate": 2.75
+      },
+      {
+        "product": "Premium",
+        "rate": 2.75
+      },
+      {
+        "product": "Nari",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal Surakshya",
+        "rate": 2.75
+      },
+      {
+        "product": "Senior Citizen",
+        "rate": 2.75
+      },
+      {
+        "product": "Shareholder",
+        "rate": 2.75
+      },
+      {
+        "product": "Welcome",
+        "rate": 2.75
+      },
+      {
+        "product": "Provident Fund Other",
+        "rate": 2.75
+      },
+      {
+        "product": "Sadharan",
+        "rate": 2.75
+      },
+      {
+        "product": "Bal Bhawishya",
+        "rate": 2.75
+      },
+      {
+        "product": "Talab",
+        "rate": 2.75
+      },
+      {
+        "product": "Samajik Surakshya",
+        "rate": 2.75
+      },
+      {
+        "product": "Sahayatra",
+        "rate": 2.8
+      },
+      {
+        "product": "Remittance",
+        "rate": 3.8
+      }
+    ],
+    "call": "Up to 1.37%",
+    "individual_fd": [
+      {
+        "tenure_text": "Upto 1 Years",
+        "from_months": 0,
+        "to_months": 12,
+        "to_inclusive": true,
+        "rate": 2.8
+      },
+      {
+        "tenure_text": "Above 1 to 3 years",
+        "from_months": 13,
+        "to_months": 36,
+        "to_inclusive": true,
+        "rate": 2.9
+      },
+      {
+        "tenure_text": "Above 3 years to 5 years",
+        "from_months": 37,
+        "to_months": 60,
+        "to_inclusive": true,
+        "rate": 3.4
+      },
+      {
+        "tenure_text": "Above 5 years",
+        "from_months": 60,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 4.5
+      }
+    ],
+    "institutional_fd": [
+      {
+        "tenure_text": "Above 1 year to 2 year",
+        "from_months": 12,
+        "to_months": 24,
+        "to_inclusive": true,
+        "rate": 2.75
+      },
+      {
+        "tenure_text": "Above 2 Year",
+        "from_months": 25,
+        "to_months": null,
+        "to_inclusive": false,
+        "rate": 3.0
+      }
+    ],
+    "notes": [
+      "Remittance FD excluded."
+    ],
+    "unclear": []
+  },
+  "month": "2083-07",
+  "month_label": "Kartik 2083"
+}
