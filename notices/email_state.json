@@ -1,7 +1,8 @@
 {
-  "last_emailed_month": "2083-06",
-  "month_label": "Ashwin 2083",
-  "emailed_at": "2026-09-28 04:39 UTC",
+  "last_emailed_month": "2083-07",
+  "month_label": "Kartik 2083",
+  "emailed_at": "2026-10-17 09:09 UTC",
   "banks_published": "28/28",
-  "forced": true
+  "complete": true,
+  "forced": false
 }
